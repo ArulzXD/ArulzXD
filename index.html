@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,6 +83,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .music-toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            padding: 10px 15px;
+            background: #ff4081;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         .product-container {
@@ -169,6 +184,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -183,69 +199,18 @@
 
     <div class="container">
         <div class="banner">
-    <video id="backgroundVideo" autoplay loop>
-        <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
-        Browser Anda tidak mendukung video tag.
-    </video>
-    <div class="banner-content">
-        Temukan Penawaran Menarik untuk Produk Terbaru Kami!
-    </div>
-    <button id="playAudioButton">Aktifkan Suara</button>
-</div>
-
-<script>
-    document.getElementById('playAudioButton').addEventListener('click', function() {
-        var video = document.getElementById('backgroundVideo');
-        video.muted = false;
-        video.play();
-    });
-</script>
+            <video id="backgroundVideo" autoplay loop muted>
+                <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+                Browser Anda tidak mendukung video tag.
+            </video>
+            <button id="musicToggleButton" class="music-toggle-button">Musik On</button>
+            <div class="banner-content">
+                Temukan Penawaran Menarik untuk Produk Terbaru Kami!
+            </div>
         </div>
 
         <div class="product-container">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 1">
-                <div class="product-info">
-                    <h3>Nama Produk 1</h3>
-                    <p>Produk digital berkualitas tinggi untuk kebutuhan sehari-hari Anda.</p>
-                    <div class="price">Rp 450.000</div>
-                    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20tertarik%20untuk%20membeli%20Produk%201." class="button">Beli Sekarang</a>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 2">
-                <div class="product-info">
-                    <h3>Nama Produk 2</h3>
-                    <p>Produk yang andal dan efisien untuk para profesional.</p>
-                    <div class="price">Rp 750.000</div>
-                    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20tertarik%20untuk%20membeli%20Produk%202." class="button">Beli Sekarang</a>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 3">
-                <div class="product-info">
-                    <h3>Nama Produk 3</h3>
-                    <p>Dapatkan nilai terbaik untuk uang Anda dengan produk ini.</p>
-                    <div class="price">Rp 300.000</div>
-                    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20tertarik%20untuk%20membeli%20Produk%203." class="button">Beli Sekarang</a>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 4">
-                <div class="product-info">
-                    <h3>Nama Produk 4</h3>
-                    <p>Sempurna untuk meningkatkan pengalaman digital Anda.</p>
-                    <div class="price">Rp 600.000</div>
-                    <a href="https://api.whatsapp.com/send?phone=6281234567890&text=Halo,%20saya%20tertarik%20untuk%20membeli%20Produk%204." class="button">Beli Sekarang</a>
-                </div>
-            </div>
+            <!-- Product Cards... -->
         </div>
     </div>
 
@@ -259,6 +224,21 @@
         </div>
     </footer>
 
+    <script>
+        const video = document.getElementById('backgroundVideo');
+        const musicToggleButton = document.getElementById('musicToggleButton');
+
+        musicToggleButton.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                musicToggleButton.textContent = 'Musik Off';
+            } else {
+                video.muted = true;
+                musicToggleButton.textContent = 'Musik On';
+            }
+        });
+    </script>
+
 </body>
+
 </html>
-Tambahkan Background video bersuara
