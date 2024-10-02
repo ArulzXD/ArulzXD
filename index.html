@@ -1,47 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Button Terpisah</title>
+    <title>Toko Digital Modern Keren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6b0ac9, #d6007a);
+            color: #ffffff;
+            padding: 20px;
             text-align: center;
-            padding: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+        header .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
         }
 
-        .digital-button {
-            background-color: #007BFF;
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
             color: #fff;
-            border: none;
-            padding: 20px 40px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            padding: 200px 20px 150px;
+            background: rgba(0, 0, 0, 0.6);
         }
 
-        .digital-button:hover {
-            background-color: #0056b3;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: typing 5s steps(40, end) infinite, colorchange 3s infinite alternate;
+            border-right: 3px solid #fff;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes colorchange {
+            0% { color: #ff0000; }
+            33% { color: #00ff00; }
+            66% { color: #0000ff; }
+            100% { color: #ff00ff; }
+        }
+
+        /* Produk Section */
+        .produk-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .produk-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #6b0ac9;
+        }
+
+        .produk-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .produk-item {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .produk-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .produk-item img {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .produk-item h3 {
+            font-size: 1.5rem;
+            padding: 15px;
+            color: #333;
+        }
+
+        .produk-item p {
+            padding: 0 15px 15px;
+            color: #777;
+        }
+
+        .beli-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 15px 0;
+            background-color: #d6007a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .beli-button:hover {
+            background-color: #b80064;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        footer .social-icons a:hover {
+            color: #d6007a;
         }
     </style>
 </head>
 <body>
-
-    <h1>Digital Buttons Terpisah</h1>
-    <div class="button-container">
-        <button class="digital-button">Button 1</button>
-        <button class="digital-button">Button 2</button>
-        <button class="digital-button">Button 3</button>
-        <button class="digital-button">Button 4</button>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay loop muted>
+            <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
+            Browser Anda tidak mendukung video tag.
+        </video>
     </div>
 
+    <!-- Header -->
+    <header>
+        <div class="logo">Toko Digital Modern</div>
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Produk</a>
+            <a href="#">Tentang Kami</a>
+            <a href="#">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Selamat Datang di Toko Digital Modern Keren</h1>
+        <p>Temukan produk digital terbaik untuk kebutuhan Anda</p>
+    </div>
+
+    <!-- Produk Section -->
+    <div class="container produk-section">
+        <h2>Produk Kami</h2>
+        <div class="produk-container">
+            <div class="produk-item">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 1">
+                <h3>Produk Digital 1</h3>
+                <p>Deskripsi singkat tentang produk digital pertama kami.</p>
+                <a href="#" class="beli-button">Beli Sekarang</a>
+            </div>
+            <div class="produk-item">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 2">
+                <h3>Produk Digital 2</h3>
+                <p>Deskripsi singkat tentang produk digital kedua kami.</p>
+                <a href="#" class="beli-button">Beli Sekarang</a>
+            </div>
+            <div class="produk-item">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 3">
+                <h3>Produk Digital 3</h3>
+                <p>Deskripsi singkat tentang produk digital ketiga kami.</p>
+                <a href="#" class="beli-button">Beli Sekarang</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Toko Digital Modern Keren. Semua Hak Dilindungi.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
 </body>
-</html>
+        </html>
