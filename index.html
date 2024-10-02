@@ -7,11 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body {
+        html, body {
+            height: 100%;
+            margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #f1f1f1;
-            margin: 0;
-            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
         }
 
         header {
@@ -47,6 +52,7 @@
         }
 
         .container {
+            flex: 1;
             max-width: 1200px;
             margin: 40px auto;
             padding: 20px;
@@ -96,7 +102,7 @@
             color: #ffffff;
             text-align: center;
             padding: 20px 0;
-            margin-top: 100px;
+            margin-top: auto;
             font-size: 0.9rem;
         }
 
