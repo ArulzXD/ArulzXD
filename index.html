@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Digital Keren</title>
+    <title>Toko Digital Keren - Beranda</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -85,80 +84,6 @@
             justify-content: center;
         }
 
-        .music-toggle-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 3;
-            padding: 10px 15px;
-            background: #ff4081;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .product-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: scale(1.05);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        .product-info p {
-            font-size: 1rem;
-            color: #6d6d6d;
-            margin: 10px 0;
-        }
-
-        .product-info .price {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #000dff;
-            margin-bottom: 15px;
-        }
-
-        .product-info .button {
-            background: #ff4081;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: 0.3s;
-        }
-
-        .product-info .button:hover {
-            background: #e0356d;
-        }
-
         footer {
             background: #000dff;
             color: #ffffff;
@@ -184,14 +109,13 @@
         }
     </style>
 </head>
-
 <body>
 
     <header>
         <div class="logo">Toko Digital Keren</div>
         <nav>
-            <a href="#">Beranda</a>
-            <a href="#">Produk</a>
+            <a href="index.html">Beranda</a>
+            <a href="produk.html">Produk</a>
             <a href="#">Tentang Kami</a>
             <a href="#">Kontak</a>
         </nav>
@@ -199,18 +123,13 @@
 
     <div class="container">
         <div class="banner">
-            <video id="backgroundVideo" autoplay loop muted>
-                <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
+            <video autoplay muted loop>
+                <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
                 Browser Anda tidak mendukung video tag.
             </video>
-            <button id="musicToggleButton" class="music-toggle-button">Musik On</button>
             <div class="banner-content">
                 Temukan Penawaran Menarik untuk Produk Terbaru Kami!
             </div>
-        </div>
-
-        <div class="product-container">
-            <!-- Product Cards... -->
         </div>
     </div>
 
@@ -224,21 +143,5 @@
         </div>
     </footer>
 
-    <script>
-        const video = document.getElementById('backgroundVideo');
-        const musicToggleButton = document.getElementById('musicToggleButton');
-
-        musicToggleButton.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-                musicToggleButton.textContent = 'Musik Off';
-            } else {
-                video.muted = true;
-                musicToggleButton.textContent = 'Musik On';
-            }
-        });
-    </script>
-
 </body>
-
 </html>
