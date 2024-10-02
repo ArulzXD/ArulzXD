@@ -1,189 +1,47 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Digital Keren - Beranda</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Digital Button Terpisah</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-            color: #ffffff;
-            padding: 20px;
+            font-family: Arial, sans-serif;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 50px;
         }
 
-        header .logo {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        nav {
-            margin-top: 15px;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
-            font-weight: 300;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: rgba(0, 0, 0, 0.4);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        /* Video Background */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .banner {
-            position: relative;
-            height: 400px;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .banner video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .banner .banner-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
-            height: 100%;
+        .button-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #fff;
-            animation: typing 4s steps(30, end) infinite, colorchange 6s infinite alternate;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        .digital-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 20px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        @keyframes colorchange {
-            0% { color: rgb(255, 0, 0); }
-            25% { color: rgb(0, 255, 0); }
-            50% { color: rgb(0, 0, 255); }
-            75% { color: rgb(255, 255, 0); }
-            100% { color: rgb(255, 0, 255); }
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.4);
-            color: #ffffff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 300px;
-            font-size: 0.9rem;
-        }
-
-        .social-icons {
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            color: #ffffff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.5rem;
-        }
-
-        .social-icons a:hover {
-            color: #f0a500;
+        .digital-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay loop muted>
-            <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
-            Browser Anda tidak mendukung video tag.
-        </video>
+
+    <h1>Digital Buttons Terpisah</h1>
+    <div class="button-container">
+        <button class="digital-button">Button 1</button>
+        <button class="digital-button">Button 2</button>
+        <button class="digital-button">Button 3</button>
+        <button class="digital-button">Button 4</button>
     </div>
-
-    <header>
-        <div class="logo">Toko Digital Keren</div>
-        <nav>
-            <a href="index.html">Beranda</a>
-            <a href="produk.html">Produk</a>
-            <a href="#">Tentang Kami</a>
-            <a href="#">Kontak</a>
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="banner">
-            <video autoplay muted loop>
-                <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
-                Browser Anda tidak mendukung video tag.
-            </video>
-            <div class="banner-content">
-                Temukan Penawaran Menarik untuk Produk Terbaru Kami!
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2024 Toko Digital Keren. Semua Hak Dilindungi.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </footer>
 
 </body>
 </html>
