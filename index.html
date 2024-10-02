@@ -25,6 +25,27 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
+        header h1 {
+            font-size: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #fff; /* Cursor effect */
+            animation: typing 4s steps(30, end) infinite alternate, colorchange 6s infinite; /* Animasi ketik dan warna */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes colorchange {
+            0% { color: rgb(255, 0, 0); }
+            25% { color: rgb(0, 255, 0); }
+            50% { color: rgb(0, 0, 255); }
+            75% { color: rgb(255, 255, 0); }
+            100% { color: rgb(255, 0, 255); }
+        }
+
         header .logo {
             font-size: 2rem;
             font-weight: 700;
@@ -105,18 +126,6 @@
             border-right: 3px solid #fff;
         }
 
-        @keyframes typing {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
-
-        @keyframes colorchange {
-            0% { color: #ff0000; }
-            33% { color: #00ff00; }
-            66% { color: #0000ff; }
-            100% { color: #ff00ff; }
-        }
-
         footer {
             background: rgba(0, 0, 0, 0.4);
             color: #ffffff;
@@ -167,7 +176,7 @@
                 <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
                 Browser Anda tidak mendukung video tag.
             </video>
-            <div class="banner-content">
+            <div class="h1">
                 Temukan Penawaran Menarik untuk Produk Terbaru Kami!
             </div>
         </div>
