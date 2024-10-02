@@ -183,13 +183,23 @@
 
     <div class="container">
         <div class="banner">
-           <video autoplay loop>
-           <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
-           Browser Anda tidak mendukung video tag.
-           </video>
-            <div class="banner-content">
-                Temukan Penawaran Menarik untuk Produk Terbaru Kami!
-            </div>
+    <video id="backgroundVideo" autoplay loop>
+        <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video tag.
+    </video>
+    <div class="banner-content">
+        Temukan Penawaran Menarik untuk Produk Terbaru Kami!
+    </div>
+    <button id="playAudioButton">Aktifkan Suara</button>
+</div>
+
+<script>
+    document.getElementById('playAudioButton').addEventListener('click', function() {
+        var video = document.getElementById('backgroundVideo');
+        video.muted = false;
+        video.play();
+    });
+</script>
         </div>
 
         <div class="product-container">
