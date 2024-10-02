@@ -25,27 +25,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        header h1 {
-            font-size: 2rem;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #fff; /* Cursor effect */
-            animation: typing 4s steps(30, end) infinite alternate, colorchange 6s infinite; /* Animasi ketik dan warna */
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes colorchange {
-            0% { color: rgb(255, 0, 0); }
-            25% { color: rgb(0, 255, 0); }
-            50% { color: rgb(0, 0, 255); }
-            75% { color: rgb(255, 255, 0); }
-            100% { color: rgb(255, 0, 255); }
-        }
-
         header .logo {
             font-size: 2rem;
             font-weight: 700;
@@ -103,8 +82,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 0%;
-            height: 0%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             z-index: 1;
         }
@@ -124,6 +103,20 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 3px solid #fff;
+            animation: typing 4s steps(30, end) infinite, colorchange 6s infinite alternate;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes colorchange {
+            0% { color: rgb(255, 0, 0); }
+            25% { color: rgb(0, 255, 0); }
+            50% { color: rgb(0, 0, 255); }
+            75% { color: rgb(255, 255, 0); }
+            100% { color: rgb(255, 0, 255); }
         }
 
         footer {
@@ -176,7 +169,7 @@
                 <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
                 Browser Anda tidak mendukung video tag.
             </video>
-            <div class="h1">
+            <div class="banner-content">
                 Temukan Penawaran Menarik untuk Produk Terbaru Kami!
             </div>
         </div>
