@@ -3,162 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Digital Modern - Beranda</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #6b0ac9, #d6007a);
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        header .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        nav {
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2rem;
-            font-weight: 300;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #f0f0f0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            color: #fff;
-            padding: 200px 20px 150px;
-            background: rgba(0, 0, 0, 0.6);
-            position: relative;
-        }
-
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            animation: typing 5s steps(40, end) infinite, colorchange 3s infinite alternate;
-            border-right: 3px solid #fff;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        @keyframes typing {
-            0% { width: 0; }
-            100% { width: 100%; }
-        }
-
-        @keyframes colorchange {
-            0% { color: #ff0000; }
-            33% { color: #00ff00; }
-            66% { color: #0000ff; }
-            100% { color: #ff00ff; }
-        }
-
-        footer {
-            background: #333;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer .social-icons {
-            margin-top: 10px;
-        }
-
-        footer .social-icons a {
-            color: #ffffff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.5rem;
-        }
-
-        footer .social-icons a:hover {
-            color: #d6007a;
-        }
-    </style>
+    <title>Beranda - Toko Online Saya</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay loop muted>
-            <source src="https://pomf2.lain.la/f/chb56lv6.mp4" type="video/mp4">
-            Browser Anda tidak mendukung video tag.
-        </video>
-    </div>
-
-    <!-- Header -->
     <header>
-        <div class="logo">Toko Digital Modern</div>
         <nav>
-            <a href="index.html">Beranda</a>
-            <a href="produk.html">Produk</a>
-            <a href="#">Tentang Kami</a>
-            <a href="#">Kontak</a>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="produk.html">Produk</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
         </nav>
+        <h1>Selamat Datang di Toko Online Saya</h1>
     </header>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Selamat Datang di Toko Digital Modern Keren</h1>
-        <p>Temukan produk digital terbaik untuk kebutuhan Anda</p>
-    </div>
-
-    <!-- Footer -->
+    <main>
+        <section>
+            <p>Ini adalah halaman beranda toko online kami. Temukan berbagai produk unggulan di halaman produk kami.</p>
+        </section>
+    </main>
     <footer>
-        <p>© 2024 Toko Digital Modern. Semua Hak Dilindungi.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
+        <p>&copy; 2024 Toko Online Saya. Semua Hak Dilindungi.</p>
     </footer>
 </body>
 </html>
