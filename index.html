@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Digital Modern Keren</title>
+    <title>Toko Digital Modern - Beranda</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -55,7 +55,15 @@
             padding: 20px;
         }
 
-        /* Video Background */
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            color: #fff;
+            padding: 200px 20px 150px;
+            background: rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
         .video-background {
             position: fixed;
             top: 0;
@@ -70,14 +78,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            color: #fff;
-            padding: 200px 20px 150px;
-            background: rgba(0, 0, 0, 0.6);
         }
 
         .hero h1 {
@@ -101,68 +101,6 @@
             100% { color: #ff00ff; }
         }
 
-        /* Produk Section */
-        .produk-section {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .produk-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #6b0ac9;
-        }
-
-        .produk-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .produk-item {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .produk-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .produk-item img {
-            width: 100%;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .produk-item h3 {
-            font-size: 1.5rem;
-            padding: 15px;
-            color: #333;
-        }
-
-        .produk-item p {
-            padding: 0 15px 15px;
-            color: #777;
-        }
-
-        .beli-button {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 15px 0;
-            background-color: #d6007a;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease-in-out;
-        }
-
-        .beli-button:hover {
-            background-color: #b80064;
-        }
-
-        /* Footer */
         footer {
             background: #333;
             color: #ffffff;
@@ -199,8 +137,8 @@
     <header>
         <div class="logo">Toko Digital Modern</div>
         <nav>
-            <a href="#">Beranda</a>
-            <a href="#">Produk</a>
+            <a href="index.html">Beranda</a>
+            <a href="produk.html">Produk</a>
             <a href="#">Tentang Kami</a>
             <a href="#">Kontak</a>
         </nav>
@@ -212,34 +150,9 @@
         <p>Temukan produk digital terbaik untuk kebutuhan Anda</p>
     </div>
 
-    <!-- Produk Section -->
-    <div class="container produk-section">
-        <h2>Produk Kami</h2>
-        <div class="produk-container">
-            <div class="produk-item">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 1">
-                <h3>Produk Digital 1</h3>
-                <p>Deskripsi singkat tentang produk digital pertama kami.</p>
-                <a href="#" class="beli-button">Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 2">
-                <h3>Produk Digital 2</h3>
-                <p>Deskripsi singkat tentang produk digital kedua kami.</p>
-                <a href="#" class="beli-button">Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://via.placeholder.com/300x200" alt="Produk 3">
-                <h3>Produk Digital 3</h3>
-                <p>Deskripsi singkat tentang produk digital ketiga kami.</p>
-                <a href="#" class="beli-button">Beli Sekarang</a>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
-        <p>© 2024 Toko Digital Modern Keren. Semua Hak Dilindungi.</p>
+        <p>© 2024 Toko Digital Modern. Semua Hak Dilindungi.</p>
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -247,6 +160,5 @@
             <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
-
 </body>
-        </html>
+</html>
