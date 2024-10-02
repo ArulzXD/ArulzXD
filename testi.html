@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<head lang="id">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Toko Digital Rerez Official</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        header {
+            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px 20px; 
+            text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
+        }
 
+        /* Animasi ketik untuk judul */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-size: 2em;
+            width: 0;
+            animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite, 
+                       rainbow 5s infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 100% 0;
+            }
+        }
+
+        .menu {
+            display: flex;
+            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            padding: 5px;
+            text-align: center;
+            align-items: center;
+        }
+        .menu-item {
+            padding: 15px 35px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.5s;
+        }
+        .menu-item:hover {
+            background-color: #555;
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        tr, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+        }
+        th {
+            background-color: #007bff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: wheat;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button-hover {
+            background-color: #218838;
+        }
+        img {
+            max-width: 100%; /* Agar gambar responsif */
+            height: auto;
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+        TOKO DIGITAL REREZZ OFFICIAL
+    </video>
+
+    <br><header>
+    <h1 class="typing-effect">TESTIMONI</h1>
+  </header><br>
+
+    <div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="index.html" class="menu-item">Kontak</a>
+    </div>
+
+     <div class="container">
+        <img src="https://pomf2.lain.la/f/fbokpeaf.jpg" alt="Deskripsi Gambar">
+        <p>SOLD, AKUN ML HARGA 6K</p>
+     </div>
+  </body>
