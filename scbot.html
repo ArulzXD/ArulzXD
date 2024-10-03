@@ -60,29 +60,30 @@
             margin: 20px;
         }
         img {
-            max-width: 100%; /* Agar gambar responsif */
+            max-width: 100%;
             height: auto;
-            }
+        }
         .menu {
-    display: flex;
-    background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    padding: 5px;
-    text-align: center;
-    align-items: center;
-    justify-content: center; /* Agar item berada di tengah */
-}
+            display: flex;
+            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            padding: 5px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
 
-.menu-item {
-    padding: 10px 20px; /* Mengurangi padding untuk memperkecil jarak */
-    margin: 0 5px; /* Menambahkan margin untuk memberi jarak antar menu */
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.5s;
-            }
+        .menu-item {
+            padding: 10px 20px;
+            margin: 0 5px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.5s;
+        }
+
         .menu-item:hover {
             background-color: #555;
         }
@@ -90,17 +91,30 @@
             padding: 20px;
             color: white;
         }
+
+        /* Styling tombol download */
         .download-button {
             display: inline-block;
             border: none;
             cursor: pointer;
             background-color: transparent;
+            text-align: center;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
         }
 
         .download-button img {
-            width: 200px; /* Adjust button size */
+            width: 200px; /* Ukuran tombol gambar */
             height: auto;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efek hover pada tombol download */
+        .download-button:hover img {
+            transform: scale(1.05); /* Membuat gambar sedikit lebih besar saat hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -123,12 +137,15 @@
         <a href="scbot.html" class="menu-item">ScBOTz</a>
         <a href="index.html" class="menu-item">Kontak</a>
     </div>
-    
-    <a href="link-to-your-download-file.zip" download>
-        <button class="download-button">
-            <img src="path-to-your-image-button.png" alt="Download Button">
-        </button>
-    </a>
+
+    <!-- Tombol Download -->
+    <div class="container">
+        <a href="link-to-your-download-file.zip" download>
+            <button class="download-button">
+                <img src="path-to-your-image-button.png" alt="Download Button">
+            </button>
+        </a>
+    </div>
 
 </body>
-            </html>
+</html>
