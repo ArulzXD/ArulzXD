@@ -44,12 +44,12 @@
         }
         .text {
             display: flex;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(255, 255, 255, 0.7);
             background-size: cover;
             background-position: center;
             background-repeat: repeat;
-            border-radius: 20px;
-            padding: 5px;
+            border-radius: 20px auto;
+            padding: 10px;
             text-align: center;
             align-items: center;
             color: white;
@@ -83,50 +83,6 @@
             padding: 20px;
             color: white;
         }
-        /* Styling untuk form testimoni */
-        form {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 20px auto;
-        }
-        form input[type="file"],
-        form input[type="text"],
-        form button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        form button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #218838;
-        }
-        .testimoni-list {
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .testimoni-item {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-        .testimoni-item img {
-            max-width: 100px;
-            max-height: 100px;
-            margin-right: 10px;
-            border-radius: 5px;
-        }
     </style>
 </head>
 <body>
@@ -157,82 +113,5 @@
         <h1 class="text">PANEL UNLI</h1>
     </div>
 
-    <!-- Form untuk Posting Testimoni -->
-    <form id="testimoniForm">
-        <h2>Posting Testimoni Anda</h2>
-        <label for="name">Nama:</label>
-        <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
-        
-        <label for="image">Unggah Gambar Testimoni:</label>
-        <input type="file" id="image" name="image" accept="image/*" required>
-        
-        <button type="submit">Kirim Testimoni</button>
-    </form>
-
-    <!-- Daftar Testimoni -->
-    <div class="testimoni-list" id="testimoniList">
-        <h2>Testimoni Pengguna</h2>
-    </div>
-
-    <script>
-        const form = document.getElementById('testimoniForm');
-        const testimoniListContainer = document.getElementById('testimoniList');
-
-        // Fungsi untuk menyimpan testimoni ke Local Storage
-        function saveTestimoniToLocalStorage(testimoni) {
-            let testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
-            testimoniList.push(testimoni);
-            localStorage.setItem('testimoniList', JSON.stringify(testimoniList));
-        }
-
-        // Fungsi untuk memuat testimoni dari Local Storage
-        function loadTestimoniFromLocalStorage() {
-            let testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
-
-            testimoniList.forEach(testimoni => {
-                const testimoniItem = document.createElement('div');
-                testimoniItem.classList.add('testimoni-item');
-
-                const imgElement = document.createElement('img');
-                imgElement.src = testimoni.image; // Set image source
-                imgElement.alt = 'Testimoni Image';
-
-                testimoniItem.innerHTML = `<strong>${testimoni.name}</strong>: `;
-                testimoniItem.appendChild(imgElement);
-                testimoniListContainer.appendChild(testimoniItem);
-            });
-        }
-
-        // Event listener untuk form testimoni
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const imageInput = document.getElementById('image').files[0];
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const testimoniData = {
-                    name: name,
-                    image: e.target.result // Get the image data URL
-                };
-
-                // Simpan testimoni ke Local Storage
-                saveTestimoniToLocalStorage(testimoniData);
-                // Muat ulang testimoni dari Local Storage
-                loadTestimoniFromLocalStorage();
-
-                // Kosongkan form setelah dikirim
-                form.reset();
-            };
-
-            if (imageInput) {
-                reader.readAsDataURL(imageInput); // Convert image file to data URL
-            }
-        });
-
-        // Memuat testimoni ketika halaman dimuat
-        loadTestimoniFromLocalStorage();
-    </script>
 </body>
 </html>
