@@ -91,9 +91,34 @@
             padding: 20px;
             color: white;
         }
+        .script {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .script-item {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+        .script-item img {
+            max-width: 100%;
+            border-bottom: 1px solid #ddd;
+        }
+        .script-item h3 {
+            font-size: 1.5rem;
+            padding: 15px;
+            margin: 0;
+        }
+        .script-item p {
+            padding: 0 15px 15px;
+            }
 
         /* Styling tombol download */
-        .beli-button {
+        .download-button {
             display: block;
             padding: 15px;
             margin: 0 15px 15px;
@@ -104,7 +129,7 @@
             border-radius: 5px;
             transition: background 0.3s ease-in-out;
         }
-        .beli-button:hover {
+        .download-button:hover {
             background-color: #6b10bf;
             }
     </style>
@@ -117,7 +142,7 @@
 
     <br>
     <header>
-        <h1 class="typing-effect">TESTIMONI</h1>
+        <h1 class="typing-effect">SCRIPT</h1>
     </header>
     <br>
 
@@ -130,13 +155,12 @@
     </div>
 
     <!-- Tombol Download -->
-    <div class="container">
-        <a href="https://www.mediafire.com/file/3x11c5kw2iqh8kg/Velinia.zip/file" download>
-            <button class="download-button">
-                <img src="https://pomf2.lain.la/f/fbokpeaf.jpg" alt="Download Button">
-            </button>
-        </a>
-    </div>
+    <div class="script">
+            <div class="script-item">
+                <img src="https://telegra.ph/file/c2bd71b704393fc69788c.jpg" alt="Script 1">
+                <h3>SC Velinia</h3>
+                <a href="https://www.mediafire.com/file/3x11c5kw2iqh8kg/Velinia.zip/file" class="download-button" target="_blank">DOWNLOAD</a>
+            </div>
 
 </body>
 </html>
