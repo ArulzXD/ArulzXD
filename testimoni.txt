@@ -1,7 +1,0 @@
-<?php
-// Baca file testimoni
-$testimonis = file("testimoni.txt");
-foreach ($testimonis as $testi) {
-    echo nl2br($testi);
-}
-?>
