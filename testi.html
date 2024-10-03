@@ -139,18 +139,18 @@
     <!-- Form Post Testimoni -->
     <div class="container">
         <h2>Posting Testimoni Anda</h2>
-        <form action="/submit_testimoni" method="POST" enctype="multipart/form-data">
-            <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
-            
-            <label for="testimoni">Testimoni:</label>
-            <textarea id="testimoni" name="testimoni" placeholder="Tulis testimoni Anda" required></textarea>
-            
-            <label for="photo">Foto (opsional):</label>
-            <input type="file" id="photo" name="photo" accept="image/*">
-            
-            <button type="submit">Kirim Testimoni</button>
-        </form>
+        <form action="submit_testimoni.php" method="POST" enctype="multipart/form-data">
+    <label for="name">Nama:</label>
+    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+
+    <label for="testimoni">Testimoni:</label>
+    <textarea id="testimoni" name="testimoni" placeholder="Tulis testimoni Anda" required></textarea>
+
+    <label for="photo">Foto (opsional):</label>
+    <input type="file" id="photo" name="photo" accept="image/*">
+
+    <button type="submit">Kirim Testimoni</button>
+    </form>
     </div>
 
 </body>
