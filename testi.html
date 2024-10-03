@@ -113,6 +113,18 @@
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
         }
+        .testimoni-item {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .testimoni-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -134,15 +146,28 @@
         <a href="index.html" class="menu-item">Kontak</a>
     </div>
 
-    <!-- Form Post Testimoni Sederhana -->
-    <div class="container">
-        <h2>Posting Testimoni Anda</h2>
+    <!-- Form Login -->
+    <div class="container" id="loginContainer">
+        <h2>Owner Login</h2>
+        <form id="loginForm">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Form Post Testimoni dengan Gambar -->
+    <div class="container hidden" id="uploadContainer">
+        <h2>Posting Testimoni Anda dengan Gambar</h2>
         <form id="testimoniForm">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
             
             <label for="testimoni">Testimoni:</label>
             <textarea id="testimoni" name="testimoni" placeholder="Tulis testimoni Anda" required></textarea>
+            
+            <label for="photo">Foto (opsional):</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
             
             <button type="submit">Kirim Testimoni</button>
         </form>
@@ -154,16 +179,52 @@
     <script>
         const form = document.getElementById('testimoniForm');
         const testimoniList = document.getElementById('testimoniList');
+        const loginForm = document.getElementById('loginForm');
+        const uploadContainer = document.getElementById('uploadContainer');
+        const loginContainer = document.getElementById('loginContainer');
 
+        // Password owner yang benar
+        const ownerPassword = "haqqi";
+
+        // Fungsi login
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const inputPassword = document.getElementById('password').value;
+
+            if (inputPassword === ownerPassword) {
+                alert("Login berhasil!");
+                loginContainer.classList.add('hidden');  // Sembunyikan form login
+                uploadContainer.classList.remove('hidden');  // Tampilkan form upload testimoni
+            } else {
+                alert("Password salah, coba lagi.");
+            }
+        });
+
+        // Fungsi untuk kirim testimoni
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
             const name = document.getElementById('name').value;
             const testimoni = document.getElementById('testimoni').value;
+            const photo = document.getElementById('photo').files[0];
 
-            // Tambahkan testimoni ke daftar
+            // Membuat elemen testimoni
             const testimoniItem = document.createElement('div');
-            testimoniItem.innerHTML = `<strong>${name}</strong>: <p>${testimoni}</p><hr>`;
+            testimoniItem.classList.add('testimoni-item');
+            testimoniItem.innerHTML = `<strong>${name}</strong>: <p>${testimoni}</p>`;
+
+            // Jika ada gambar, tambahkan gambar ke testimoni
+            if (photo) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    testimoniItem.appendChild(img);
+                };
+                reader.readAsDataURL(photo);
+            }
+
+            testimoniItem.innerHTML += "<hr>";
             testimoniList.appendChild(testimoniItem);
 
             // Kosongkan form setelah dikirim
