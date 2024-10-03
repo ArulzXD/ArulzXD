@@ -52,8 +52,8 @@
             padding: 5px;
             text-align: center;
             align-items: center;
-            color: white; /* Warna teks menjadi putih */
-            font-size: 16px; /* Mengatur ukuran font lebih kecil */
+            color: white;
+            font-size: 16px;
         }
         .container {
             text-align: center;
@@ -83,29 +83,6 @@
             padding: 20px;
             color: white;
         }
-        form {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        form input, form textarea, form button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        form button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #218838;
-        }
     </style>
 </head>
 <body>
@@ -134,23 +111,6 @@
     <div class="container">
         <img src="https://pomf2.lain.la/f/fbokpeaf.jpg" alt="Deskripsi Gambar">
         <h1 class="text">PANEL UNLI</h1>
-    </div>
-
-    <!-- Form Post Testimoni -->
-    <div class="container">
-        <h2>Posting Testimoni Anda</h2>
-        <form action="submit_testimoni.php" method="POST" enctype="multipart/form-data">
-    <label for="name">Nama:</label>
-    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
-
-    <label for="testimoni">Testimoni:</label>
-    <textarea id="testimoni" name="testimoni" placeholder="Tulis testimoni Anda" required></textarea>
-
-    <label for="photo">Foto (opsional):</label>
-    <input type="file" id="photo" name="photo" accept="image/*">
-
-    <button type="submit">Kirim Testimoni</button>
-    </form>
     </div>
 
 </body>
