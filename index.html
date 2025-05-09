@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<head lang="id">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Website Rerez Official</title>
+    <title>Toko Digital Rerez Official</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-color: white;
             margin: 0;
             padding: 0;
             background-color: rgba(255, 255, 255, 0.5);
             height: 100vh;
-            background-image: url('https://pomf2.lain.la/f/hvk0r1z.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
         }
         header {
             background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
@@ -24,12 +37,48 @@
             background-repeat: no-repeat;
             color: white;
             padding: 15px 20px; 
-            display: center;
-            align-items: center; 
             text-align: center;
             border-radius: 20px;
             font-size: 25px;
         }
+
+        /* Animasi ketik untuk judul */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', Courier, monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-size: 2em;
+            width: 0;
+            animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite, 
+                       rainbow 5s infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 100% 0;
+            }
+        }
+
         .menu {
             display: flex;
             background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
@@ -40,33 +89,24 @@
             padding: 5px;
             text-align: center;
             align-items: center;
-        }
-        
-        .menu-item {
-            padding: 10px 20px;
-            margin: 0 5px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.5s;
-        }
+            justify-content: center; /* Agar item berada di tengah */
+          }
 
+      .menu-item {
+          padding: 10px 20px; /* Mengurangi padding untuk memperkecil jarak */
+          margin: 0 5px; /* Menambahkan margin untuk memberi jarak antar menu */
+          color: white;
+          text-decoration: none;
+          transition: background-color 0.5s;
+            }
         .menu-item:hover {
             background-color: #555;
-            align-items: center;
         }
         .content {
             padding: 20px;
             color: white;
         }
 
-        .content {
-            position: relative;
-            z-index: 1;
-            color: wheat;
-            text-align: center;
-            padding: 20px;
-        }
-       
         table {
             width: 100%;
             border-collapse: collapse;
@@ -96,29 +136,63 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s;
-            justify-content: space-between;
         }
         .button-hover {
             background-color: #218838;
         }
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
             padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .close {
+            color: red;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-  <br><header>
-    <h1>Welcome To Rerezz Official</h1>
+    <video autoplay muted loop class="video-background">
+        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+        TOKO DIGITAL REREZZ OFFICIAL
+    </video>
+
+    <br><header>
+    <h1 class="typing-effect">DAFTAR PRODUK</h1>
   </header><br>
-<div class="menu">
+
+    <div class="menu">
     <a href="index.html" class="menu-item">Beranda</a>
     <a href="produk.html" class="menu-item">Layanan</a>
     <a href="testi.html" class="menu-item">Testimoni</a>
     <a href="scbot.html" class="menu-item">SC BOT</a>
     <a href="index.html" class="menu-item">Kontak</a>
-</div>
+    </div>
+
 <div class="content">
     <h2>Selamat Datang di Website Rerezz Official</h2>
     <p>Saya menyediakan berbagai kebutuhan bot WhatsApp<br>Silahkan pil8h menu di ata untuk melihat menu lain nya</p>
