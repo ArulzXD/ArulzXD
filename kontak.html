@@ -1,142 +1,116 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Toko Digital Rerez Official</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: rgba(255, 255, 255, 0.5);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        .video-background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
-        header {
-            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 15px 20px; 
-            text-align: center;
-            border-radius: 20px;
-            font-size: 25px;
-        }
-        .menu {
-            display: flex;
-            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 20px;
-            padding: 5px;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-        .menu-item {
-            padding: 10px 20px;
-            margin: 0 5px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.5s;
-        }
-        .menu-item:hover {
-            background-color: #555;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            clear: both;
-        }
-        .credits ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .credits li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-        .credits a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .credits a:hover {
-            color: #ccc;
-        }
-        .social-media {
-            margin-top: 20px;
-        }
-        .social-media a {
-            margin-right: 10px;
-        }
-        .social-media i {
-            font-size: 24px;
-            color: #fff;
-        }
-        .social-media i:hover {
-            color: #ccc;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credits Proyek</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .header h1 {
+    color: #3366FF;
+    margin-bottom: 10px;
+  }
+  .card {
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+  .card.dark {
+    background: rgba(0,0,0,0.3);
+  }
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .card-text h3 {
+    margin: 0;
+  }
+  .toggle-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: #3366FF;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  body.dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+</style>
 </head>
 <body>
-    <video autoplay muted loop class="video-background">
-        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-        TOKO DIGITAL REREZZ OFFICIAL
-    </video><br>
-<header>
-    <h1 class="typing-effect">TESTIMONI</h1>
-</header>
-<br>
+<button class="toggle-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+<div class="container">
+  <div class="header">
+    <h1>Credits Proyek</h1>
+    <p>Terima kasih kepada para kontributor hebat kami!</p>
+  </div>
 
-<div class="menu">
-    <a href="index.html" class="menu-item">Beranda</a>
-    <a href="produk.html" class="menu-item">Layanan</a>
-    <a href="testi.html" class="menu-item">Testimoni</a>
-    <a href="scbot.html" class="menu-item">ScBOTz</a>
-    <a href="kontak.html" class="menu-item">Kontak</a>
+  <div class="card">
+    <div class="card-content">
+      <img src="https://via.placeholder.com/80" alt="Rerezz Official">
+      <div class="card-text">
+        <h3>Rerezz Official</h3>
+        <p>Pengembang Utama</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-content">
+      <img src="https://via.placeholder.com/80" alt="Website Design">
+      <div class="card-text">
+        <h3>Website Design</h3>
+        <p>Team Pengembang</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<footer>
-    <div class="credits">
-        <h2>Credits</h2>
-        <ul>
-            <li><a href="kontak.html">Kontak</a></li>
-            <li><a href="syarat-ketentuan.html">Syarat dan Ketentuan</a></li>
-            <li><a href="kebijakan-privasi.html">Kebijakan Privasi</a></li>
-        </ul>
-        <p>&copy; 2025 Toko Digital Rerez Official. Semua hak cipta dilindungi.</p>
+<script>
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => card.classList.toggle('dark'));
 
-        <div class="social-media">
-            <a href="https://wa.me/628xxxxxxxxxx" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://instagram.com/usernameanda" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:emailanda@gmail.com" target="_blank" title="Email"><i class="fa fa-envelope"></i></a>
-        </div>
-    </div>
-</footer>
+  const btn = document.querySelector('.toggle-btn');
+  if(document.body.classList.contains('dark-mode')) {
+    btn.textContent = '☀️ Light Mode';
+  } else {
+    btn.textContent = '🌙 Dark Mode';
+  }
+}
+</script>
 
 </body>
 </html>
