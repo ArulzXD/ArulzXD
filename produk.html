@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Toko Digital Rerez Official</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+    /* --- Gaya Umum --- */
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
     }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
     .video-background {
       position: fixed;
       top: 50%;
@@ -31,11 +31,11 @@
       z-index: -1;
       transform: translate(-50%, -50%);
     }
+
     header {
       background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
       color: white;
       padding: 15px 20px;
       text-align: center;
@@ -69,25 +69,17 @@
     }
 
     @keyframes rainbow {
-      0%, 100% {
-        background-position: 0 0;
-      }
-      50% {
-        background-position: 100% 0;
-      }
+      0%, 100% { background-position: 0 0; }
+      50% { background-position: 100% 0; }
     }
 
     .menu {
       display: flex;
       background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 20px;
-      padding: 5px;
-      text-align: center;
-      align-items: center;
       justify-content: center;
+      padding: 5px;
+      border-radius: 20px;
     }
 
     .menu-item {
@@ -95,14 +87,10 @@
       margin: 0 5px;
       color: white;
       text-decoration: none;
-      transition: background-color 0.5s;
     }
+
     .menu-item:hover {
       background-color: #555;
-    }
-    .content {
-      padding: 20px;
-      color: white;
     }
 
     table {
@@ -110,23 +98,26 @@
       border-collapse: collapse;
       margin-top: 20px;
     }
-    tr, td {
+
+    th, td {
       padding: 12px;
-      text-align: left;
       border: 1px solid #ccc;
-      background-color: #ffffff;
     }
+
     th {
       background-color: #007bff;
       color: white;
     }
+
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
+
     .action-buttons {
       display: flex;
       gap: 10px;
     }
+
     .button {
       padding: 8px 15px;
       background-color: #28a745;
@@ -134,22 +125,19 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .button-hover {
-      background-color: #218838;
     }
 
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
+      z-index: 100;
+      left: 0; top: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5);
     }
+
     .modal-content {
       background-color: white;
       margin: 15% auto;
@@ -159,48 +147,40 @@
       max-width: 500px;
       text-align: center;
     }
+
     .close {
       color: red;
       float: right;
       font-size: 28px;
       font-weight: bold;
     }
-    .close:hover,
-    .close:focus {
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
 
-    /* Social Proof Notification */
+    .close:hover { color: black; }
+
+    /* --- Social Proof --- */
     .social-proof {
       position: fixed;
-      bottom: 20px;
       left: 20px;
-      background-color: #fff;
-      border-radius: 45px;
-      padding: 5px 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      bottom: -100px;
+      background: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       display: flex;
       align-items: center;
-      animation: fadeInOut 10s ease-in-out;
-      z-index: 1000;
-      max-width: 100px;
-      font-family: sans-serif;
-      font-size: 1rem;
-    }
-
-    .social-proof .main {
-      display: flex;
-      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      transition: bottom 0.5s ease;
     }
 
     .social-proof img {
-      width: 55px;
-      height: 55px;
-      object-fit: cover;
-      margin-right: 10px;
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+    }
+
+    .social-proof .text {
+      font-size: 14px;
     }
 
     .font-bold {
@@ -208,41 +188,25 @@
     }
 
     .verified {
-      font-size: 0.70rem;
-      color: #007bff;
-      display: block;
-      margin-top: 2px;
+      font-size: 11px;
+      color: #555;
     }
 
     .verified img {
-      width: 12px;
-      height: 12px;
-      margin-right: 3px;
-    }
-
-    .product_name {
-      color: #000;
-      font-size: 0.90rem;
-      margin: 2px 0;
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px); }
-      10% { opacity: 1; transform: translateY(0); }
-      90% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(20px); }
+      width: 14px;
+      vertical-align: middle;
     }
   </style>
 </head>
+
 <body>
   <video autoplay muted loop class="video-background">
     <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-    TOKO DIGITAL REREZZ OFFICIAL
   </video>
 
-  <br><header>
+  <header>
     <h1 class="typing-effect">DAFTAR PRODUK</h1>
-  </header><br>
+  </header>
 
   <div class="menu">
     <a href="index.html" class="menu-item">Beranda</a>
@@ -254,10 +218,12 @@
 
   <table>
     <thead>
-      <th>Nama Barang</th>
-      <th>Deskripsi</th>
-      <th>Harga</th>
-      <th>Aksi</th>
+      <tr>
+        <th>Nama Barang</th>
+        <th>Deskripsi</th>
+        <th>Harga</th>
+        <th>Aksi</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -278,27 +244,10 @@
           <a href="https://wa.me/6283171080910?text=Mau+beli+SC+Bot+WhatsApp"><button class="button">Beli</button></a>
         </td>
       </tr>
-      <tr>
-        <td>Template Website</td>
-        <td>Template website modern dan responsif</td>
-        <td>Rp 15.000</td>
-        <td class="action-buttons">
-          <button class="button" onclick="openModal('Template Website', 'Template HTML, CSS, dan JavaScript untuk portofolio, bisnis, atau toko online.')">Detil</button>
-          <a href="https://wa.me/6283171080910?text=Mau+beli+Template+Website"><button class="button">Beli</button></a>
-        </td>
-      </tr>
-      <tr>
-        <td>Jasa Install VPS</td>
-        <td>Jasa instalasi panel hosting di server VPS</td>
-        <td>Rp 50.000</td>
-        <td class="action-buttons">
-          <button class="button" onclick="openModal('Jasa Install VPS', 'Layanan setup VPS lengkap dengan panel hosting, SSL, dan keamanan.')">Detil</button>
-          <a href="https://wa.me/6283171080910?text=Mau+beli+Jasa+Install+VPS"><button class="button">Beli</button></a>
-        </td>
-      </tr>
     </tbody>
-  </table><br>
+  </table>
 
+  <!-- Modal Produk -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -307,6 +256,26 @@
     </div>
   </div>
 
+  <!-- Social Proof Notification -->
+  <input type="hidden" id="numberOfInvoiceTotalHomePage" value="2">
+
+  <div class="social-proof" id="socialProofId-1">
+    <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="Produk">
+    <div class="text">
+      <p><span class="font-bold">Ryn</span> membeli <span class="font-bold">PANEL BOT WHATSAPP</span></p>
+      <span class="verified"><img src="https://cloudfast.biz.id/assets/images/icon/verified.png"> Verified by Catalyst Team</span>
+    </div>
+  </div>
+
+  <div class="social-proof" id="socialProofId-2">
+    <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="Produk">
+    <div class="text">
+      <p><span class="font-bold">Bima</span> membeli <span class="font-bold">SC BOT AUTOORDER V1.3.0</span></p>
+      <span class="verified"><img src="https://cloudfast.biz.id/assets/images/icon/verified.png"> Verified by Catalyst Team</span>
+    </div>
+  </div>
+
+  <!-- Script Modal + Social Proof -->
   <script>
     function openModal(title, description) {
       document.getElementById("modalTitle").innerText = title;
@@ -324,40 +293,30 @@
       }
     }
 
-    const buyers = [
-      { name: 'ryza', product: 'PANEL BOT' },
-      { name: 'ranz', product: 'VPS' },
-      { name: 'alya', product: 'SEWA BOT' },
-      { name: 'bima', product: 'SC BOT' }
-    ];
+    let numberOfSocialProof = 1;
+    let numberOfInvoiceTotal = parseInt(document.getElementById("numberOfInvoiceTotalHomePage").value);
+    let pauseOfSocialProof = 10000;
+    let timeOfSocialProof = 5000;
 
-    let currentIndex = 0;
+    function showHideSocialProof() {
+      const el = document.getElementById(`socialProofId-${numberOfSocialProof}`);
+      if (el) el.style.bottom = "20px";
 
-    function showNotification() {
-      const data = buyers[currentIndex];
-      const notif = document.createElement('div');
-      notif.className = 'social-proof';
-      notif.innerHTML = `
-        <div class="main">
-          <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="${data.product}">
-          <div class="text">
-            <p><span class="font-bold">${data.name}</span> membeli</p>
-            <p class="font-bold product_name">${data.product}</p>
-            <span class="verified">
-              <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-              Verified by <span class="app_name">ArulzXD Digital Marketplace</span>
-            </span>
-          </div>
-        </div>
-      `;
-      document.body.appendChild(notif);
       setTimeout(() => {
-        notif.remove();
-      }, 10000);
-      currentIndex = (currentIndex + 1) % buyers.length;
+        if (el) el.style.bottom = "-100px";
+        numberOfSocialProof++;
+      }, pauseOfSocialProof);
+
+      if (numberOfSocialProof <= numberOfInvoiceTotal) {
+        setTimeout(showHideSocialProof, pauseOfSocialProof * 2);
+      } else {
+        document.querySelectorAll(".social-proof").forEach(e => e.style.bottom = "-100px");
+        numberOfSocialProof = 1;
+        setTimeout(showHideSocialProof, pauseOfSocialProof * 2);
+      }
     }
 
-    setInterval(showNotification, 12000);
+    setTimeout(showHideSocialProof, timeOfSocialProof);
   </script>
 </body>
 </html>
