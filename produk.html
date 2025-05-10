@@ -1,270 +1,400 @@
-<!DOCTYPE html>  
-<html lang="id">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-<title>Toko Digital Rerez Official</title>  
-<style>  
-/* === Style dari Anda === */  
-body {  
-    font-family: Arial, sans-serif;  
-    margin: 0;  
-    padding: 0;  
-    background-color: rgba(255, 255, 255, 0.5);  
-    height: 100vh;  
-    background-size: cover;  
-    background-position: center;  
-    background-repeat: no-repeat;  
-}  
-body, html {  
-    margin: 0;  
-    padding: 0;  
-    height: 100%;  
-}  
-.video-background {  
-    position: fixed;  
-    top: 50%;  
-    left: 50%;  
-    min-width: 100%;  
-    min-height: 100%;  
-    width: auto;  
-    height: auto;  
-    z-index: -1;  
-    transform: translate(-50%, -50%);  
-}  
-header {  
-    background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');  
-    background-size: cover;  
-    background-position: center;  
-    background-repeat: no-repeat;  
-    color: white;  
-    padding: 15px 20px;   
-    text-align: center;  
-    border-radius: 20px;  
-    font-size: 25px;  
-}  
+<!DOCTYPE html>
+<head lang="id">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Toko Digital Rerez Official</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        header {
+            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
+        }  /* Animasi ketik untuk judul */
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
 
-@keyframes typing {  
-    from { width: 0; }  
-    to { width: 100%; }  
-}  
-@keyframes blink-caret {  
-    from, to { border-color: transparent; }  
-    50% { border-color: orange; }  
-}  
-.typing-effect {  
-    font-family: 'Courier New', Courier, monospace;  
-    white-space: nowrap;  
-    overflow: hidden;  
-    border-right: 3px solid;  
-    font-size: 2em;  
-    width: 0;  
-    animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite, rainbow 5s infinite;  
-    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);  
-    background-size: 200%;  
-    background-clip: text;  
-    -webkit-background-clip: text;  
-    color: transparent;  
-}  
-@keyframes rainbow {  
-    0%, 100% { background-position: 0 0; }  
-    50% { background-position: 100% 0; }  
-}  
-.menu {  
-    display: flex;  
-    background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');  
-    background-size: cover;  
-    background-position: center;  
-    background-repeat: no-repeat;  
-    border-radius: 20px;  
-    padding: 5px;  
-    text-align: center;  
-    align-items: center;  
-    justify-content: center;  
-}  
-.menu-item {  
-    padding: 10px 20px;  
-    margin: 0 5px;  
-    color: white;  
-    text-decoration: none;  
-    transition: background-color 0.5s;  
-}  
-.menu-item:hover {  
-    background-color: #555;  
-}  
-.content {  
-    padding: 20px;  
-    color: white;  
-}  
-table {  
-    width: 100%;  
-    border-collapse: collapse;  
-    margin-top: 20px;  
-}  
-tr, td {  
-    padding: 12px;  
-    text-align: left;  
-    border: 1px solid #ccc;  
-    background-color: #ffffff;  
-}  
-th {  
-    background-color: #007bff;  
-    color: white;  
-}  
-tr:nth-child(even) {  
-    background-color: #f2f2f2;  
-}  
-.action-buttons {  
-    display: flex;  
-    gap: 10px;  
-}  
-.button {  
-    padding: 8px 15px;  
-    background-color: #28a745;  
-    color: wheat;  
-    border: none;  
-    border-radius: 5px;  
-    cursor: pointer;  
-    transition: background-color 0.3s;  
-}  
-.button-hover { background-color: #218838; }  
-.modal {  
-    display: none;  
-    position: fixed;  
-    z-index: 1;  
-    left: 0;  
-    top: 0;  
-    width: 100%;  
-    height: 100%;  
-    background-color: rgba(0, 0, 0, 0.5);  
-}  
-.modal-content {  
-    background-color: white;  
-    margin: 15% auto;  
-    padding: 20px;  
-    border: 1px solid #888;  
-    width: 80%;  
-    max-width: 500px;  
-    text-align: center;  
-}  
-.close {  
-    color: red;  
-    float: right;  
-    font-size: 28px;  
-    font-weight: bold;  
-}  
-.close:hover, .close:focus {  
-    color: #000;  
-    text-decoration: none;  
-    cursor: pointer;  
-}  
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: orange; }
+    }
 
-/* === Social Proof Notification Styles === */
-#social-proof-notification {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: white;
-    border-left: 5px solid green;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    max-width: 300px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    z-index: 10000;
-}
-#social-proof-notification.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-#social-proof-notification img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-#social-proof-notification .content {
-    flex-grow: 1;
-}
-#social-proof-notification .timestamp {
-    font-size: 0.8em;
-    color: #666;
-}
-</style>  
-</head>  
-<body>  
-<video autoplay muted loop class="video-background">  
-    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">  
-    TOKO DIGITAL REREZZ OFFICIAL  
-</video>  
-<br><header>  
-<h1 class="typing-effect">DAFTAR PRODUK</h1>  
-</header><br>  
-<div class="menu">  
-    <a href="index.html" class="menu-item">Beranda</a>  
-    <a href="produk.html" class="menu-item">Layanan</a>  
-    <a href="testi.html" class="menu-item">Testimoni</a>  
-    <a href="scbot.html" class="menu-item">SC BOT</a>  
-    <a href="kontak.html" class="menu-item">Kontak</a>  
-</div>  
-<table>  
-    <thead>  
-        <th>Nama Barang</th>  
-        <th>Deskripsi</th>  
-        <th>Harga</th>  
-        <th>Aksi</th>  
-    </thead>  
-    <tbody>  
-        <!-- Isi produk Anda tetap sama seperti semula -->  
-        <!-- ... -->  
-    </tbody>  
-</table><br>  
-<div id="myModal" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModal()">&times;</span>  
-        <h2 id="modalTitle">Detail Barang</h2>  
-        <p id="modalDescription">Deskripsi Produk</p>  
-    </div>  
-</div>  
+    .typing-effect {
+        font-family: 'Courier New', Courier, monospace;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid;
+        font-size: 2em;
+        width: 0;
+        animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite;
+        background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+        background-size: 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite,
+                   rainbow 5s infinite;
+    }
 
-<!-- Social Proof Notification -->
-<div id="social-proof-notification">
-    <img src="https://via.placeholder.com/40" alt="Avatar">
-    <div class="content">
-        <p><strong>Andi dari Surabaya</strong> baru saja membeli <strong>SC Bot WhatsApp</strong></p>
-        <span class="timestamp">2 menit yang lalu</span>
+    @keyframes rainbow {
+        0%, 100% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 100% 0;
+        }
+    }
+
+    .menu {
+        display: flex;
+        background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        padding: 5px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-item {
+        padding: 10px 20px;
+        margin: 0 5px;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.5s;
+    }
+    .menu-item:hover {
+        background-color: #555;
+    }
+    .content {
+        padding: 20px;
+        color: white;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    tr, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ccc;
+        background-color: #ffffff;
+    }
+    th {
+        background-color: #007bff;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+    }
+    .button {
+        padding: 8px 15px;
+        background-color: #28a745;
+        color: wheat;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .button-hover {
+        background-color: #218838;
+    }
+
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        text-align: center;
+    }
+    .close {
+        color: red;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* ==== Social Proof Notification Styles ==== */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #fff;
+      border-left: 4px solid #28a745;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      max-width: 300px;
+      border-radius: 5px;
+      z-index: 1000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .notification.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .notification .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .notification .content {
+      flex: 1;
+    }
+    .notification .timestamp {
+      display: block;
+      font-size: 0.85em;
+      color: #666;
+    }
+    .notification .close-btn {
+      background: none;
+      border: none;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: #999;
+    }
+    /* ==== End Social Proof Notification Styles ==== */
+</style>
+
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+        TOKO DIGITAL REREZZ OFFICIAL
+    </video>  <br><header>
+    <h1 class="typing-effect">DAFTAR PRODUK</h1>
+</header><br>
+
+<div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">SC BOT</a>
+    <a href="kontak.html" class="menu-item">Kontak</a>
+</div>
+
+<table>
+    <thead>
+        <th>Nama Barang</th>
+        <th>Deskripsi</th>
+        <th>Harga</th>
+        <th>Aksi</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Panel Hosting</td>
+            <td>Panel hosting premium untuk website dan aplikasi</td>
+            <td>Rp 10.000</td>
+            <td class="action-buttons">
+                <button class="button" onclick="openModal('Panel Hosting', 'Panel hosting premium dengan fitur lengkap dan performa tinggi.')">Detil</button>
+                <a href="https://wa.me/6283171080910?text=Mau+beli+Panel+Hosting"><button class="button">Beli</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td>SC Bot WhatsApp</td>
+            <td>Source Code Bot WhatsApp siap pakai</td>
+            <td>Rp 25.000</td>
+            <td class="action-buttons">
+                <button class="button" onclick="openModal('SC Bot WhatsApp', 'Source code bot WhatsApp multi device, auto respon, dan fitur admin.')">Detil</button>
+                <a href="https://wa.me/6283171080910?text=Mau+beli+SC+Bot+WhatsApp"><button class="button">Beli</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td>Template Website</td>
+            <td>Template website modern dan responsif</td>
+            <td>Rp 15.000</td>
+            <td class="action-buttons">
+                <button class="button" onclick="openModal('Template Website', 'Template HTML, CSS, dan JavaScript untuk portofolio, bisnis, atau toko online.')">Detil</button>
+                <a href="https://wa.me/6283171080910?text=Mau+beli+Template+Website"><button class="button">Beli</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td>Jasa Install VPS</td>
+            <td>Jasa instalasi panel hosting di server VPS</td>
+            <td>Rp 50.000</td>
+            <td class="action-buttons">
+                <button class="button" onclick="openModal('Jasa Install VPS', 'Layanan setup VPS lengkap dengan panel hosting, SSL, dan keamanan.')">Detil</button>
+                <a href="https://wa.me/6283171080910?text=Mau+beli+Jasa+Install+VPS"><button class="button">Beli</button></a>
+            </td>
+        </tr>
+    </tbody>
+</table><br>
+
+<!-- Modal untuk detail produk -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Detail Barang</h2>
+        <p id="modalDescription">Deskripsi Produk</p>
     </div>
 </div>
 
-<script>  
-function openModal(title, description) {  
-    document.getElementById("modalTitle").innerText = title;  
-    document.getElementById("modalDescription").innerText = description;  
-    document.getElementById("myModal").style.display = "block";  
-}  
-function closeModal() {  
-    document.getElementById("myModal").style.display = "none";  
-}  
-window.onclick = function(event) {  
-    if (event.target == document.getElementById("myModal")) {  
-        closeModal();  
-    }  
-}  
+<!-- Notifikasi Bukti Sosial -->
+<div id="social-proof-notification" class="notification hidden">
+  <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar" />
+  <div class="content">
+    <p><strong id="user-name">Nama Pengguna</strong> dari <strong id="user-location">Lokasi</strong> baru saja membeli <strong id="product-name">Produk</strong></p>
+    <span class="timestamp" id="purchase-time">Beberapa saat yang lalu</span>
+  </div>
+  <button class="close-btn" onclick="closeNotification()">&times;</button>
+</div>
 
-// === Social Proof Notification Logic ===
-window.addEventListener("load", function () {
+<script>
+    // Fungsi untuk membuka modal
+    function openModal(title, description) {
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalDescription").innerText = description;
+        document.getElementById("myModal").style.display = "block";
+    }
+
+    // Fungsi untuk menutup modal
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+
+    // Tutup modal ketika klik di luar konten modal
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("myModal")) {
+            closeModal();
+        }
+    }
+</script>
+
+<script>
+  // Data contoh untuk notifikasi
+  const notifications = [
+    {
+      name: "Andi",
+      location: "Jakarta",
+      product: "Paket Hosting Pro",
+      time: "2 menit yang lalu",
+      avatar: "https://via.placeholder.com/40"
+    },
+    {
+      name: "Siti",
+      location: "Bandung",
+      product: "SC Bot WhatsApp",
+      time: "5 menit yang lalu",
+      avatar: "https://via.placeholder.com/40"
+    },
+    {
+      name: "Budi",
+      location: "Surabaya",
+      product: "Template Website",
+      time: "10 menit yang lalu",
+      avatar: "https://via.placeholder.com/40"
+    }
+  ];
+
+  let currentNotification = 0;
+
+  // Fungsi untuk menampilkan notifikasi
+  function showNotification() {
+    const notification = document.getElementById('social-proof-notification');
+    const userName = document.getElementById('user-name');
+    const userLocation = document.getElementById('user-location');
+    const productName = document.getElementById('product-name');
+    const purchaseTime = document.getElementById('purchase-time');
+    const avatar = notification.querySelector('.avatar');
+
+    const data = notifications[currentNotification];
+
+    userName.textContent = data.name;
+    userLocation.textContent = data.location;
+    productName.textContent = data.product;
+    purchaseTime.textContent = data.time;
+    avatar.src = data.avatar;
+
+    notification.classList.add('show');
+    notification.classList.remove('hidden');
+
+    // Sembunyikan notifikasi setelah 5 detik
     setTimeout(() => {
-        const notif = document.getElementById("social-proof-notification");
-        notif.classList.add("show");
-        setTimeout(() => {
-            notif.classList.remove("show");
-        }, 6000);
-    }, 4000);
-});
-</script>  
-</body>  
+      notification.classList.remove('show');
+      notification.classList.add('hidden');
+    }, 5000);
+
+    // Siapkan notifikasi berikutnya
+    currentNotification = (currentNotification + 1) % notifications.length;
+  }
+
+  // Fungsi untuk menutup notifikasi secara manual
+  function closeNotification() {
+    const notification = document.getElementById('social-proof-notification');
+    notification.classList.remove('show');
+    notification.classList.add('hidden');
+  }
+
+  // Tampilkan notifikasi pertama setelah 3 detik saat halaman dimuat
+  window.addEventListener('load', () => {
+    setTimeout(showNotification, 3000);
+    // Tampilkan notifikasi berikutnya setiap 15 detik
+    setInterval(showNotification, 15000);
+  });
+</script>
+
+</body>
 </html>
