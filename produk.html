@@ -246,6 +246,31 @@
     </div>  
 </div>  
 
+      <input type="hidden" id="numberOfInvoiceTotalHomePage" value="2">
+    <div class="social-proof" id="socialProofId-1">
+      <div class="main">
+                          <img alt="SC BOT AUTOORDER V1.3.0 " src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg">
+                <div class="text">
+          <p><span class="font-bold">ryza</span> membeli
+          <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0 </p>
+          </p>
+          <span class="verified"><img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon"> Verified by <span class="app_name">Catalyst Team Digital Marketplace</span></span>
+        </div>
+      </div>
+    </div>
+      <input type="hidden" id="numberOfInvoiceTotalHomePage" value="2">
+    <div class="social-proof" id="socialProofId-2">
+      <div class="main">
+                          <img alt="SC BOT AUTOORDER V1.3.0 " src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg">
+                <div class="text">
+          <p><span class="font-bold">ranz</span> membeli
+          <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0 </p>
+          </p>
+          <span class="verified"><img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon"> Verified by <span class="app_name">Catalyst Team Digital Marketplace</span></span>
+        </div>
+      </div>
+    </div>
+
 <script>  
     // Fungsi untuk membuka modal  
     function openModal(title, description) {  
@@ -266,6 +291,25 @@
         }  
     }  
 </script>
+let numberOfSocialProof = 1;
+    let numberOfInvoiceTotal = parseInt($("#numberOfInvoiceTotalHomePage").val()) * 1000;
+    let pauseOfSocialProof = parseInt('10') * 1000;
+    let timeOfSocialProof = parseInt('5') * 1000;
 
+    function showHideSocialProof() {
+        $(`#socialProofId-${numberOfSocialProof}`).css("bottom", "20px");
+        setTimeout(function() {
+            $(`#socialProofId-${numberOfSocialProof}`).css("bottom", "-100px");
+            numberOfSocialProof++;
+        }, pauseOfSocialProof);
+        if (numberOfSocialProof <= numberOfInvoiceTotal) {
+            setTimeout(showHideSocialProof, pauseOfSocialProof * 2);
+        } else {
+            $(`div.social-proof`).css("bottom", "-100px");
+            numberOfSocialProof = 0;
+            setTimeout(showHideSocialProof, pauseOfSocialProof * 2);
+        }
+    }
+    setTimeout(showHideSocialProof, timeOfSocialProof);
 </body>  
 </html>
