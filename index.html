@@ -42,43 +42,6 @@
             font-size: 25px;
         }
 
-        /* Animasi ketik untuk judul */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: orange; }
-        }
-
-        .typing-effect {
-            font-family: 'Courier New', Courier, monospace;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid;
-            font-size: 2em;
-            width: 0;
-            animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-            background-size: 200%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: typing 4s steps(30, end) infinite, blink-caret 6s step-end infinite, 
-                       rainbow 5s infinite;
-        }
-
-        @keyframes rainbow {
-            0%, 100% {
-                background-position: 0 0;
-            }
-            50% {
-                background-position: 100% 0;
-            }
-        }
-
         .menu {
             display: flex;
             background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
@@ -182,7 +145,7 @@
     </video>
 
     <br><header>
-    <h1 class="typing-effect">DAFTAR PRODUK</h1>
+    <h1 class= >DAFTAR PRODUK</h1>
   </header><br>
 
     <div class="menu">
