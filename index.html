@@ -253,7 +253,33 @@
     <div id="imageModal" class="image-modal" onclick="this.style.display='none'">
         <img id="modalImage" src="" alt="Preview">
     </div>
+<div class="social-proof" id="socialProofId-1">
+    <div class="main">
+      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+      <div class="text">
+        <p><span class="font-bold">ryza</span> membeli</p>
+        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+        <span class="verified">
+          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+          Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+        </span>
+      </div>
+    </div>
+  </div>
 
+  <div class="social-proof" id="socialProofId-2">
+    <div class="main">
+      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+      <div class="text">
+        <p><span class="font-bold">ranz</span> membeli</p>
+        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+        <span class="verified">
+          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+          Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+        </span>
+      </div>
+    </div>
+  </div>
     <script>
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImage");
@@ -265,6 +291,26 @@
                 modalImg.src = img.src;
             });
         });
+     let currentProof = 1;
+    const totalProof = 2;
+    const showDuration = 5000;
+    const delayBetween = 3000;
+
+    function showSocialProof() {
+      const id = `#socialProofId-${currentProof}`;
+      const element = document.querySelector(id);
+      if (element) {
+        element.style.bottom = "20px";
+        setTimeout(() => {
+          element.style.bottom = "-100px";
+          currentProof++;
+          if (currentProof > totalProof) currentProof = 1;
+          setTimeout(showSocialProof, delayBetween);
+        }, showDuration);
+      }
+    }
+
+    setTimeout(showSocialProof, 2000);
     </script>
 </body>
 </html>
