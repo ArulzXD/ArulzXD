@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<head lang="id">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>ArulzXD Digital Marketplace</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .video-background {
@@ -45,6 +40,36 @@
       font-size: 25px;
     }
 
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      50% {
+        width: 100%;
+      }
+      100% {
+        width: 0;
+      }
+    }
+
+    @keyframes blink-caret {
+      from, to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: orange;
+      }
+    }
+
+    @keyframes rainbow {
+      0%, 100% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 100% 0;
+      }
+    }
+
     .typing-effect {
       font-family: 'Courier New', Courier, monospace;
       white-space: nowrap;
@@ -57,27 +82,12 @@
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
       animation:
-        typing 4s steps(30, end) infinite,
+        typing 6s steps(30, end) infinite,
         blink-caret 0.75s step-end infinite,
         rainbow 5s infinite linear;
-    }
-
-    @keyframes typing {
-      0% { width: 0; }
-      50% { width: 100%; }
-      100% { width: 0; }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent; }
-      50% { border-color: orange; }
-    }
-
-    @keyframes rainbow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     .menu {
@@ -240,12 +250,14 @@
 </head>
 <body>
   <video autoplay muted loop class="video-background">
-    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4" />
     TOKO DIGITAL REREZZ OFFICIAL
-  </video><br>
+  </video>
+  <br />
   <header>
     <h1 class="typing-effect">DAFTAR PRODUK</h1>
-  </header><br>
+  </header>
+  <br />
 
   <div class="menu">
     <a href="index.html" class="menu-item">Beranda</a>
@@ -257,10 +269,12 @@
 
   <table>
     <thead>
-      <th>Nama Barang</th>
-      <th>Deskripsi</th>
-      <th>Harga</th>
-      <th>Aksi</th>
+      <tr>
+        <th>Nama Barang</th>
+        <th>Deskripsi</th>
+        <th>Harga</th>
+        <th>Aksi</th>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -300,8 +314,10 @@
         </td>
       </tr>
     </tbody>
-  </table><br>
+  </table>
+  <br />
 
+  <!-- Modal -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -310,14 +326,15 @@
     </div>
   </div>
 
+  <!-- Social Proof -->
   <div class="social-proof" id="socialProofId-1">
     <div class="main">
-      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0" />
       <div class="text">
         <p><span class="font-bold">ryza</span> membeli</p>
         <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
         <span class="verified">
-          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon" />
           Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
         </span>
       </div>
@@ -326,12 +343,12 @@
 
   <div class="social-proof" id="socialProofId-2">
     <div class="main">
-      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0" />
       <div class="text">
         <p><span class="font-bold">ranz</span> membeli</p>
         <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
         <span class="verified">
-          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon" />
           Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
         </span>
       </div>
@@ -353,8 +370,9 @@
       if (event.target == document.getElementById("myModal")) {
         closeModal();
       }
-    }
+    };
 
+    // Social proof
     let currentProof = 1;
     const totalProof = 2;
     const showDuration = 5000;
