@@ -1,87 +1,205 @@
-<style>
-  .product-wrapper {
-    max-width: 1100px;
-    margin: 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
+<!DOCTYPE html>
+<head lang="id">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Toko Digital Rerez Official</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
+        header {
+            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px 20px; 
+            text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
+        }
 
-  .item-product {
-    width: 220px;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s;
-  }
+        .menu {
+            display: flex;
+            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            padding: 5px;
+            text-align: center;
+            align-items: center;
+            justify-content: center; /* Agar item berada di tengah */
+          }
 
-  .item-product:hover {
-    transform: translateY(-5px);
-  }
+      .menu-item {
+          padding: 10px 20px; /* Mengurangi padding untuk memperkecil jarak */
+          margin: 0 5px; /* Menambahkan margin untuk memberi jarak antar menu */
+          color: white;
+          text-decoration: none;
+          transition: background-color 0.5s;
+            }
+        .menu-item:hover {
+            background-color: #555;
+        }
+        .content {
+            padding: 20px;
+            color: white;
+        }
 
-  .item-product img {
-    width: 100%;
-    height: auto;
-  }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        tr, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ccc;
+            background-color: #ffffff;
+        }
+        th {
+            background-color: #007bff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: wheat;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button-hover {
+            background-color: #218838;
+        }
 
-  .card-body {
-    padding: 10px;
-    text-align: center;
-  }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .close {
+            color: red;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+        TOKO DIGITAL REREZZ OFFICIAL
+    </video>
 
-  .card-text {
-    font-weight: bold;
-    min-height: 48px;
-  }
+    <br><header>
+    <h1 class= >DAFTAR PRODUK</h1>
+  </header><br>
 
-  .newPrice {
-    color: #28a745;
-    font-weight: bold;
-  }
-
-  .oldPrice {
-    color: #888;
-    font-size: 14px;
-    text-decoration: line-through;
-  }
-
-  .stars-rating i {
-    color: gold;
-  }
-
-  .lihat-button {
-    margin-top: 10px;
-    padding: 8px;
-    background: #000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    cursor: pointer;
-  }
-
-  .lihat-button:hover {
-    background: #333;
-  }
-</style>
-
-<div class="product-wrapper">
-  <!-- contoh 1 -->
-  <a href="produk.html" class="item-product">
-    <img src="https://via.placeholder.com/300x200" alt="Produk 1" />
-    <div class="card-body">
-      <p class="card-text">SC BOT AUTOORDER V1.3.0</p>
-      <p class="newPrice">Rp. 60.000</p>
-      <div class="stars-rating">
-        <i class="far fa-star"></i><i class="far fa-star"></i>
-        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-      </div>
-      <button class="lihat-button">Lihat Produk</button>
+    <div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">SC BOT</a>
+    <a href="kontak.html" class="menu-item">Kontak</a>
     </div>
-  </a>
-  <!-- Tambahkan item-product lain di sini -->
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
+    <!-- Produk 1 -->
+    <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+        <img src="https://via.placeholder.com/400x200?text=Produk+1" alt="Produk 1" style="width: 100%;">
+        <div style="padding: 15px;">
+            <h3>Produk Digital 1</h3>
+            <p>Layanan digital berkualitas tinggi dan terpercaya.</p>
+            <p><strong>Harga:</strong> Rp100.000</p>
+            <a href="checkout.html?produk=Produk+Digital+1&harga=100000" class="button">Beli Sekarang</a>
+        </div>
+    </div>
+
+    <!-- Produk 2 -->
+    <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+        <img src="https://via.placeholder.com/400x200?text=Produk+2" alt="Produk 2" style="width: 100%;">
+        <div style="padding: 15px;">
+            <h3>Produk Digital 2</h3>
+            <p>Paket layanan lengkap untuk kebutuhan online Anda.</p>
+            <p><strong>Harga:</strong> Rp120.000</p>
+            <a href="checkout.html?produk=Produk+Digital+1&harga=100000" class="button">Beli Sekarang</a>
+        </div>
+    </div>
+
+    <!-- Produk 3 -->
+    <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+        <img src="https://via.placeholder.com/400x200?text=Produk+3" alt="Produk 3" style="width: 100%;">
+        <div style="padding: 15px;">
+            <h3>Produk Digital 3</h3>
+            <p>Bot otomatisasi untuk mempermudah aktivitas digital Anda.</p>
+            <p><strong>Harga:</strong> Rp90.000</p>
+            <a href="checkout.html?produk=Produk+Digital+1&harga=100000" class="button">Beli Sekarang</a>
+        </div>
+    </div>
+
+    <!-- Produk 4 -->
+    <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+        <img src="https://via.placeholder.com/400x200?text=Produk+4" alt="Produk 4" style="width: 100%;">
+        <div style="padding: 15px;">
+            <h3>Produk Digital 4</h3>
+            <p>Jasa pembuatan script bot untuk sosial media dan lainnya.</p>
+            <p><strong>Harga:</strong> Rp150.000</p>
+            <a href="checkout.html?produk=Produk+Digital+1&harga=100000" class="button">Beli Sekarang</a>
+        </div>
+    </div>
 </div>
+</body>
+</html>
