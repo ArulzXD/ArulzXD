@@ -1,182 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Toko Digital Rerez Official</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: rgba(255, 255, 255, 0.5);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        .video-background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
-        header {
-            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 15px 20px; 
-            text-align: center;
-            border-radius: 20px;
-            font-size: 25px;
-        }
-        .menu {
-            display: flex;
-            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 20px;
-            padding: 5px;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-        .menu-item {
-            padding: 10px 20px;
-            margin: 0 5px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.5s;
-        }
-        .menu-item:hover {
-            background-color: #555;
-        }
-        .content {
-            padding: 20px;
-            color: white;
-        }
-        .product-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .item-product {
-            width: 200px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: white;
-            color: black;
-        }
-        .card-img-top {
-            width: 100%;
-            height: auto;
-        }
-        .card-body {
-            padding: 10px;
-            text-align: center;
-        }
-        .newPrice {
-            font-weight: bold;
-            color: #28a745;
-        }
-        .stars-rating {
-            color: gold;
-            margin-bottom: 10px;
-        }
-        .button {
-            margin-top: 10px;
-            padding: 8px 15px;
-            background-color: #28a745;
-            color: wheat;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #218838;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toko Digital Rerez Official</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .video-background {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+    header {
+      background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      border-radius: 15px;
+      margin: 20px;
+    }
+    .menu {
+      display: flex;
+      justify-content: center;
+      background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+      background-size: cover;
+      padding: 10px;
+      border-radius: 15px;
+      margin: 0 20px;
+    }
+    .menu-item {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: opacity 0.3s;
+    }
+    .menu-item:hover {
+      opacity: 0.8;
+    }
+    .product-wrapper {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .item-product {
+      width: 220px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s;
+    }
+    .item-product:hover {
+      transform: translateY(-5px);
+    }
+    .item-product img {
+      width: 100%;
+      height: auto;
+    }
+    .card-body {
+      padding: 10px;
+      text-align: center;
+    }
+    .card-text {
+      font-weight: bold;
+      min-height: 48px;
+    }
+    .newPrice {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .oldPrice {
+      color: #888;
+      font-size: 14px;
+      text-decoration: line-through;
+    }
+    .stars-rating i {
+      color: gold;
+    }
+    .lihat-button {
+      margin-top: 10px;
+      padding: 8px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      cursor: pointer;
+    }
+    .lihat-button:hover {
+      background: #333;
+    }
+  </style>
 </head>
 <body>
-    <video autoplay muted loop class="video-background">
-        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-        TOKO DIGITAL REREZZ OFFICIAL
-    </video>
+  <video autoplay muted loop class="video-background">
+    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+  </video>
 
-    <br><header>
-        <h1>DAFTAR PRODUK</h1>
-    </header><br>
+  <header>DAFTAR PRODUK</header>
 
-    <div class="menu">
-        <a href="index.html" class="menu-item">Beranda</a>
-        <a href="produk.html" class="menu-item">Layanan</a>
-        <a href="testi.html" class="menu-item">Testimoni</a>
-        <a href="scbot.html" class="menu-item">SC BOT</a>
-        <a href="kontak.html" class="menu-item">Kontak</a>
-    </div>
+  <div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">SC BOT</a>
+    <a href="kontak.html" class="menu-item">Kontak</a>
+  </div>
 
-    <div class="content">
-      <div class="product-wrapper">
-        
-        <!-- Produk 1 -->
-        <div class="item-product">
-          <img src="https://telegra.ph/file/c2bd71b704393fc69788c.jpg" class="card-img-top" alt="Produk 1">
-          <div class="card-body">
-            <p class="card-text">Produk 1</p>
-            <p class="newPrice">Rp. 50.000</p>
-            <div class="stars-rating">
-              <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            </div>
-            <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-          </div>
+  <div class="product-wrapper">
+    <a href="produk.html" class="item-product">
+      <img src="https://via.placeholder.com/300x200" alt="Produk 1" />
+      <div class="card-body">
+        <p class="card-text">SC BOT AUTOORDER V1.3.0</p>
+        <p class="newPrice">Rp. 60.000</p>
+        <div class="stars-rating">
+          <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
         </div>
-
-        <!-- Produk 2 -->
-        <div class="item-product">
-          <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produk 2">
-          <div class="card-body">
-            <p class="card-text">Produk 2</p>
-            <p class="newPrice">Rp. 40.000</p>
-            <div class="stars-rating">
-              <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            </div>
-            <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-          </div>
-        </div>
-
-        <!-- Produk 3 -->
-        <div class="item-product">
-          <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produk 3">
-          <div class="card-body">
-            <p class="card-text">Produk 3</p>
-            <p class="newPrice">Rp. 30.000</p>
-            <div class="stars-rating">
-              <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-            </div>
-            <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-          </div>
-        </div>
-
-        <!-- Tambahkan produk tambahan sesuai kebutuhan -->
-
+        <button class="lihat-button">Lihat Produk</button>
       </div>
-    </div>
+    </a>
+
+    <a href="produk.html" class="item-product">
+      <img src="https://via.placeholder.com/300x200" alt="Produk 2" />
+      <div class="card-body">
+        <p class="card-text">JASA INSTALL PANEL</p>
+        <p class="newPrice">Rp. 10.000</p>
+        <div class="stars-rating">
+          <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        </div>
+        <button class="lihat-button">Lihat Produk</button>
+      </div>
+    </a>
+
+    <a href="produk.html" class="item-product">
+      <img src="https://via.placeholder.com/300x200" alt="Produk 3" />
+      <div class="card-body">
+        <p class="card-text">SCRIPT WEBSITE STORE</p>
+        <p class="oldPrice">Rp. 300.000</p>
+        <p class="newPrice">Rp. 201.000</p>
+        <div class="stars-rating">
+          <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        </div>
+        <button class="lihat-button">Lihat Produk</button>
+      </div>
+    </a>
+
+    <a href="produk.html" class="item-product">
+      <img src="https://via.placeholder.com/300x200" alt="Produk 4" />
+      <div class="card-body">
+        <p class="card-text">SCRIPT BOT AUTO ORDER</p>
+        <p class="oldPrice">Rp. 40.000</p>
+        <p class="newPrice">Rp. 30.000</p>
+        <div class="stars-rating">
+          <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        </div>
+        <button class="lihat-button">Lihat Produk</button>
+      </div>
+    </a>
+  </div>
 </body>
 </html>
