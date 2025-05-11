@@ -130,8 +130,8 @@
                     <td id="subtotal">Rp0</td>
                 </tr>
                 <tr>
-                    <td>Pajak</td>
-                    <td id="pajak">Rp250</td>
+                    <td>Pajak (5%)</td>
+                    <td id="pajak">Rp0</td>
                 </tr>
                 <tr class="total-row">
                     <td>Total</td>
@@ -150,7 +150,7 @@
     const params = new URLSearchParams(window.location.search);
     const produk = params.get('produk') || 'Produk Tidak Diketahui';
     const hargaProduk = parseInt(params.get('harga') || '0');
-    const pajak = 250;
+    const pajak = Math.round(hargaProduk * 0.05);
     const total = hargaProduk + pajak;
 
     document.getElementById('produk').value = produk;
@@ -165,9 +165,8 @@
         const wa = document.getElementById('wa').value;
         const metode = document.getElementById('metode').value;
 
-        const message = `*Checkout Pesanan*%0A------------------%0AProduk: ${produk}%0AHarga: Rp${hargaProduk.toLocaleString()}%0AMetode: ${metode}%0ANama: ${nama}%0AWA: ${wa}%0APajak: Rp${pajak.toLocaleString()}%0ATotal: Rp${total.toLocaleString()}`;
-        const phoneNumber = '6283171080910'; // Ganti dengan nomor admin
-
+        const message = `*Checkout Pesanan*%0A------------------%0AProduk: ${produk}%0AHarga: Rp${hargaProduk.toLocaleString()}%0AMetode: ${metode}%0ANama: ${nama}%0AWA: ${wa}%0APajak (5%): Rp${pajak.toLocaleString()}%0ATotal: Rp${total.toLocaleString()}`;
+        const phoneNumber = '628XXXXXXXXXX'; // Ganti dengan nomor admin
         const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
         window.open(waURL, '_blank');
     });
