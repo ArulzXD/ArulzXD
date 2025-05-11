@@ -1,174 +1,185 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Toko Digital Rerez Official</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: rgba(255, 255, 255, 0.5);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        .video-background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
-        header {
-            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 15px 20px; 
-            text-align: center;
-            border-radius: 20px;
-            font-size: 25px;
-        }
-        .menu {
-            display: flex;
-            background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 20px;
-            padding: 5px;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-        .menu-item {
-            padding: 10px 20px;
-            margin: 0 5px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.5s;
-        }
-        .menu-item:hover {
-            background-color: #555;
-        }
-        .content {
-            padding: 20px;
-            color: white;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        td {
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #ccc;
-            background-color: #ffffff;
-        }
-        img {
-            width: 100%;
-            max-width: 150px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .button {
-            margin-top: 10px;
-            padding: 8px 15px;
-            background-color: #28a745;
-            color: wheat;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #218838;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toko Digital Rerez Official</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+
+    header {
+      background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: 25px;
+    }
+
+    .menu {
+      display: flex;
+      background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 20px;
+      padding: 5px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-item {
+      padding: 10px 20px;
+      margin: 0 5px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.5s;
+    }
+
+    .menu-item:hover {
+      background-color: #555;
+    }
+
+    .content {
+      padding: 20px;
+      color: white;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .product-card .button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #28a745;
+      color: wheat;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product-card .button:hover {
+      background-color: #218838;
+    }
+
+    @media (max-width: 600px) {
+      .product-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <video autoplay muted loop class="video-background">
-        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-        TOKO DIGITAL REREZZ OFFICIAL
-    </video>
+  <video autoplay muted loop class="video-background">
+    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4" />
+    TOKO DIGITAL REREZZ OFFICIAL
+  </video>
 
-    <br><header>
-        <h1>DAFTAR PRODUK</h1>
-    </header><br>
+  <header>
+    <h1>DAFTAR PRODUK</h1>
+  </header>
 
-    <div class="menu">
-        <a href="index.html" class="menu-item">Beranda</a>
-        <a href="produk.html" class="menu-item">Layanan</a>
-        <a href="testi.html" class="menu-item">Testimoni</a>
-        <a href="scbot.html" class="menu-item">SC BOT</a>
-        <a href="kontak.html" class="menu-item">Kontak</a>
+  <div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">SC BOT</a>
+    <a href="kontak.html" class="menu-item">Kontak</a>
+  </div>
+
+  <div class="content">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 1" />
+        <h3>Produk 1</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 2" />
+        <h3>Produk 2</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 3" />
+        <h3>Produk 3</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 4" />
+        <h3>Produk 4</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 5" />
+        <h3>Produk 5</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 6" />
+        <h3>Produk 6</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 7" />
+        <h3>Produk 7</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150" alt="Produk 8" />
+        <h3>Produk 8</h3>
+        <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
+      </div>
     </div>
-
-    <div class="content">
-        <table>
-            <tr>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 1"><br>
-                    Produk 1<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 2"><br>
-                    Produk 2<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 3"><br>
-                    Produk 3<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 4"><br>
-                    Produk 4<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 5"><br>
-                    Produk 5<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 6"><br>
-                    Produk 6<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 7"><br>
-                    Produk 7<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-                <td>
-                    <img src="https://via.placeholder.com/150" alt="Produk 8"><br>
-                    Produk 8<br>
-                    <button class="button" onclick="location.href='produk.html'">Lihat Produk</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+  </div>
 </body>
 </html>
