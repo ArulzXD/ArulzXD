@@ -30,19 +30,13 @@
             display: block;
             margin-bottom: 6px;
         }
-        input[type="text"], input[type="number"], select {
+        input[type="text"], select {
             width: 100%;
             padding: 10px;
             border-radius: 6px;
             border: 1px solid #ccc;
         }
-        .total {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-            text-align: center;
-        }
-        button {
+        button, .home-button {
             width: 100%;
             padding: 12px;
             background-color: #28a745;
@@ -51,18 +45,12 @@
             border-radius: 6px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
-        button:hover {
+        button:hover, .home-button:hover {
             background-color: #218838;
         }
-        .option-with-icon {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        select option {
-            padding-left: 30px;
-        }
+
         .payment-icons {
             display: flex;
             gap: 10px;
@@ -75,6 +63,23 @@
             border-radius: 8px;
             padding: 4px;
             background: white;
+        }
+
+        .order-summary {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .summary-table td {
+            padding: 8px 0;
+        }
+        .total-row td {
+            border-top: 2px solid #000;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -101,11 +106,11 @@
                 <option value="Transfer Bank">Transfer Bank</option>
             </select>
             <div class="payment-icons">
-                <img src="https://seeklogo.com/images/D/dana-logo-1FAF7C97F6-seeklogo.com.png" alt="DANA" title="DANA">
-                <img src="https://seeklogo.com/images/O/ovo-logo-1DC2AE244B-seeklogo.com.png" alt="OVO" title="OVO">
-                <img src="https://seeklogo.com/images/G/gopay-logo-1C8D12C4B5-seeklogo.com.png" alt="GoPay" title="GoPay">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/QRIS_logo.svg" alt="QRIS" title="QRIS" style="height:38px;">
-                <img src="https://cdn-icons-png.flaticon.com/512/483/483356.png" alt="Bank" title="Transfer Bank">
+                <img src="https://seeklogo.com/images/D/dana-logo-1FAF7C97F6-seeklogo.com.png" alt="DANA">
+                <img src="https://seeklogo.com/images/O/ovo-logo-1DC2AE244B-seeklogo.com.png" alt="OVO">
+                <img src="https://seeklogo.com/images/G/gopay-logo-1C8D12C4B5-seeklogo.com.png" alt="GoPay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/QRIS_logo.svg" alt="QRIS" style="height:38px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/483/483356.png" alt="Bank">
             </div>
         </div>
         <div class="form-group">
@@ -116,25 +121,43 @@
             <label for="wa">Nomor WhatsApp</label>
             <input type="text" id="wa" name="wa" placeholder="08xxxxxxxxxx" required>
         </div>
-        <div class="total">
-            Subtotal (termasuk pajak Rp250): <br>
-            <span id="subtotal">Rp0</span>
+
+        <!-- Ringkasan Harga -->
+        <div class="order-summary">
+            <table class="summary-table">
+                <tr>
+                    <td>Subtotal</td>
+                    <td id="subtotal">Rp0</td>
+                </tr>
+                <tr>
+                    <td>Pajak</td>
+                    <td id="pajak">Rp250</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total</td>
+                    <td id="total">Rp0</td>
+                </tr>
+            </table>
         </div>
+
         <br>
         <button type="submit">Kirim Pesanan via WhatsApp</button>
     </form>
+    <a href="index.html"><button class="home-button">Kembali ke Beranda</button></a>
 </div>
 
 <script>
     const params = new URLSearchParams(window.location.search);
     const produk = params.get('produk') || 'Produk Tidak Diketahui';
-    const hargaAsli = parseInt(params.get('harga') || '0');
+    const hargaProduk = parseInt(params.get('harga') || '0');
     const pajak = 250;
-    const total = hargaAsli + pajak;
+    const total = hargaProduk + pajak;
 
     document.getElementById('produk').value = produk;
-    document.getElementById('harga').value = 'Rp' + hargaAsli.toLocaleString();
-    document.getElementById('subtotal').textContent = 'Rp' + total.toLocaleString();
+    document.getElementById('harga').value = 'Rp' + hargaProduk.toLocaleString();
+    document.getElementById('subtotal').textContent = 'Rp' + hargaProduk.toLocaleString();
+    document.getElementById('pajak').textContent = 'Rp' + pajak.toLocaleString();
+    document.getElementById('total').textContent = 'Rp' + total.toLocaleString();
 
     document.getElementById('checkoutForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -142,11 +165,11 @@
         const wa = document.getElementById('wa').value;
         const metode = document.getElementById('metode').value;
 
-        const message = `*Checkout Pesanan*%0A------------------%0AProduk: ${produk}%0AHarga: Rp${hargaAsli.toLocaleString()}%0AMetode: ${metode}%0ANama: ${nama}%0AWhatsApp: ${wa}%0ATotal: Rp${total.toLocaleString()}`;
+        const message = `*Checkout Pesanan*%0A------------------%0AProduk: ${produk}%0AHarga: Rp${hargaProduk.toLocaleString()}%0AMetode: ${metode}%0ANama: ${nama}%0AWA: ${wa}%0APajak: Rp${pajak.toLocaleString()}%0ATotal: Rp${total.toLocaleString()}`;
+        const phoneNumber = '628XXXXXXXXXX'; // Ganti dengan nomor admin
 
-        const phoneNumber = '628XXXXXXXXXX'; // Ganti dengan nomor admin tujuan (format internasional tanpa +)
-        const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(waLink, '_blank');
+        const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(waURL, '_blank');
     });
 </script>
 </body>
