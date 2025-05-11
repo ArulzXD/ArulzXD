@@ -30,13 +30,19 @@
       display: block;
       margin-bottom: 6px;
     }
-    input[type="text"], input[type="file"], select {
+    input[type="text"], input[type="number"], select {
       width: 100%;
       padding: 10px;
       border-radius: 6px;
       border: 1px solid #ccc;
     }
-    button, .home-button {
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+    }
+    button {
       width: 100%;
       padding: 12px;
       background-color: #28a745;
@@ -45,142 +51,114 @@
       border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
-      margin-top: 10px;
     }
-    button:hover, .home-button:hover {
+    button:hover {
       background-color: #218838;
     }
-    .payment-icons {
+    .payment-icon {
       display: flex;
-      justify-content: space-around;
       align-items: center;
-      margin-top: 8px;
+      gap: 10px;
     }
-    .payment-icons img {
-      height: 45px;
-      background: white;
-      border-radius: 8px;
-      padding: 4px;
-      border: 1px solid #ddd;
+    .payment-icon img {
+      width: 40px;
+      height: auto;
     }
-    .order-summary {
-      margin-top: 20px;
-      border-top: 1px solid #ccc;
-      padding-top: 10px;
+    .home-button {
+      display: block;
+      margin-bottom: 15px;
+      background-color: #007bff;
     }
-    .summary-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .summary-table td {
-      padding: 8px 0;
-    }
-    .total-row td {
-      border-top: 2px solid #000;
-      font-weight: bold;
+    .home-button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Checkout Produk</h2>
-    <form id="checkoutForm">
-      <div class="form-group">
-        <label for="produk">Produk</label>
-        <input type="text" id="produk" name="produk" readonly />
+<div class="container">
+  <a href="index.html">
+    <button class="home-button">Beranda</button>
+  </a>
+  <h2>Checkout Produk</h2>
+  <form id="checkoutForm">
+    <div class="form-group">
+      <label for="produk">Produk</label>
+      <input type="text" id="produk" name="produk" readonly>
+    </div>
+    <div class="form-group">
+      <label for="harga">Harga</label>
+      <input type="text" id="harga" name="harga" readonly>
+    </div>
+    <div class="form-group">
+      <label for="metode">Metode Pembayaran</label>
+      <select id="metode" name="metode" required>
+        <option value="">Pilih Metode</option>
+        <option value="DANA">DANA</option>
+        <option value="OVO">OVO</option>
+        <option value="GOPAY">GOPAY</option>
+      </select>
+      <div class="payment-icon" style="margin-top:10px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_dana_blue.svg" alt="DANA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_ovo_purple.svg" alt="OVO">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Logo_Gopay.svg" alt="GOPAY">
       </div>
-      <div class="form-group">
-        <label for="harga">Harga</label>
-        <input type="text" id="harga" name="harga" readonly />
-      </div>
-      <div class="form-group">
-        <label for="metode">Metode Pembayaran</label>
-        <select id="metode" name="metode" required>
-          <option value="">-- Pilih Metode --</option>
-          <option value="DANA">DANA</option>
-          <option value="OVO">OVO</option>
-          <option value="GoPay">GoPay</option>
-          <option value="QRIS">QRIS</option>
-          <option value="Transfer Bank">Transfer Bank</option>
-        </select>
-        <div class="payment-icons">
-          <img src="https://seeklogo.com/images/D/dana-logo-1FAF7C97F6-seeklogo.com.png" alt="DANA" />
-          <img src="https://seeklogo.com/images/O/ovo-logo-1DC2AE244B-seeklogo.com.png" alt="OVO" />
-          <img src="https://seeklogo.com/images/G/gopay-logo-1C8D12C4B5-seeklogo.com.png" alt="GoPay" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/QRIS_logo.svg" alt="QRIS" style="height: 40px;" />
-          <img src="https://cdn-icons-png.flaticon.com/512/483/483356.png" alt="Bank" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="nama">Nama Pembeli</label>
-        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required />
-      </div>
-      <div class="form-group">
-        <label for="wa">Nomor WhatsApp</label>
-        <input type="text" id="wa" name="wa" placeholder="08xxxxxxxxxx" required />
-      </div>
-      <div class="form-group">
-        <label for="bukti">Upload Bukti Pembayaran (opsional)</label>
-        <input type="file" id="bukti" name="bukti" accept="image/*" />
-      </div>
+    </div>
+    <div class="form-group">
+      <label for="nama">Nama Pembeli</label>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+    </div>
+    <div class="form-group">
+      <label for="wa">Nomor WhatsApp</label>
+      <input type="text" id="wa" name="wa" placeholder="08xxxxxxxxxx" required>
+    </div>
+    <div class="form-group total">
+      <p>Subtotal: <span id="subtotal">Rp0</span></p>
+      <p>Pajak (1%): <span id="pajak">Rp0</span></p>
+      <p>Total: <span id="total">Rp0</span></p>
+    </div>
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+</div>
 
-      <!-- Ringkasan Harga -->
-      <div class="order-summary">
-        <table class="summary-table">
-          <tr>
-            <td>Subtotal</td>
-            <td id="subtotal">Rp0</td>
-          </tr>
-          <tr>
-            <td>Pajak (1%)</td>
-            <td id="pajak">Rp0</td>
-          </tr>
-          <tr class="total-row">
-            <td>Total</td>
-            <td id="total">Rp0</td>
-          </tr>
-        </table>
-      </div>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const produk = params.get('produk') || 'Produk Tidak Diketahui';
+  const harga = parseInt(params.get('harga')) || 0;
+  const pajak = Math.round(harga * 0.01);
+  const total = harga + pajak;
 
-      <button type="submit">Kirim Pesanan via WhatsApp</button>
-    </form>
-    <a href="index.html"><button class="home-button">Kembali ke Beranda</button></a>
-  </div>
+  document.getElementById('produk').value = produk;
+  document.getElementById('harga').value = 'Rp' + harga.toLocaleString();
+  document.getElementById('subtotal').innerText = 'Rp' + harga.toLocaleString();
+  document.getElementById('pajak').innerText = 'Rp' + pajak.toLocaleString();
+  document.getElementById('total').innerText = 'Rp' + total.toLocaleString();
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const produk = params.get("produk") || "Produk Tidak Diketahui";
-    const hargaProduk = parseInt(params.get("harga") || "0");
-    const pajak = Math.round(hargaProduk * 0.01); // Pajak 1%
-    const total = hargaProduk + pajak;
+  document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    document.getElementById("produk").value = produk;
-    document.getElementById("harga").value = "Rp" + hargaProduk.toLocaleString();
-    document.getElementById("subtotal").textContent = "Rp" + hargaProduk.toLocaleString();
-    document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
-    document.getElementById("total").textContent = "Rp" + total.toLocaleString();
+    if (!confirm("Jangan lupa kirim bukti pembayaran ke nomor admin setelah mengirim pesanan. Lanjutkan?")) {
+      return;
+    }
 
-    document.getElementById("checkoutForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const nama = document.getElementById("nama").value;
-      const wa = document.getElementById("wa").value;
-      const metode = document.getElementById("metode").value;
+    const nama = document.getElementById("nama").value;
+    const wa = document.getElementById("wa").value;
+    const metode = document.getElementById("metode").value;
 
-      const message =
-        `*Checkout Pesanan*%0A` +
-        `------------------%0A` +
-        `Produk: ${produk}%0A` +
-        `Harga: Rp${hargaProduk.toLocaleString()}%0A` +
-        `Metode: ${metode}%0A` +
-        `Nama: ${nama}%0A` +
-        `WhatsApp: ${wa}%0A` +
-        `Pajak (1%): Rp${pajak.toLocaleString()}%0A` +
-        `Total: Rp${total.toLocaleString()}`;
+    const message =
+      `*Checkout Pesanan*%0A` +
+      `------------------%0A` +
+      `Produk: ${produk}%0A` +
+      `Harga: Rp${harga.toLocaleString()}%0A` +
+      `Metode: ${metode}%0A` +
+      `Nama: ${nama}%0A` +
+      `WhatsApp: ${wa}%0A` +
+      `Pajak (1%): Rp${pajak.toLocaleString()}%0A` +
+      `Total: Rp${total.toLocaleString()}`;
 
-      const phoneNumber = "628XXXXXXXXXX"; // Ganti dengan nomor admin Anda
-      const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
-      window.open(waURL, "_blank");
-    });
-  </script>
+    const phoneNumber = "628XXXXXXXXXX"; // Ganti dengan nomor admin Anda
+    const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(waURL, "_blank");
+  });
+</script>
 </body>
 </html>
