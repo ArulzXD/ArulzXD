@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-  <title>ArulzXD Digital Marketplace</title>  
+<head lang="id">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ArulzXD Digital Marketplace</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: rgba(255, 255, 255, 0.5);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
     }
 
     .video-background {
@@ -32,27 +37,12 @@
       background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       color: white;
       padding: 15px 20px;
       text-align: center;
       border-radius: 20px;
       font-size: 25px;
-    }
-
-    @keyframes typing {
-      0% { width: 0 }
-      40%, 60% { width: 22ch }
-      100% { width: 0 }
-    }
-
-    @keyframes blink-caret {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: orange; }
-    }
-
-    @keyframes rainbow {
-      0%, 100% { background-position: 0 0; }
-      50% { background-position: 100% 0; }
     }
 
     .typing-effect {
@@ -62,24 +52,45 @@
       border-right: 3px solid orange;
       font-size: 2em;
       width: 0;
-      animation:
-        typing 6s steps(22, end) infinite,
-        blink-caret 0.7s step-end infinite,
-        rainbow 5s linear infinite;
       background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
       background-size: 200%;
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      animation:
+        typing 4s steps(30, end) infinite,
+        blink-caret 0.75s step-end infinite,
+        rainbow 5s infinite linear;
+    }
+
+    @keyframes typing {
+      0% { width: 0; }
+      50% { width: 100%; }
+      100% { width: 0; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: orange; }
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .menu {
       display: flex;
       background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
       background-size: cover;
-      justify-content: center;
-      padding: 5px;
+      background-position: center;
+      background-repeat: no-repeat;
       border-radius: 20px;
+      padding: 5px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
     }
 
     .menu-item {
@@ -94,15 +105,22 @@
       background-color: #555;
     }
 
+    .content {
+      padding: 20px;
+      color: white;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
 
-    th, td {
+    tr, td {
       padding: 12px;
+      text-align: left;
       border: 1px solid #ccc;
+      background-color: #ffffff;
     }
 
     th {
@@ -126,6 +144,11 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button-hover {
+      background-color: #218838;
     }
 
     .modal {
@@ -144,6 +167,7 @@
       margin: 15% auto;
       padding: 20px;
       border: 1px solid #888;
+      width: 80%;
       max-width: 500px;
       text-align: center;
     }
@@ -153,6 +177,12 @@
       float: right;
       font-size: 28px;
       font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
       cursor: pointer;
     }
 
@@ -187,13 +217,14 @@
     .social-proof .text p {
       margin: 0;
       font-size: 14px;
+      line-height: 1.3;
     }
 
-    .social-proof .font-bold {
+    .social-proof .text .font-bold {
       font-weight: bold;
     }
 
-    .verified {
+    .social-proof .verified {
       font-size: 12px;
       color: gray;
       display: flex;
@@ -201,129 +232,149 @@
       gap: 5px;
     }
 
-    .verified img {
+    .social-proof .verified img {
       width: 14px;
       height: 14px;
     }
   </style>
 </head>
 <body>
+  <video autoplay muted loop class="video-background">
+    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+    TOKO DIGITAL REREZZ OFFICIAL
+  </video><br>
+  <header>
+    <h1 class="typing-effect">DAFTAR PRODUK</h1>
+  </header><br>
 
-<video autoplay muted loop class="video-background">
-  <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-</video>
+  <div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">SC BOT</a>
+    <a href="kontak.html" class="menu-item">Kontak</a>
+  </div>
 
-<header>
-  <h1 class="typing-effect">DAFTAR PRODUK</h1>
-</header>
-
-<div class="menu">
-  <a href="index.html" class="menu-item">Beranda</a>
-  <a href="produk.html" class="menu-item">Layanan</a>
-  <a href="testi.html" class="menu-item">Testimoni</a>
-  <a href="scbot.html" class="menu-item">SC BOT</a>
-  <a href="kontak.html" class="menu-item">Kontak</a>
-</div>
-
-<table>
-  <thead>
-    <tr>
+  <table>
+    <thead>
       <th>Nama Barang</th>
       <th>Deskripsi</th>
       <th>Harga</th>
       <th>Aksi</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Panel Hosting</td>
-      <td>Panel hosting premium untuk website dan aplikasi</td>
-      <td>Rp 10.000</td>
-      <td class="action-buttons">
-        <button class="button" onclick="openModal('Panel Hosting', 'Panel hosting premium dengan fitur lengkap dan performa tinggi.')">Detil</button>
-        <a href="https://wa.me/6283171080910?text=Mau+beli+Panel+Hosting"><button class="button">Beli</button></a>
-      </td>
-    </tr>
-    <!-- Produk lainnya... -->
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Panel Hosting</td>
+        <td>Panel hosting premium untuk website dan aplikasi</td>
+        <td>Rp 10.000</td>
+        <td class="action-buttons">
+          <button class="button" onclick="openModal('Panel Hosting', 'Panel hosting premium dengan fitur lengkap dan performa tinggi.')">Detil</button>
+          <a href="https://wa.me/6283171080910?text=Mau+beli+Panel+Hosting"><button class="button">Beli</button></a>
+        </td>
+      </tr>
+      <tr>
+        <td>SC Bot WhatsApp</td>
+        <td>Source Code Bot WhatsApp siap pakai</td>
+        <td>Rp 25.000</td>
+        <td class="action-buttons">
+          <button class="button" onclick="openModal('SC Bot WhatsApp', 'Source code bot WhatsApp multi device, auto respon, dan fitur admin.')">Detil</button>
+          <a href="https://wa.me/6283171080910?text=Mau+beli+SC+Bot+WhatsApp"><button class="button">Beli</button></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Template Website</td>
+        <td>Template website modern dan responsif</td>
+        <td>Rp 15.000</td>
+        <td class="action-buttons">
+          <button class="button" onclick="openModal('Template Website', 'Template HTML, CSS, dan JavaScript untuk portofolio, bisnis, atau toko online.')">Detil</button>
+          <a href="https://wa.me/6283171080910?text=Mau+beli+Template+Website"><button class="button">Beli</button></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Jasa Install VPS</td>
+        <td>Jasa instalasi panel hosting di server VPS</td>
+        <td>Rp 50.000</td>
+        <td class="action-buttons">
+          <button class="button" onclick="openModal('Jasa Install VPS', 'Layanan setup VPS lengkap dengan panel hosting, SSL, dan keamanan.')">Detil</button>
+          <a href="https://wa.me/6283171080910?text=Mau+beli+Jasa+Install+VPS"><button class="button">Beli</button></a>
+        </td>
+      </tr>
+    </tbody>
+  </table><br>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2 id="modalTitle">Detail Barang</h2>
-    <p id="modalDescription">Deskripsi Produk</p>
-  </div>
-</div>
-
-<!-- Social Proof -->
-<div class="social-proof" id="socialProofId-1">
-  <div class="main">
-    <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
-    <div class="text">
-      <p><span class="font-bold">ryza</span> membeli</p>
-      <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
-      <span class="verified">
-        <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-        Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
-      </span>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Detail Barang</h2>
+      <p id="modalDescription">Deskripsi Produk</p>
     </div>
   </div>
-</div>
 
-<div class="social-proof" id="socialProofId-2">
-  <div class="main">
-    <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
-    <div class="text">
-      <p><span class="font-bold">ranz</span> membeli</p>
-      <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
-      <span class="verified">
-        <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-        Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
-      </span>
+  <div class="social-proof" id="socialProofId-1">
+    <div class="main">
+      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+      <div class="text">
+        <p><span class="font-bold">ryza</span> membeli</p>
+        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+        <span class="verified">
+          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+          Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+        </span>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  function openModal(title, description) {
-    document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalDescription").innerText = description;
-    document.getElementById("myModal").style.display = "block";
-  }
+  <div class="social-proof" id="socialProofId-2">
+    <div class="main">
+      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+      <div class="text">
+        <p><span class="font-bold">ranz</span> membeli</p>
+        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+        <span class="verified">
+          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+          Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+        </span>
+      </div>
+    </div>
+  </div>
 
-  function closeModal() {
-    document.getElementById("myModal").style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    if (event.target == document.getElementById("myModal")) {
-      closeModal();
+  <script>
+    function openModal(title, description) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDescription").innerText = description;
+      document.getElementById("myModal").style.display = "block";
     }
-  }
 
-  // Social Proof Logic
-  let currentProof = 1;
-  const totalProof = 2;
-  const showDuration = 5000;
-  const delayBetween = 3000;
-
-  function showSocialProof() {
-    const id = `#socialProofId-${currentProof}`;
-    const element = document.querySelector(id);
-    if (element) {
-      element.style.bottom = "20px";
-      setTimeout(() => {
-        element.style.bottom = "-100px";
-        currentProof++;
-        if (currentProof > totalProof) currentProof = 1;
-        setTimeout(showSocialProof, delayBetween);
-      }, showDuration);
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
     }
-  }
 
-  setTimeout(showSocialProof, 2000);
-</script>
+    window.onclick = function (event) {
+      if (event.target == document.getElementById("myModal")) {
+        closeModal();
+      }
+    }
 
+    let currentProof = 1;
+    const totalProof = 2;
+    const showDuration = 5000;
+    const delayBetween = 3000;
+
+    function showSocialProof() {
+      const id = `#socialProofId-${currentProof}`;
+      const element = document.querySelector(id);
+      if (element) {
+        element.style.bottom = "20px";
+        setTimeout(() => {
+          element.style.bottom = "-100px";
+          currentProof++;
+          if (currentProof > totalProof) currentProof = 1;
+          setTimeout(showSocialProof, delayBetween);
+        }, showDuration);
+      }
+    }
+
+    setTimeout(showSocialProof, 2000);
+  </script>
 </body>
 </html>
