@@ -30,7 +30,7 @@
             display: block;
             margin-bottom: 6px;
         }
-        input[type="text"], input[type="number"] {
+        input[type="text"], input[type="number"], select {
             width: 100%;
             padding: 10px;
             border-radius: 6px;
@@ -55,12 +55,33 @@
         button:hover {
             background-color: #218838;
         }
+        .option-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        select option {
+            padding-left: 30px;
+        }
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            justify-content: center;
+        }
+        .payment-icons img {
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 4px;
+            background: white;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <h2>Checkout Produk</h2>
-    <form>
+    <form id="checkoutForm">
         <div class="form-group">
             <label for="produk">Produk</label>
             <input type="text" id="produk" name="produk" readonly>
@@ -70,6 +91,24 @@
             <input type="text" id="harga" name="harga" readonly>
         </div>
         <div class="form-group">
+            <label for="metode">Metode Pembayaran</label>
+            <select id="metode" name="metode" required>
+                <option value="">-- Pilih Metode --</option>
+                <option value="DANA">DANA</option>
+                <option value="OVO">OVO</option>
+                <option value="GOPAY">GoPay</option>
+                <option value="QRIS">QRIS</option>
+                <option value="Transfer Bank">Transfer Bank</option>
+            </select>
+            <div class="payment-icons">
+                <img src="https://seeklogo.com/images/D/dana-logo-1FAF7C97F6-seeklogo.com.png" alt="DANA" title="DANA">
+                <img src="https://seeklogo.com/images/O/ovo-logo-1DC2AE244B-seeklogo.com.png" alt="OVO" title="OVO">
+                <img src="https://seeklogo.com/images/G/gopay-logo-1C8D12C4B5-seeklogo.com.png" alt="GoPay" title="GoPay">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/QRIS_logo.svg" alt="QRIS" title="QRIS" style="height:38px;">
+                <img src="https://cdn-icons-png.flaticon.com/512/483/483356.png" alt="Bank" title="Transfer Bank">
+            </div>
+        </div>
+        <div class="form-group">
             <label for="nama">Nama Pembeli</label>
             <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
         </div>
@@ -77,18 +116,38 @@
             <label for="wa">Nomor WhatsApp</label>
             <input type="text" id="wa" name="wa" placeholder="08xxxxxxxxxx" required>
         </div>
-        <button type="submit">Kirim Pesanan</button>
+        <div class="total">
+            Subtotal (termasuk pajak Rp250): <br>
+            <span id="subtotal">Rp0</span>
+        </div>
+        <br>
+        <button type="submit">Kirim Pesanan via WhatsApp</button>
     </form>
 </div>
 
 <script>
-    // Ambil parameter dari URL
     const params = new URLSearchParams(window.location.search);
     const produk = params.get('produk') || 'Produk Tidak Diketahui';
-    const harga = params.get('harga') || '0';
+    const hargaAsli = parseInt(params.get('harga') || '0');
+    const pajak = 250;
+    const total = hargaAsli + pajak;
 
     document.getElementById('produk').value = produk;
-    document.getElementById('harga').value = 'Rp' + parseInt(harga).toLocaleString();
+    document.getElementById('harga').value = 'Rp' + hargaAsli.toLocaleString();
+    document.getElementById('subtotal').textContent = 'Rp' + total.toLocaleString();
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nama = document.getElementById('nama').value;
+        const wa = document.getElementById('wa').value;
+        const metode = document.getElementById('metode').value;
+
+        const message = `*Checkout Pesanan*%0A------------------%0AProduk: ${produk}%0AHarga: Rp${hargaAsli.toLocaleString()}%0AMetode: ${metode}%0ANama: ${nama}%0AWhatsApp: ${wa}%0ATotal: Rp${total.toLocaleString()}`;
+
+        const phoneNumber = '628XXXXXXXXXX'; // Ganti dengan nomor admin tujuan (format internasional tanpa +)
+        const waLink = `https://wa.me/${phoneNumber}?text=${message}`;
+        window.open(waLink, '_blank');
+    });
 </script>
 </body>
 </html>
