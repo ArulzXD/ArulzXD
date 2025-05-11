@@ -1,7 +1,7 @@
 <!DOCTYPE html>  <head lang="id">  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-    <title>Toko Digital Rerez Official</title>  
+    <title>ArulzXD Digital Marketplace</title>  
     <style>  
         body {  
             font-family: Arial, sans-serif;  
@@ -170,7 +170,60 @@
         color: #000;  
         text-decoration: none;  
         cursor: pointer;  
-    }  
+    }
+    .social-proof {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      animation: fadeInOut 10s ease-in-out;
+      z-index: 1000;
+      max-width: 300px;
+      max-height: 200px;
+      font-family: sans-serif;
+    }
+
+    .social-proof .main {
+      display: flex;
+      align-items: center;
+    }
+
+    .social-proof img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      margin-right: 10px;
+      border-radius: 8px;
+    }
+
+    .font-bold {
+      font-weight: bold;
+    }
+
+    .verified {
+      font-size: 0.8rem;
+      color: #666;
+      display: flex;
+      align-items: center;
+    }
+
+    .verified img {
+      width: 14px;
+      height: 14px;
+      margin-right: 4px;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(20px); }
+      10% { opacity: 1; transform: translateY(0); }
+      90% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(20px); }
+    } 
 </style>
 
 </head>  
@@ -246,31 +299,6 @@
     </div>  
 </div>  
 
-      <input type="hidden" id="numberOfInvoiceTotalHomePage" value="2">
-    <div class="social-proof" id="socialProofId-1">
-      <div class="main">
-                          <img alt="SC BOT AUTOORDER V1.3.0 " src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg">
-                <div class="text">
-          <p><span class="font-bold">ryza</span> membeli
-          <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0 </p>
-          </p>
-          <span class="verified"><img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon"> Verified by <span class="app_name">Catalyst Team Digital Marketplace</span></span>
-        </div>
-      </div>
-    </div>
-      <input type="hidden" id="numberOfInvoiceTotalHomePage" value="2">
-    <div class="social-proof" id="socialProofId-2">
-      <div class="main">
-                          <img alt="SC BOT AUTOORDER V1.3.0 " src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg">
-                <div class="text">
-          <p><span class="font-bold">ranz</span> membeli
-          <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0 </p>
-          </p>
-          <span class="verified"><img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon"> Verified by <span class="app_name">Catalyst Team Digital Marketplace</span></span>
-        </div>
-      </div>
-    </div>
-
 <script>  
     // Fungsi untuk membuka modal  
     function openModal(title, description) {  
@@ -289,27 +317,45 @@
         if (event.target == document.getElementById("myModal")) {  
             closeModal();  
         }  
-    }  
-</script>
-let numberOfSocialProof = 1;
-    let numberOfInvoiceTotal = parseInt($("#numberOfInvoiceTotalHomePage").val()) * 1000;
-    let pauseOfSocialProof = parseInt('10') * 1000;
-    let timeOfSocialProof = parseInt('5') * 1000;
-
-    function showHideSocialProof() {
-        $(`#socialProofId-${numberOfSocialProof}`).css("bottom", "20px");
-        setTimeout(function() {
-            $(`#socialProofId-${numberOfSocialProof}`).css("bottom", "-100px");
-            numberOfSocialProof++;
-        }, pauseOfSocialProof);
-        if (numberOfSocialProof <= numberOfInvoiceTotal) {
-            setTimeout(showHideSocialProof, pauseOfSocialProof * 2);
-        } else {
-            $(`div.social-proof`).css("bottom", "-100px");
-            numberOfSocialProof = 0;
-            setTimeout(showHideSocialProof, pauseOfSocialProof * 2);
-        }
     }
-    setTimeout(showHideSocialProof, timeOfSocialProof);
+    const buyers = [
+    { name: 'ryza', product: 'SC BOT AUTOORDER V1.3.0' },
+    { name: 'ranz', product: 'SC BOT AUTOORDER V1.3.0' },
+    { name: 'alya', product: 'SC BOT AUTOORDER V1.3.0' },
+    { name: 'bima', product: 'SC BOT AUTOORDER V1.3.0' }
+  ];
+
+  let currentIndex = 0;
+
+  function showNotification() {
+    const data = buyers[currentIndex];
+    const notif = document.createElement('div');
+    notif.className = 'social-proof';
+    notif.innerHTML = `
+      <div class="main">
+        <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="${data.product}">
+        <div class="text">
+          <p><span class="font-bold">${data.name}</span> membeli</p>
+          <p class="font-bold product_name">${data.product}</p>
+          <span class="verified">
+            <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+            Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+          </span>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(notif);
+
+    setTimeout(() => {
+      notif.remove();
+    }, 10000); // hilang setelah 10 detik
+
+    currentIndex = (currentIndex + 1) % buyers.length;
+  }
+
+  setInterval(showNotification, 12000); // tampil setiap 12 detik
+</script>
+
 </body>  
 </html>
