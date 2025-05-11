@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout Produk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .total {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Checkout Produk</h2>
+    <form>
+        <div class="form-group">
+            <label for="produk">Produk</label>
+            <input type="text" id="produk" name="produk" readonly>
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga</label>
+            <input type="text" id="harga" name="harga" readonly>
+        </div>
+        <div class="form-group">
+            <label for="nama">Nama Pembeli</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+        </div>
+        <div class="form-group">
+            <label for="wa">Nomor WhatsApp</label>
+            <input type="text" id="wa" name="wa" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <button type="submit">Kirim Pesanan</button>
+    </form>
+</div>
+
+<script>
+    // Ambil parameter dari URL
+    const params = new URLSearchParams(window.location.search);
+    const produk = params.get('produk') || 'Produk Tidak Diketahui';
+    const harga = params.get('harga') || '0';
+
+    document.getElementById('produk').value = produk;
+    document.getElementById('harga').value = 'Rp' + parseInt(harga).toLocaleString();
+</script>
+</body>
+</html>
