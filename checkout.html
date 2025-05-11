@@ -128,7 +128,7 @@
             <td id="subtotal">Rp0</td>
           </tr>
           <tr>
-            <td>Pajak (1%)</td>
+            <td>Pajak (0.1%)</td>
             <td id="pajak">Rp0</td>
           </tr>
           <tr class="total-row">
@@ -147,7 +147,7 @@
     const params = new URLSearchParams(window.location.search);
     const produk = params.get("produk") || "Produk Tidak Diketahui";
     const hargaProduk = parseInt(params.get("harga") || "0");
-    const pajak = Math.round(hargaProduk * 0.01); // Pajak 1%
+    const pajak = Math.round(hargaProduk * 0.009); // Pajak 1%
     const total = hargaProduk + pajak;
 
     document.getElementById("produk").value = produk;
@@ -173,7 +173,7 @@
         `Pajak (1%): Rp${pajak.toLocaleString()}%0A` +
         `Total: Rp${total.toLocaleString()}`;
 
-      const phoneNumber = "628XXXXXXXXXX"; // Ganti dengan nomor admin Anda
+      const phoneNumber = "683171080910"; // Ganti dengan nomor admin Anda
       const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
       if (confirm("JANGAN LUPA KIRIM BUKTI PEMBAYARAN KE NOMOR ADMIN\n\nKlik OK untuk Pesan Sekarang")) {
