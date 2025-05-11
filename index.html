@@ -1,219 +1,87 @@
-<!DOCTYPE html>
-<head lang="id">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Toko Digital Rerez Official</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
-    .video-background {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1;
-      transform: translate(-50%, -50%);
-    }
-    header {
-      background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
-      padding: 15px 20px;
-      text-align: center;
-      border-radius: 20px;
-      font-size: 25px;
-    }
+<style>
+  .product-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
 
-    .menu {
-      display: flex;
-      background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 20px;
-      padding: 5px;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-    }
-    .menu-item {
-      padding: 10px 20px;
-      margin: 0 5px;
-      color: white;
-      text-decoration: none;
-      transition: background-color 0.5s;
-    }
-    .menu-item:hover {
-      background-color: #555;
-    }
-    .content {
-      padding: 20px;
-      color: black;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: white;
-    }
-    tr, td {
-      padding: 12px;
-      text-align: left;
-      border: 1px solid #ccc;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-    .button {
-      padding: 8px 15px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  .item-product {
+    width: 220px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+  }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
-      position: relative;
-    }
-    .close {
-      position: absolute;
-      right: 15px;
-      top: 10px;
-      font-size: 20px;
-      color: red;
-      cursor: pointer;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin: 6px 0;
-      box-sizing: border-box;
-    }
-    .modal-content button {
-      background-color: #28a745;
-      color: white;
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
-  <video autoplay muted loop class="video-background">
-    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-  </video>
+  .item-product:hover {
+    transform: translateY(-5px);
+  }
 
-  <br><header>
-    <h1>DAFTAR PRODUK</h1>
-  </header><br>
+  .item-product img {
+    width: 100%;
+    height: auto;
+  }
 
-  <div class="menu">
-    <a href="index.html" class="menu-item">Beranda</a>
-    <a href="produk.html" class="menu-item">Layanan</a>
-    <a href="testi.html" class="menu-item">Testimoni</a>
-    <a href="scbot.html" class="menu-item">SC BOT</a>
-    <a href="kontak.html" class="menu-item">Kontak</a>
-  </div>
+  .card-body {
+    padding: 10px;
+    text-align: center;
+  }
 
-  <div class="content">
-    <table>
-      <tr>
-        <td>SC BOT AUTOORDER V1.3.0</td>
-        <td>Rp. 60.000</td>
-        <td><button class="button" onclick="openModal('SC BOT AUTOORDER V1.3.0', 60000)">Pesan Sekarang</button></td>
-      </tr>
-      <tr>
-        <td>SCRIPT WEBSITE STORE</td>
-        <td>Rp. 201.000</td>
-        <td><button class="button" onclick="openModal('SCRIPT WEBSITE STORE', 201000)">Pesan Sekarang</button></td>
-      </tr>
-    </table>
-  </div>
+  .card-text {
+    font-weight: bold;
+    min-height: 48px;
+  }
 
-  <!-- Modal -->
-  <div class="modal" id="checkoutModal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="productName">Nama Produk</h3>
-      <p id="productPrice">Rp. 0</p>
-      <input type="text" id="buyerName" placeholder="Nama Anda" />
-      <input type="text" id="buyerAddress" placeholder="Alamat Lengkap" />
-      <input type="number" id="buyerQty" min="1" value="1" />
-      <button onclick="checkout()">Kirim via WhatsApp</button>
+  .newPrice {
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  .oldPrice {
+    color: #888;
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+
+  .stars-rating i {
+    color: gold;
+  }
+
+  .lihat-button {
+    margin-top: 10px;
+    padding: 8px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .lihat-button:hover {
+    background: #333;
+  }
+</style>
+
+<div class="product-wrapper">
+  <!-- contoh 1 -->
+  <a href="produk.html" class="item-product">
+    <img src="https://via.placeholder.com/300x200" alt="Produk 1" />
+    <div class="card-body">
+      <p class="card-text">SC BOT AUTOORDER V1.3.0</p>
+      <p class="newPrice">Rp. 60.000</p>
+      <div class="stars-rating">
+        <i class="far fa-star"></i><i class="far fa-star"></i>
+        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+      </div>
+      <button class="lihat-button">Lihat Produk</button>
     </div>
-  </div>
-
-  <script>
-    let selectedProduct = '';
-    let selectedPrice = 0;
-
-    function openModal(name, price) {
-      selectedProduct = name;
-      selectedPrice = price;
-      document.getElementById('productName').innerText = name;
-      document.getElementById('productPrice').innerText = 'Rp. ' + price.toLocaleString();
-      document.getElementById('checkoutModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-      document.getElementById('checkoutModal').style.display = 'none';
-    }
-
-    function checkout() {
-      const name = document.getElementById('buyerName').value.trim();
-      const address = document.getElementById('buyerAddress').value.trim();
-      const qty = parseInt(document.getElementById('buyerQty').value);
-
-      if (!name || !address || qty < 1) {
-        alert("Isi data dengan benar.");
-        return;
-      }
-
-      const total = qty * selectedPrice;
-      const message = `Halo kak, saya ingin pesan:\n\nProduk: *${selectedProduct}*\nJumlah: ${qty}\nTotal: Rp. ${total.toLocaleString()}\n\nNama: ${name}\nAlamat: ${address}`;
-      const phone = "6281234567890"; // Ganti dengan nomor WA Anda
-      const link = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-      window.open(link, "_blank");
-    }
-  </script>
-</body>
-</html>
+  </a>
+  <!-- Tambahkan item-product lain di sini -->
+</div>
