@@ -835,9 +835,9 @@ productImages.forEach(img => {
 
 // Social Proof
 let currentProof = 1;
-const totalProof = 2;
+const totalProof = 30;
 const showDuration = 5000;
-const delayBetween = 3000;
+const delayBetween = 5000;
 
 function showSocialProof() {
     const id = `#socialProofId-${currentProof}`;
@@ -852,7 +852,7 @@ function showSocialProof() {
         }, showDuration);
     }
 }
-setTimeout(showSocialProof, 2000);
+setTimeout(showSocialProof, 5000);
 
 // LED SCROLLER
 const ledScrollTextElement = document.getElementById("ledScrollText");
