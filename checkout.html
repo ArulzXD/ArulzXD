@@ -114,10 +114,6 @@
           <button type="button" onclick="ubahJumlah(1)">+</button>
         </div>
       </div>
-
-       <div class="form-group" id="satuanInfo" style="font-size: 14px; color: #555; margin-top: -10px;">
-  <span id="infoSatuanHarga"></span>
-</div>
       <div class="form-group">
         <label for="metode">Metode Pembayaran</label>
         <select id="metode" name="metode" required>
@@ -210,8 +206,8 @@
     let message = `*Checkout Produk*\n` +
               `====================\n` +
               `Produk        : ${produk}\n` +
-              `Harga Satuan  : Rp${hargaProduk.toLocaleString()}\n` +
               `Jumlah        : ${jumlah} pcs\n` +
+              `Harga Satuan  : Rp${hargaProduk.toLocaleString()}\n` +
               `Subtotal      : Rp${subtotal.toLocaleString()}\n` +
               `Pajak (0.5%)  : Rp${pajak.toLocaleString()}\n` +
               `Total         : Rp${total.toLocaleString()}\n` +
