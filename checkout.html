@@ -180,10 +180,6 @@
   document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
   document.getElementById("total").textContent = "Rp" + total.toLocaleString();
 
-  document.getElementById("infoSatuanHarga").textContent =
-    `(${hargaProduk.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })} x ${jumlah} = ` +
-    `${(hargaProduk * jumlah).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })})`;
-
   return { subtotal, pajak, total };
 }
 
