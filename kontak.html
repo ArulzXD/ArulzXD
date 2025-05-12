@@ -176,3 +176,18 @@ img {
         <p>&copy; 2023 Nama Website. Semua hak cipta dilindungi.</p>  
     </div>  
 </footer>
+<script>
+// Highlight menu aktif berdasarkan URL
+document.querySelectorAll('.menu-item').forEach(link => {
+    const page = window.location.pathname.split("/").pop();
+    const href = link.getAttribute("href");
+
+    if (href === page || (page === "" && href === "index.html")) {
+        link.classList.add("active");
+    } else {
+        link.classList.remove("active");
+    }
+});
+</script>
+</body>
+</html>
