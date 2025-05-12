@@ -114,6 +114,10 @@
           <button type="button" onclick="ubahJumlah(1)">+</button>
         </div>
       </div>
+
+       <div class="form-group" id="satuanInfo" style="font-size: 14px; color: #555; margin-top: -10px;">
+  <span id="infoSatuanHarga"></span>
+</div>
       <div class="form-group">
         <label for="metode">Metode Pembayaran</label>
         <select id="metode" name="metode" required>
@@ -172,15 +176,20 @@
   document.getElementById("harga").value = "Rp" + hargaProduk.toLocaleString();
 
   function updateRingkasan() {
-    const subtotal = hargaProduk * jumlah;
-    const pajak = Math.round(subtotal * 0.005);
-    const total = subtotal + pajak;
+  const subtotal = hargaProduk * jumlah;
+  const pajak = Math.round(subtotal * 0.005);
+  const total = subtotal + pajak;
 
-    document.getElementById("subtotal").textContent = "Rp" + subtotal.toLocaleString();
-    document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
-    document.getElementById("total").textContent = "Rp" + total.toLocaleString();
-    return { subtotal, pajak, total };
-  }
+  document.getElementById("subtotal").textContent = "Rp" + subtotal.toLocaleString();
+  document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
+  document.getElementById("total").textContent = "Rp" + total.toLocaleString();
+
+  document.getElementById("infoSatuanHarga").textContent =
+    `(${hargaProduk.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })} x ${jumlah} = ` +
+    `${(hargaProduk * jumlah).toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })})`;
+
+  return { subtotal, pajak, total };
+}
 
   function ubahJumlah(n) {
     jumlah = Math.max(1, jumlah + n);
@@ -199,15 +208,16 @@
     const { subtotal, pajak, total } = updateRingkasan();
 
     let message = `*Checkout Produk*\n` +
-                  `====================\n` +
-                  `Produk       : ${produk}\n` +
-                  `Jumlah       : ${jumlah} pcs\n` +
-                  `Subtotal     : Rp${subtotal.toLocaleString()}\n` +
-                  `Pajak (0.5%) : Rp${pajak.toLocaleString()}\n` +
-                  `Total        : Rp${total.toLocaleString()}\n` +
-                  `====================\n` +
-                  `Nama         : ${nama}\n` +
-                  `WhatsApp     : ${wa}\n`;
+              `====================\n` +
+              `Produk        : ${produk}\n` +
+              `Harga Satuan  : Rp${hargaProduk.toLocaleString()}\n` +
+              `Jumlah        : ${jumlah} pcs\n` +
+              `Subtotal      : Rp${subtotal.toLocaleString()}\n` +
+              `Pajak (0.5%)  : Rp${pajak.toLocaleString()}\n` +
+              `Total         : Rp${total.toLocaleString()}\n` +
+              `====================\n` +
+              `Nama          : ${nama}\n` +
+              `WhatsApp      : ${wa}\n`;
 
     switch (metode) {
       case "DANA":
