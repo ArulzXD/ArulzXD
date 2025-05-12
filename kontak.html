@@ -1,308 +1,299 @@
-<!DOCTYPE html>  <html lang="id">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-    <title>ArulzXD Digital Marketplace</title>  
-    <style>  
-        body {  
-            font-family: Arial, sans-serif;  
-            margin: 0;  
-            padding: 0;  
-            background-color: rgba(255, 255, 255, 0.5);  
-            height: 100vh;  
-            background-size: cover;  
-            background-position: center;  
-            background-repeat: no-repeat;  
-        }  
-        body, html {  
-            margin: 0;  
-            padding: 0;  
-            height: 100%;  
-        }  
-        .video-background {  
-            position: fixed;  
-            top: 50%;  
-            left: 50%;  
-            min-width: 100%;  
-            min-height: 100%;  
-            width: auto;  
-            height: auto;  
-            z-index: -1;  
-            transform: translate(-50%, -50%);  
-        }  
-        header {  
-            background-image: url('https://i.imgur.com/4qHH3ZU.jpeg');  
-            background-size: cover;  
-            background-position: center;  
-            background-repeat: no-repeat;  
-            color: white;  
-            padding: 15px 20px;   
-            text-align: center;  
-            border-radius: 20px;  
-            font-size: 25px;  
-        }  
-        .text {  
-            display: flex;  
-            background-color: rgba(255, 255, 255, 0.7);  
-            background-size: cover;  
-            background-position: center;  
-            background-repeat: repeat;  
-            border-radius: 150px;  
-            padding: 5px;  
-            text-align: center;  
-            align-items: center;  
-            color: black;  
-            font-size: 16px;  
-        }  
-        .container {  
-            text-align: center;  
-            margin: 20px;  
-        }  footer {  
-background-color: #333;  
-color: #fff;  
-padding: 20px;  
-text-align: center;  
-clear: both;  
-}  
-
-.credits ul {  
-list-style: none;  
-padding: 0;  
-margin: 0;  
-}  
-
-.credits li {  
-display: inline-block;  
-margin-right: 20px;  
-}  
-
-.credits a {  
-color: #fff;  
-text-decoration: none;  
-}  
-
-.credits a:hover {  
-color: #ccc;  
-}
-
-.social-media {
-margin-top: 20px;
-}
-
-.social-media a {
-margin-right: 10px;
-}
-
-.social-media i {
-font-size: 24px;
-color: #fff;
-}
-
-.social-media i:hover {
-color: #ccc;
-}
-
-img {  
-        max-width: 100%; /* Agar gambar responsif */  
-        height: auto;  
-        }  
-    .menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px auto;
-    padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-}
-
-.menu-item {
-    padding: 10px 20px;
-    background-color: #f1f5f9;
-    color: #1f2937;
-    border-radius: 10px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.menu-item:hover {
-    background-color: #dbeafe;
-    color: #1d4ed8;
-    transform: translateY(-2px);
-}
-
-.menu-item.active {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* LED Scroller */
-    .led-scroller {
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        box-sizing: border-box;
-        padding: 10px 0;
-        color: #0f0;
-        background-color: black;
-        font-weight: bold;
-        font-size: 25px;
-        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
-        margin-top: 15px;
-        text-align: center;
-
-        /* Tambahan animasi outline */
-        position: relative;
-        border: 4px solid transparent;
-        border-radius: 5px;
-        background-clip: padding-box;
-        box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-        animation: outline-glow 1.5s infinite alternate;
-    }
-
-    @keyframes outline-glow {
-        0% {
-            box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ArulzXD Digital Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
-        50% {
-            box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0;
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
         }
-        100% {
-            box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
         }
-    }
+        header {
+            background-image: url('https://i.imgur.com/4qHH3ZU.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
+        }
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .credits table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            margin-top: 20px;
+        }
+        .credits thead {
+            background-color: #222;
+        }
+        .credits th, .credits td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        .credits tbody tr:nth-child(even) {
+            background-color: #1e1e1e;
+        }
+        .credits tbody tr:nth-child(odd) {
+            background-color: #2a2a2a;
+        }
+        .credits a {
+            color: #4ade80;
+            text-decoration: none;
+        }
+        .credits a:hover {
+            color: #22c55e;
+        }
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media a {
+            margin-right: 10px;
+        }
+        .social-media i {
+            font-size: 24px;
+            color: #fff;
+        }
+        .social-media i:hover {
+            color: #ccc;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+        }
+        .menu-item {
+            padding: 10px 20px;
+            background-color: #f1f5f9;
+            color: #1f2937;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item:hover {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        .menu-item.active {
+            background-color: #000;
+            color: #fff;
+            font-weight: bold;
+        }
 
-    .led-scroller::before {
-        content: '';
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        border-radius: 8px;
-        padding: 2px;
-        background: linear-gradient(90deg, #0f0, #00f, #0f0, #0ff, #0f0);
-        background-size: 300% 300%;
-        animation: borderRun 4s linear infinite;
-        z-index: -1;
-        mask-image: linear-gradient(#fff 0 0);
-        -webkit-mask-image: linear-gradient(#fff 0 0);
-    }
-
-    @keyframes borderRun {
-        0% {
-            background-position: 0% 50%;
+        /* LED Scroller */
+        .led-scroller {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            padding: 10px 0;
+            color: #0f0;
+            background-color: black;
+            font-weight: bold;
+            font-size: 25px;
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+            margin-top: 15px;
+            text-align: center;
+            position: relative;
+            border: 4px solid transparent;
+            border-radius: 5px;
+            background-clip: padding-box;
+            box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+            animation: outline-glow 1.5s infinite alternate;
         }
-        50% {
-            background-position: 100% 50%;
+        @keyframes outline-glow {
+            0% { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0; }
+            50% { box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0; }
+            100% { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0; }
         }
-        100% {
-            background-position: 0% 50%;
+        .led-scroller::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(90deg, #0f0, #00f, #0f0, #0ff, #0f0);
+            background-size: 300% 300%;
+            animation: borderRun 4s linear infinite;
+            z-index: -1;
+            mask-image: linear-gradient(#fff 0 0);
+            -webkit-mask-image: linear-gradient(#fff 0 0);
         }
-    }
-
-    .led-scroller span {
-        display: inline-block;
-        padding-left: 100%;
-    }
-
-    .scroll-animation {
-        animation: scroll-left 10s linear forwards;
-    }
-
-    @keyframes scroll-left {
-        from {
-            transform: translateX(100%);
+        @keyframes borderRun {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        to {
-            transform: translateX(-100%);
+        .led-scroller span {
+            display: inline-block;
+            padding-left: 100%;
         }
-    }
-</style>
-
-</head>  
-<body>  
-    <video autoplay muted loop class="video-background">  
-        <source src="https://files.catbox.moe/bexgq8.mp4" type="video/mp4">  
+        .scroll-animation {
+            animation: scroll-left 10s linear forwards;
+        }
+        @keyframes scroll-left {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="https://files.catbox.moe/bexgq8.mp4" type="video/mp4">
         ArulzXD Digital Marketplace
-    </video>  <br>  
-<header>  
-    <h1 class="typing-effect">CREDITS</h1>  
-</header>  
-<br>  
+    </video>
+    <br>
+    <header>
+        <h1 class="typing-effect">CREDITS</h1>
+    </header>
+    <br>
 
-<!-- LED Scroller -->
-<div class="led-scroller">
-    <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
-</div>
+    <!-- LED Scroller -->
+    <div class="led-scroller">
+        <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
+    </div>
 
-<div class="menu">
+    <div class="menu">
         <a href="index.html" class="menu-item">All</a>
         <a href="testi.html" class="menu-item">Testimoni</a>
         <a href="scbot.html" class="menu-item">Script</a>
         <a href="kontak.html" class="menu-item">Credits</a>
     </div>
 
-<div class="social-media">  
-    <a href="                                                       
-    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>  
-    <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>  
-</div>  <footer>  
-    <div class="credits">  
-        <h2>Credits</h2>  
-        <ul>  
-            <li><a href="                          
-            <li><a href="#">Kontak</a></li>  
-            <li><a href="                               
-            <li><a href="#">Syarat dan Ketentuan</a></li>  
-        </ul>  
-        <p>&copy; 2023 Nama Website. Semua hak cipta dilindungi.</p>  
-    </div>  
-</footer>
-<script>
-// LED SCROLLER
-const ledScrollTextElement = document.getElementById("ledScrollText");
-const ledMessages = [
-    "🎁 Promo Spesial Hari Ini!",
-    "⚡ Diskon 30% untuk semua layanan!",
-    "✅ Garansi layanan bot 1 bulan!",
-    "✉️ Hubungi kami untuk custom script!",
-    "⏰ Support 24 jam nonstop!",
-    "♻️ Gratis update script bot selama 3 bulan!"
-];
+    <div class="social-media">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+    </div>
 
-let ledCurrentMessage = 0;
+    <footer>
+        <div class="credits">
+            <h2>Credits</h2>
+            <div style="overflow-x:auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Kontribusi</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ArulzXD</td>
+                            <td>Developer & UI Designer</td>
+                            <td><a href="https://instagram.com/arulzxd" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></td>
+                        </tr>
+                        <tr>
+                            <td>FontAwesome</td>
+                            <td>Ikon Sosial Media</td>
+                            <td><a href="https://fontawesome.com" target="_blank"><i class="fas fa-icons"></i> Website</a></td>
+                        </tr>
+                        <tr>
+                            <td>Catbox</td>
+                            <td>Video Hosting</td>
+                            <td><a href="https://catbox.moe" target="_blank"><i class="fas fa-server"></i> Website</a></td>
+                        </tr>
+                        <tr>
+                            <td>Bootstrap</td>
+                            <td>Grid & CSS Utilities</td>
+                            <td><a href="https://getbootstrap.com" target="_blank"><i class="fab fa-bootstrap"></i> Bootstrap</a></td>
+                        </tr>
+                        <tr>
+                            <td>GitHub Pages</td>
+                            <td>Hosting Gratis</td>
+                            <td><a href="https://pages.github.com" target="_blank"><i class="fab fa-github"></i> GitHub</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>&copy; 2023 ArulzXD Digital Marketplace. Semua hak cipta dilindungi.</p>
+        </div>
+    </footer>
 
-function playLedAnimation() {
-    ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
-    ledScrollTextElement.classList.remove("scroll-animation");
-    void ledScrollTextElement.offsetWidth;
-    ledScrollTextElement.classList.add("scroll-animation");
-}
+    <script>
+        // LED SCROLLER
+        const ledScrollTextElement = document.getElementById("ledScrollText");
+        const ledMessages = [
+            "🎁 Promo Spesial Hari Ini!",
+            "⚡ Diskon 30% untuk semua layanan!",
+            "✅ Garansi layanan bot 1 bulan!",
+            "✉️ Hubungi kami untuk custom script!",
+            "⏰ Support 24 jam nonstop!",
+            "♻️ Gratis update script bot selama 3 bulan!"
+        ];
+        let ledCurrentMessage = 0;
+        function playLedAnimation() {
+            ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
+            ledScrollTextElement.classList.remove("scroll-animation");
+            void ledScrollTextElement.offsetWidth;
+            ledScrollTextElement.classList.add("scroll-animation");
+        }
+        ledScrollTextElement.addEventListener("animationend", () => {
+            ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
+            playLedAnimation();
+        });
+        playLedAnimation();
 
-ledScrollTextElement.addEventListener("animationend", () => {
-    ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
-    playLedAnimation();
-});
-
-playLedAnimation();
-
-// Highlight menu aktif berdasarkan URL
-document.querySelectorAll('.menu-item').forEach(link => {
-    const page = window.location.pathname.split("/").pop();
-    const href = link.getAttribute("href");
-
-    if (href === page || (page === "" && href === "kontak.html")) {
-        link.classList.add("active");
-    } else {
-        link.classList.remove("active");
-    }
-});
-</script>
+        // Highlight menu aktif
+        document.querySelectorAll('.menu-item').forEach(link => {
+            const page = window.location.pathname.split("/").pop();
+            const href = link.getAttribute("href");
+            if (href === page || (page === "" && href === "kontak.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    </script>
 </body>
 </html>
