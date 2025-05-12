@@ -65,31 +65,38 @@
             }
         .menu {
     display: flex;
-    background-image: url('https://i.imgur.com/4qHH3ZU.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 20px;
-    padding: 5px;
-    text-align: center;
-    align-items: center;
-    justify-content: center; /* Agar item berada di tengah */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
 }
 
 .menu-item {
-    padding: 10px 20px; /* Mengurangi padding untuk memperkecil jarak */
-    margin: 0 5px; /* Menambahkan margin untuk memberi jarak antar menu */
-    color: white;
+    padding: 10px 20px;
+    background-color: #f1f5f9;
+    color: #1f2937;
+    border-radius: 10px;
+    font-weight: 600;
     text-decoration: none;
-    transition: background-color 0.5s;
-            }
-        .menu-item:hover {
-            background-color: #555;
-        }
-        .content {
-            padding: 20px;
-            color: white;
-        }
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.menu-item.active {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
     </style>
 </head>
 <body>
@@ -119,6 +126,18 @@
         <img src="https://pomf2.lain.la/f/fbokpeaf.jpg" alt="Deskripsi Gambar">
         <h1 class="text">PANEL UNLI</h1>
     </div>
+<script>
+// Highlight menu aktif berdasarkan URL
+document.querySelectorAll('.menu-item').forEach(link => {
+    const page = window.location.pathname.split("/").pop();
+    const href = link.getAttribute("href");
 
+    if (href === page || (page === "" && href === "index.html")) {
+        link.classList.add("active");
+    } else {
+        link.classList.remove("active");
+    }
+});
+</script>
 </body>
     </html>
