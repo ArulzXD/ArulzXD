@@ -161,7 +161,7 @@
     <a href="index.html"><button class="home-button">Kembali ke Beranda</button></a>
   </div>
 
-  <script>
+ <script>
   const params = new URLSearchParams(window.location.search);
   const produk = params.get("produk") || "Produk Tidak Diketahui";
   const hargaProduk = parseInt(params.get("harga") || "0");
@@ -198,59 +198,32 @@
 
     const { subtotal, pajak, total } = updateRingkasan();
 
-    let message = "";
+    let message = `*Checkout Produk*\n` +
+                  `====================\n` +
+                  `Produk       : ${produk}\n` +
+                  `Jumlah       : ${jumlah} pcs\n` +
+                  `Subtotal     : Rp${subtotal.toLocaleString()}\n` +
+                  `Pajak (0.5%) : Rp${pajak.toLocaleString()}\n` +
+                  `Total        : Rp${total.toLocaleString()}\n` +
+                  `====================\n` +
+                  `Nama         : ${nama}\n` +
+                  `WhatsApp     : ${wa}\n`;
 
     switch (metode) {
       case "DANA":
-        message =
-          `*Checkout via DANA*%0A` +
-          `Produk: ${produk}%0A` +
-          `Jumlah: ${jumlah} pcs%0A` +
-          `Subtotal: Rp${subtotal.toLocaleString()}%0A` +
-          `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
-          `Total: Rp${total.toLocaleString()}%0A` +
-          `Nama: ${nama}%0A` +
-          `WhatsApp: ${wa}%0A` +
-          `Silakan transfer ke DANA: 08xxxxxxxxxx atas nama Admin.`;
+        message += `Metode Bayar : DANA\nTransfer ke: 08xxxxxxxxxx (a.n. Admin)`;
         break;
       case "OVO":
-        message =
-          `*Checkout via OVO*%0A` +
-          `Produk: ${produk}%0A` +
-          `Jumlah: ${jumlah} pcs%0A` +
-          `Subtotal: Rp${subtotal.toLocaleString()}%0A` +
-          `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
-          `Total: Rp${total.toLocaleString()}%0A` +
-          `Nama: ${nama}%0A` +
-          `WhatsApp: ${wa}%0A` +
-          `Silakan transfer ke OVO: 08xxxxxxxxxx atas nama Admin.`;
+        message += `Metode Bayar : OVO\nTransfer ke: 08xxxxxxxxxx (a.n. Admin)`;
         break;
       case "GoPay":
-        message =
-          `*Checkout via GoPay*%0A` +
-          `Produk: ${produk}%0A` +
-          `Jumlah: ${jumlah} pcs%0A` +
-          `Subtotal: Rp${subtotal.toLocaleString()}%0A` +
-          `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
-          `Total: Rp${total.toLocaleString()}%0A` +
-          `Nama: ${nama}%0A` +
-          `WhatsApp: ${wa}%0A` +
-          `Silakan transfer ke GoPay: 08xxxxxxxxxx atas nama Admin.`;
+        message += `Metode Bayar : GoPay\nTransfer ke: 08xxxxxxxxxx (a.n. Admin)`;
         break;
       case "QRIS":
-        message =
-          `*Checkout via QRIS*%0A` +
-          `Produk: ${produk}%0A` +
-          `Jumlah: ${jumlah} pcs%0A` +
-          `Subtotal: Rp${subtotal.toLocaleString()}%0A` +
-          `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
-          `Total: Rp${total.toLocaleString()}%0A` +
-          `Nama: ${nama}%0A` +
-          `WhatsApp: ${wa}%0A` +
-          `Silakan scan QRIS pada halaman pembayaran.`;
+        message += `Metode Bayar : QRIS\nSilakan scan QRIS pada halaman pembayaran.`;
         break;
       default:
-        message = "*Metode pembayaran tidak valid.*";
+        message += `Metode pembayaran tidak valid.`;
     }
 
     const phoneNumber = "6283171080910"; // Ganti dengan nomor admin Anda
