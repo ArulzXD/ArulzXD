@@ -65,33 +65,39 @@
             height: auto;
         }
         .menu {
-            display: flex;
-            background-image: url('https://i.imgur.com/4qHH3ZU.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 20px;
-            padding: 5px;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+}
 
-        .menu-item {
-            padding: 10px 20px;
-            margin: 0 5px;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.5s;
-        }
+.menu-item {
+    padding: 10px 20px;
+    background-color: #f1f5f9;
+    color: #1f2937;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-        .menu-item:hover {
-            background-color: #555;
-        }
-        .content {
-            padding: 20px;
-            color: white;
-        }
+.menu-item:hover {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.menu-item.active {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+}
         /* Styling tombol download */
         .download-button {
             display: block;
@@ -133,6 +139,18 @@
                 <img src="https://telegra.ph/file/c2bd71b704393fc69788c.jpg" alt="Script 1">
                 <a href="https://www.mediafire.com/file/3x11c5kw2iqh8kg/Velinia.zip/file" class="download-button" target="_blank">DOWNLOAD</a>
             </div>
+<script>
+// Highlight menu aktif berdasarkan URL
+document.querySelectorAll('.menu-item').forEach(link => {
+    const page = window.location.pathname.split("/").pop();
+    const href = link.getAttribute("href");
 
+    if (href === page || (page === "" && href === "index.html")) {
+        link.classList.add("active");
+    } else {
+        link.classList.remove("active");
+    }
+});
+</script>
 </body>
 </html>
