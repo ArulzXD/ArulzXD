@@ -193,9 +193,9 @@
             display: inline-block;
             white-space: nowrap;
             padding-left: 100%;
-            animation: scroll-left 15s linear infinite;
             font-size: 16px;
             font-weight: bold;
+            animation: scroll-left 15s linear infinite;
         }
 
         @keyframes scroll-left {
@@ -359,9 +359,6 @@
 
         function updateScrollText() {
             scrollTextElement.textContent = messages[currentMessage];
-            scrollTextElement.style.animation = "none";
-            void scrollTextElement.offsetWidth;
-            scrollTextElement.style.animation = null;
             currentMessage = (currentMessage + 1) % messages.length;
         }
 
