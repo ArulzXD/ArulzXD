@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Toko Digital Rerez Official</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: rgba(255, 255, 255, 0.5);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: rgba(255, 255, 255, 0.5);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .video-background {
             position: fixed;
@@ -37,84 +32,141 @@
             background-position: center;
             background-repeat: no-repeat;
             color: white;
-            padding: 15px 20px;
+            padding: 25px 20px;
             text-align: center;
             border-radius: 20px;
-            font-size: 25px;
+            font-size: 28px;
+            margin: 20px;
         }
         .menu {
             display: flex;
+            flex-wrap: wrap;
             background-image: url('https://pomf2.lain.la/f/fbokpeaf.jpg');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             border-radius: 20px;
-            padding: 5px;
-            text-align: center;
-            align-items: center;
+            padding: 10px;
             justify-content: center;
+            gap: 10px;
+            margin: 0 20px 20px;
         }
         .menu-item {
-            padding: 10px 20px;
-            margin: 0 5px;
+            padding: 12px 24px;
             color: white;
             text-decoration: none;
             transition: background-color 0.5s;
+            border-radius: 8px;
         }
         .menu-item:hover {
             background-color: #555;
         }
-        .content {
+        .led-scroller {
+            background-color: #000;
+            color: #00FF00;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-top: 3px solid lime;
+            border-bottom: 3px solid lime;
+            padding: 12px 0;
+            margin: 0 20px 20px;
+            border-radius: 8px;
+        }
+        .led-scroller span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 15s linear infinite;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .produk-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
             padding: 20px;
-            color: white;
+        }
+        .produk-item {
+            flex: 1 1 300px;
+            max-width: 45%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            outline: 3px solid #000;
+            outline-offset: -3px;
+            display: flex;
+            flex-direction: column;
+        }
+        .produk-item img {
+            width: 100%;
+            cursor: pointer;
+        }
+        .produk-item div {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .produk-item h3 {
+            margin-top: 0;
         }
         .button {
-            padding: 8px 15px;
+            padding: 10px 15px;
             background-color: #28a745;
             color: black;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;  /* Vertikal centering */
-            justify-content: center;  /* Horizontal centering */
-            margin: 15px auto 0 auto;
             text-align: center;
+            transition: background-color 0.3s;
+            display: block;
+            margin-top: 15px;
         }
         .button:hover {
             background-color: #218838;
         }
-        .modal {
-            display: none;
+        .social-proof {
             position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            left: 20px;
+            bottom: -100px;
+            z-index: 9999;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            transition: bottom 0.5s ease;
+            max-width: 300px;
+            margin-bottom: 10px;
         }
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            text-align: center;
+        .social-proof img {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 10px;
         }
-        .close {
-            color: red;
-            float: right;
-            font-size: 28px;
+        .social-proof .text p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+        .social-proof .font-bold {
             font-weight: bold;
         }
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
+        .social-proof .verified {
+            font-size: 12px;
+            color: gray;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .social-proof .verified img {
+            width: 14px;
+            height: 14px;
         }
         .image-modal {
             display: none;
@@ -134,205 +186,117 @@
             border: 5px solid white;
             border-radius: 10px;
         }
-        .social-proof {
-            position: fixed;
-            left: 20px;
-            bottom: -100px;
-            z-index: 9999;
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            transition: bottom 0.5s ease;
-            max-width: 300px;
-        }
-
-        .social-proof .main {
-            display: flex;
-            align-items: center;
-        }
-
-        .social-proof img {
-            width: 50px;
-            height: 50px;
-            border-radius: 6px;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-
-        .social-proof .text p {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.3;
-        }
-
-        .social-proof .text .font-bold {
-            font-weight: bold;
-        }
-
-        .social-proof .verified {
-            font-size: 12px;
-            color: gray;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .social-proof .verified img {
-            width: 14px;
-            height: 14px;
-        }
-
-        .led-scroller {
-            background-color: #000;
-            color: #00FF00;
-            font-family: 'Courier New', monospace;
-            font-size: 18px;
-            white-space: nowrap;
-            overflow: hidden;
-            position: relative;
-            border-top: 3px solid lime;
-            border-bottom: 3px solid lime;
-            padding: 10px 0;
-            margin: 0;
-        }
-
-        .led-scroller span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll-left 15s linear infinite;
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
     </style>
 </head>
 <body>
-    <video autoplay muted loop class="video-background">
-        <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
-        TOKO DIGITAL REREZZ OFFICIAL
-    </video>
 
-    <!-- Header -->
-    <header>
-        <h1>Selamat datang di Toko Digital Rerez Official!</h1>
-    </header><br>
+<video autoplay muted loop class="video-background">
+    <source src="https://pomf2.lain.la/f/x4piwqwe.mp4" type="video/mp4">
+</video>
 
-    <!-- LED Scroller Text -->
-    <div class="led-scroller" id="ledScroller">
-        <span id="scrollText">Selamat datang di Toko Digital Rerez Official!</span>
-    </div>
+<header>
+    <h1>Selamat datang di Toko Digital Rerez Official!</h1>
+</header>
 
-    <div class="menu">
-        <a href="index.html" class="menu-item">Beranda</a>
-        <a href="produk.html" class="menu-item">Layanan</a>
-        <a href="testi.html" class="menu-item">Testimoni</a>
-        <a href="scbot.html" class="menu-item">SC BOT</a>
-        <a href="kontak.html" class="menu-item">Kontak</a>
-    </div>
+<div class="led-scroller">
+    <span id="scrollText">Selamat datang di Toko Digital Rerez Official!</span>
+</div>
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
-        <!-- Produk 1 -->
-        <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2); outline: 3px solid #000; outline-offset: -3px;">
-            <img class="product-image" src="https://pomf2.lain.la/f/fbokpeaf.jpg?text=Produk+1" alt="Produk 1" style="width: 100%; cursor: pointer;">
-            <div style="padding: 15px;">
-                <h3>Produk Digital 1</h3>
-                <p>Layanan digital berkualitas tinggi dan terpercaya.</p>
-                <p><strong>Harga:</strong> Rp100.000</p>
-                <a href="checkout.html?produk=Produk+Digital+1&harga=100000" class="button">Beli Sekarang</a>
-            </div>
-        </div>
+<div class="menu">
+    <a href="index.html" class="menu-item">Beranda</a>
+    <a href="produk.html" class="menu-item">Layanan</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">SC BOT</a>
+    <a href="kontak.html" class="menu-item">Kontak</a>
+</div>
 
-        <!-- Produk 2 -->
-        <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2); outline: 3px solid #000; outline-offset: -3px;">
-            <img class="product-image" src="https://pomf2.lain.la/f/fbokpeaf.jpg?text=Produk+2" alt="Produk 2" style="width: 100%; cursor: pointer;">
-            <div style="padding: 15px;">
-                <h3>Produk Digital 2</h3>
-                <p>Paket layanan lengkap untuk kebutuhan online Anda.</p>
-                <p><strong>Harga:</strong> Rp120.000</p>
-                <a href="checkout.html?produk=Produk+Digital+2&harga=120000" class="button">Beli Sekarang</a>
-            </div>
-        </div>
-
-        <!-- Produk 3 -->
-        <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2); outline: 3px solid #000; outline-offset: -3px;">
-            <img class="product-image" src="https://via.placeholder.com/400x200?text=Produk+3" alt="Produk 3" style="width: 100%; cursor: pointer;">
-            <div style="padding: 15px;">
-                <h3>Produk Digital 3</h3>
-                <p>Bot otomatisasi untuk mempermudah aktivitas digital Anda.</p>
-                <p><strong>Harga:</strong> Rp90.000</p>
-                <a href="checkout.html?produk=Produk+Digital+3&harga=90000" class="button">Beli Sekarang</a>
-            </div>
-        </div>
-
-        <!-- Produk 4 -->
-        <div style="flex: 1 1 300px; max-width: 45%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.2); outline: 3px solid #000; outline-offset: -3px;">
-            <img class="product-image" src="https://via.placeholder.com/400x200?text=Produk+4" alt="Produk 4" style="width: 100%; cursor: pointer;">
-            <div style="padding: 15px;">
-                <h3>Produk Digital 4</h3>
-                <p>Jasa pembuatan script bot untuk sosial media dan lainnya.</p>
-                <p><strong>Harga:</strong> Rp150.000</p>
-                <a href="checkout.html?produk=Produk+Digital+4&harga=150000" class="button">Beli Sekarang</a>
-            </div>
+<div class="produk-container">
+    <div class="produk-item">
+        <img class="product-image" src="https://pomf2.lain.la/f/fbokpeaf.jpg?text=Produk+1" alt="Produk 1">
+        <div>
+            <h3>Produk Digital 1</h3>
+            <p>Layanan digital berkualitas tinggi dan terpercaya.</p>
+            <p><strong>Harga:</strong> Rp100.000</p>
+            <a href="checkout.html?produk=Produk+Digital+1&harga=100000" class="button">Beli Sekarang</a>
         </div>
     </div>
 
-    <div id="imageModal" class="image-modal" onclick="this.style.display='none'">
-        <img id="modalImage" src="" alt="Preview">
-    </div>
-
-    <div class="social-proof" id="socialProofId-1">
-        <div class="main">
-            <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
-            <div class="text">
-                <p><span class="font-bold">ryza</span> membeli</p>
-                <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
-                <span class="verified">
-                    <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-                    Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
-                </span>
-            </div>
+    <div class="produk-item">
+        <img class="product-image" src="https://pomf2.lain.la/f/fbokpeaf.jpg?text=Produk+2" alt="Produk 2">
+        <div>
+            <h3>Produk Digital 2</h3>
+            <p>Paket layanan lengkap untuk kebutuhan online Anda.</p>
+            <p><strong>Harga:</strong> Rp120.000</p>
+            <a href="checkout.html?produk=Produk+Digital+2&harga=120000" class="button">Beli Sekarang</a>
         </div>
     </div>
 
-    <div class="social-proof" id="socialProofId-2">
-        <div class="main">
-            <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
-            <div class="text">
-                <p><span class="font-bold">ranz</span> membeli</p>
-                <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
-                <span class="verified">
-                    <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-                    Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
-                </span>
-            </div>
+    <div class="produk-item">
+        <img class="product-image" src="https://via.placeholder.com/400x200?text=Produk+3" alt="Produk 3">
+        <div>
+            <h3>Produk Digital 3</h3>
+            <p>Bot otomatisasi untuk mempermudah aktivitas digital Anda.</p>
+            <p><strong>Harga:</strong> Rp90.000</p>
+            <a href="checkout.html?produk=Produk+Digital+3&harga=90000" class="button">Beli Sekarang</a>
         </div>
     </div>
 
-    <script>
-        // LED Scroller Teks Berganti
-        const messages = [
-            "Selamat datang di Toko Digital Rerez Official!",
-            "Diskon spesial untuk produk digital terbaik!",
-            "Support 24 jam dan garansi layanan kami.",
-            "Belanja aman, cepat, dan terpercaya!"
-        ];
+    <div class="produk-item">
+        <img class="product-image" src="https://via.placeholder.com/400x200?text=Produk+4" alt="Produk 4">
+        <div>
+            <h3>Produk Digital 4</h3>
+            <p>Jasa pembuatan script bot untuk sosial media dan lainnya.</p>
+            <p><strong>Harga:</strong> Rp150.000</p>
+            <a href="checkout.html?produk=Produk+Digital+4&harga=150000" class="button">Beli Sekarang</a>
+        </div>
+    </div>
+</div>
 
-        let scrollIndex = 0;
-        const scrollText = document.getElementById("scrollText");
+<div id="imageModal" class="image-modal" onclick="this.style.display='none'">
+    <img id="modalImage" src="" alt="Preview">
+</div>
 
-        setInterval(() => {
-            scrollIndex = (scrollIndex + 1) % messages.length;
-            scrollText.innerText = messages[scrollIndex];
-        }, 8000); // Ganti teks setiap 8 detik
-    </script>
+<div class="social-proof" id="socialProofId-1">
+    <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+    <div class="text">
+        <p><span class="font-bold">ryza</span> membeli</p>
+        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+        <span class="verified">
+            <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+            Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+        </span>
+    </div>
+</div>
+
+<div class="social-proof" id="socialProofId-2">
+    <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+    <div class="text">
+        <p><span class="font-bold">ranz</span> membeli</p>
+        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+        <span class="verified">
+            <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+            Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+        </span>
+    </div>
+</div>
+
+<script>
+    // LED Scroller Teks Berganti
+    const messages = [
+        "Selamat datang di Toko Digital Rerez Official!",
+        "Diskon spesial untuk produk digital terbaik!",
+        "Support 24 jam dan garansi layanan kami.",
+        "Belanja aman, cepat, dan terpercaya!"
+    ];
+
+    let scrollIndex = 0;
+    const scrollText = document.getElementById("scrollText");
+
+    setInterval(() => {
+        scrollIndex = (scrollIndex + 1) % messages.length;
+        scrollText.innerText = messages[scrollIndex];
+    }, 8000);
+</script>
+
 </body>
 </html>
