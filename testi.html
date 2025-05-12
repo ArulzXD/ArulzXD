@@ -97,6 +97,34 @@
     color: #fff;
     font-weight: bold;
 }
+
+// LED SCROLLER
+const ledScrollTextElement = document.getElementById("ledScrollText");
+const ledMessages = [
+    "🎁 Promo Spesial Hari Ini!",
+    "⚡ Diskon 30% untuk semua layanan!",
+    "✅ Garansi layanan bot 1 bulan!",
+    "✉️ Hubungi kami untuk custom script!",
+    "⏰ Support 24 jam nonstop!",
+    "♻️ Gratis update script bot selama 3 bulan!"
+];
+
+let ledCurrentMessage = 0;
+
+function playLedAnimation() {
+    ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
+    ledScrollTextElement.classList.remove("scroll-animation");
+    void ledScrollTextElement.offsetWidth;
+    ledScrollTextElement.classList.add("scroll-animation");
+}
+
+ledScrollTextElement.addEventListener("animationend", () => {
+    ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
+    playLedAnimation();
+});
+
+playLedAnimation();
+
     </style>
 </head>
 <body>
@@ -110,6 +138,11 @@
         <h1 class="typing-effect">TESTIMONI</h1>
     </header>
     <br>
+
+<!-- LED Scroller -->
+<div class="led-scroller">
+    <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
+</div>
 
     <div class="menu">
         <a href="index.html" class="menu-item">All</a>
@@ -127,6 +160,33 @@
         <h1 class="text">PANEL UNLI</h1>
     </div>
 <script>
+// LED SCROLLER
+const ledScrollTextElement = document.getElementById("ledScrollText");
+const ledMessages = [
+    "🎁 Promo Spesial Hari Ini!",
+    "⚡ Diskon 30% untuk semua layanan!",
+    "✅ Garansi layanan bot 1 bulan!",
+    "✉️ Hubungi kami untuk custom script!",
+    "⏰ Support 24 jam nonstop!",
+    "♻️ Gratis update script bot selama 3 bulan!"
+];
+
+let ledCurrentMessage = 0;
+
+function playLedAnimation() {
+    ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
+    ledScrollTextElement.classList.remove("scroll-animation");
+    void ledScrollTextElement.offsetWidth;
+    ledScrollTextElement.classList.add("scroll-animation");
+}
+
+ledScrollTextElement.addEventListener("animationend", () => {
+    ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
+    playLedAnimation();
+});
+
+playLedAnimation();
+
 // Highlight menu aktif berdasarkan URL
 document.querySelectorAll('.menu-item').forEach(link => {
     const page = window.location.pathname.split("/").pop();
