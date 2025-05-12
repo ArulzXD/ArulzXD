@@ -77,8 +77,8 @@
             cursor: pointer;
             transition: background-color 0.3s;
             display: flex;
-            align-items: center;  /* Vertikal centering */
-            justify-content: center;  /* Horizontal centering */
+            align-items: center;
+            justify-content: center;
             margin: 15px auto 0 auto;
             text-align: center;
         }
@@ -134,56 +134,78 @@
             border: 5px solid white;
             border-radius: 10px;
         }
-.social-proof {
-      position: fixed;
-      left: 20px;
-      bottom: -100px;
-      z-index: 9999;
-      background-color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      transition: bottom 0.5s ease;
-      max-width: 300px;
-    }
+        .social-proof {
+            position: fixed;
+            left: 20px;
+            bottom: -100px;
+            z-index: 9999;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            transition: bottom 0.5s ease;
+            max-width: 300px;
+        }
+        .social-proof .main {
+            display: flex;
+            align-items: center;
+        }
+        .social-proof img {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .social-proof .text p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+        .social-proof .text .font-bold {
+            font-weight: bold;
+        }
+        .social-proof .verified {
+            font-size: 12px;
+            color: gray;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .social-proof .verified img {
+            width: 14px;
+            height: 14px;
+        }
 
-    .social-proof .main {
-      display: flex;
-      align-items: center;
-    }
+        /* SCROLLER STYLES */
+        .scroller-container {
+            width: 100%;
+            background: linear-gradient(90deg, #007BFF, #00C6FF);
+            color: white;
+            overflow: hidden;
+            padding: 8px 0;
+            border-radius: 10px;
+            margin: 0 auto 15px auto;
+        }
+        .scroller-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: scroll-left 15s linear infinite;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-    .social-proof img {
-      width: 50px;
-      height: 50px;
-      border-radius: 6px;
-      object-fit: cover;
-      margin-right: 10px;
-    }
-
-    .social-proof .text p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.3;
-    }
-
-    .social-proof .text .font-bold {
-      font-weight: bold;
-    }
-
-    .social-proof .verified {
-      font-size: 12px;
-      color: gray;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .social-proof .verified img {
-      width: 14px;
-      height: 14px;
-    }
+        @keyframes scroll-left {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -195,6 +217,12 @@
     <br><header>
         <h1>DAFTAR PRODUK</h1>
     </header><br>
+
+    <!-- SCROLLER MULAI -->
+    <div class="scroller-container">
+        <div class="scroller-text" id="scrollText">Promo Spesial Hari Ini!</div>
+    </div>
+    <!-- SCROLLER SELESAI -->
 
     <div class="menu">
         <a href="index.html" class="menu-item">Beranda</a>
@@ -253,33 +281,35 @@
     <div id="imageModal" class="image-modal" onclick="this.style.display='none'">
         <img id="modalImage" src="" alt="Preview">
     </div>
-<div class="social-proof" id="socialProofId-1">
-    <div class="main">
-      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
-      <div class="text">
-        <p><span class="font-bold">ryza</span> membeli</p>
-        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
-        <span class="verified">
-          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-          Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
-        </span>
-      </div>
-    </div>
-  </div>
 
-  <div class="social-proof" id="socialProofId-2">
-    <div class="main">
-      <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
-      <div class="text">
-        <p><span class="font-bold">ranz</span> membeli</p>
-        <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
-        <span class="verified">
-          <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
-          Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
-        </span>
-      </div>
+    <div class="social-proof" id="socialProofId-1">
+        <div class="main">
+            <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+            <div class="text">
+                <p><span class="font-bold">ryza</span> membeli</p>
+                <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+                <span class="verified">
+                    <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+                    Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+                </span>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <div class="social-proof" id="socialProofId-2">
+        <div class="main">
+            <img src="https://cloudfast.biz.id/assets/images/product/1746287480844.jpg" alt="SC BOT AUTOORDER V1.3.0">
+            <div class="text">
+                <p><span class="font-bold">ranz</span> membeli</p>
+                <p class="font-bold product_name">SC BOT AUTOORDER V1.3.0</p>
+                <span class="verified">
+                    <img src="https://cloudfast.biz.id/assets/images/icon/verified.png" alt="verified icon">
+                    Verified by <span class="app_name">Catalyst Team Digital Marketplace</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
     <script>
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImage");
@@ -291,26 +321,53 @@
                 modalImg.src = img.src;
             });
         });
-     let currentProof = 1;
-    const totalProof = 2;
-    const showDuration = 5000;
-    const delayBetween = 3000;
 
-    function showSocialProof() {
-      const id = `#socialProofId-${currentProof}`;
-      const element = document.querySelector(id);
-      if (element) {
-        element.style.bottom = "20px";
-        setTimeout(() => {
-          element.style.bottom = "-100px";
-          currentProof++;
-          if (currentProof > totalProof) currentProof = 1;
-          setTimeout(showSocialProof, delayBetween);
-        }, showDuration);
-      }
-    }
+        let currentProof = 1;
+        const totalProof = 2;
+        const showDuration = 5000;
+        const delayBetween = 3000;
 
-    setTimeout(showSocialProof, 2000);
+        function showSocialProof() {
+            const id = `#socialProofId-${currentProof}`;
+            const element = document.querySelector(id);
+            if (element) {
+                element.style.bottom = "20px";
+                setTimeout(() => {
+                    element.style.bottom = "-100px";
+                    currentProof++;
+                    if (currentProof > totalProof) currentProof = 1;
+                    setTimeout(showSocialProof, delayBetween);
+                }, showDuration);
+            }
+        }
+
+        setTimeout(showSocialProof, 2000);
+
+        // SCROLLER SCRIPT
+        const scrollTextElement = document.getElementById("scrollText");
+        const messages = [
+            "🎁 Promo Spesial Hari Ini!",
+            "⚡ Diskon 30% untuk semua layanan!",
+            "✅ Garansi layanan bot 1 bulan!",
+            "✉️ Hubungi kami untuk custom script!",
+            "⏰ Support 24 jam nonstop!",
+            "♻️ Gratis update script bot selama 3 bulan!"
+        ];
+
+        let currentMessage = 0;
+        const switchInterval = 6000;
+
+        function updateScrollText() {
+            scrollTextElement.textContent = messages[currentMessage];
+            scrollTextElement.style.animation = "none";
+            void scrollTextElement.offsetWidth;
+            scrollTextElement.style.animation = null;
+            currentMessage = (currentMessage + 1) % messages.length;
+        }
+
+        updateScrollText();
+        setInterval(updateScrollText, switchInterval);
     </script>
+
 </body>
 </html>
