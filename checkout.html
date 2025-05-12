@@ -200,26 +200,26 @@
     const { subtotal, pajak, total } = updateRingkasan();
 
     let message = `*Checkout Produk*\n` +
-              `====================\n` +
+              `==============================\n` +
               `Produk        : ${produk}\n` +
               `Jumlah        : ${jumlah} pcs\n` +
               `Harga Satuan  : Rp${hargaProduk.toLocaleString()}\n` +
               `Subtotal      : Rp${subtotal.toLocaleString()}\n` +
               `Pajak (0.5%)  : Rp${pajak.toLocaleString()}\n` +
               `Total         : Rp${total.toLocaleString()}\n` +
-              `====================\n` +
+              `==============================\n` +
               `Nama          : ${nama}\n` +
               `WhatsApp      : ${wa}\n`;
 
     switch (metode) {
       case "DANA":
-        message += `Metode Bayar : DANA\nTransfer ke: 08xxxxxxxxxx (a.n. Admin)`;
+        message += `Metode Bayar : DANA\nTransfer ke: 083171080910 (a.n. Haqqi)`;
         break;
       case "OVO":
-        message += `Metode Bayar : OVO\nTransfer ke: 08xxxxxxxxxx (a.n. Admin)`;
+        message += `Metode Bayar : OVO\nTransfer ke: 083171080910 (a.n. Haqqi)`;
         break;
       case "GoPay":
-        message += `Metode Bayar : GoPay\nTransfer ke: 08xxxxxxxxxx (a.n. Admin)`;
+        message += `Metode Bayar : GoPay\nTransfer ke: 083171080910 (a.n. Haqqi)`;
         break;
       case "QRIS":
         message += `Metode Bayar : QRIS\nSilakan scan QRIS pada halaman pembayaran.`;
