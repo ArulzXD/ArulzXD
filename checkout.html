@@ -79,40 +79,32 @@
       border-top: 2px solid #000;
       font-weight: bold;
     }
-    .jumlah-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .jumlah-wrapper button {
-      width: 32px;
-      padding: 6px 0;
-    }
-    #jumlah {
-      width: 50px;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Checkout Produk</h2>
+
+    <!-- Gambar Produk -->
+    <div class="form-group">
+      <label>Gambar Produk</label>
+      <img id="gambar-produk" src="" alt="Gambar Produk" style="width: 100%; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ccc;" />
+    </div>
+
+    <!-- Deskripsi Produk -->
+    <div class="form-group">
+      <label>Deskripsi Produk</label>
+      <p id="deskripsi-produk" style="background: #f1f1f1; padding: 10px; border-radius: 6px;"></p>
+    </div>
+
     <form id="checkoutForm">
       <div class="form-group">
         <label for="produk">Produk</label>
         <input type="text" id="produk" name="produk" readonly />
       </div>
       <div class="form-group">
-        <label for="harga">Harga Satuan</label>
+        <label for="harga">Harga</label>
         <input type="text" id="harga" name="harga" readonly />
-      </div>
-      <div class="form-group">
-        <label for="jumlah">Jumlah Barang</label>
-        <div class="jumlah-wrapper">
-          <button type="button" onclick="ubahJumlah(-1)">-</button>
-          <input type="text" id="jumlah" name="jumlah" value="1" readonly />
-          <button type="button" onclick="ubahJumlah(1)">+</button>
-        </div>
       </div>
       <div class="form-group">
         <label for="metode">Metode Pembayaran</label>
@@ -139,6 +131,7 @@
         <input type="text" id="wa" name="wa" placeholder="08xxxxxxxxxx" required />
       </div>
 
+      <!-- Ringkasan Harga -->
       <div class="order-summary">
         <table class="summary-table">
           <tr>
@@ -161,80 +154,48 @@
     <a href="index.html"><button class="home-button">Kembali ke Beranda</button></a>
   </div>
 
- <script>
-  const params = new URLSearchParams(window.location.search);
-  const produk = params.get("produk") || "Produk Tidak Diketahui";
-  const hargaProduk = parseInt(params.get("harga") || "0");
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const produk = params.get("produk") || "Produk Tidak Diketahui";
+    const hargaProduk = parseInt(params.get("harga") || "0");
+    const deskripsi = params.get("deskripsi") || "Deskripsi tidak tersedia.";
+    const gambar = params.get("gambar") || "https://via.placeholder.com/400x250?text=Gambar+Produk";
 
-  let jumlah = 1;
+    const pajak = Math.round(hargaProduk * 0.005); // 0.5%
+    const total = hargaProduk + pajak;
 
-  document.getElementById("produk").value = produk;
-  document.getElementById("harga").value = "Rp" + hargaProduk.toLocaleString();
+    document.getElementById("produk").value = produk;
+    document.getElementById("harga").value = "Rp" + hargaProduk.toLocaleString();
+    document.getElementById("subtotal").textContent = "Rp" + hargaProduk.toLocaleString();
+    document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
+    document.getElementById("total").textContent = "Rp" + total.toLocaleString();
+    document.getElementById("deskripsi-produk").textContent = deskripsi;
+    document.getElementById("gambar-produk").src = gambar;
 
-  function updateRingkasan() {
-  const subtotal = hargaProduk * jumlah;
-  const pajak = Math.round(subtotal * 0.005);
-  const total = subtotal + pajak;
+    document.getElementById("checkoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const wa = document.getElementById("wa").value;
+      const metode = document.getElementById("metode").value;
 
-  document.getElementById("subtotal").textContent = "Rp" + subtotal.toLocaleString();
-  document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
-  document.getElementById("total").textContent = "Rp" + total.toLocaleString();
+      const message =
+        `*Checkout Pesanan*%0A` +
+        `------------------%0A` +
+        `Produk: ${produk}%0A` +
+        `Harga: Rp${hargaProduk.toLocaleString()}%0A` +
+        `Metode: ${metode}%0A` +
+        `Nama: ${nama}%0A` +
+        `WhatsApp: ${wa}%0A` +
+        `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
+        `Total: Rp${total.toLocaleString()}`;
 
-  return { subtotal, pajak, total };
-}
+      const phoneNumber = "6283171080910"; // Ganti dengan nomor admin Anda
+      const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
-  function ubahJumlah(n) {
-    jumlah = Math.max(1, jumlah + n);
-    document.getElementById("jumlah").value = jumlah;
-    updateRingkasan();
-  }
-
-  updateRingkasan();
-
-  document.getElementById("checkoutForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const nama = document.getElementById("nama").value;
-    const wa = document.getElementById("wa").value;
-    const metode = document.getElementById("metode").value;
-
-    const { subtotal, pajak, total } = updateRingkasan();
-
-    let message = `*Checkout Produk*\n` +
-              `==============================\n` +
-              `Produk        : ${produk}\n` +
-              `Jumlah        : ${jumlah} pcs\n` +
-              `Harga Satuan  : Rp${hargaProduk.toLocaleString()}\n` +
-              `Subtotal      : Rp${subtotal.toLocaleString()}\n` +
-              `Pajak (0.5%)  : Rp${pajak.toLocaleString()}\n` +
-              `Total         : Rp${total.toLocaleString()}\n` +
-              `==============================\n` +
-              `Nama          : ${nama}\n` +
-              `WhatsApp      : ${wa}\n`;
-
-    switch (metode) {
-      case "DANA":
-        message += `Metode Bayar : DANA\nTransfer ke: 083171080910 (a.n. Haqqi)`;
-        break;
-      case "OVO":
-        message += `Metode Bayar : OVO\nTransfer ke: 083171080910 (a.n. Haqqi)`;
-        break;
-      case "GoPay":
-        message += `Metode Bayar : GoPay\nTransfer ke: 083171080910 (a.n. Haqqi)`;
-        break;
-      case "QRIS":
-        message += `Metode Bayar : QRIS\nSilakan Klik Link Di\nBawah Untuk Melihat Qris\nhttps://i.imgur.com/4qHH3ZU.jpeg`;
-        break;
-      default:
-        message += `Metode pembayaran tidak valid.`;
-    }
-
-    const phoneNumber = "6283171080910"; // Ganti dengan nomor admin Anda
-    const waURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-    if (confirm("JANGAN LUPA KIRIM BUKTI PEMBAYARAN KE NOMOR ADMIN\n\nKlik OK untuk Pesan Sekarang")) {
-      window.open(waURL, "_blank");
-    }
-  });
-</script>
+      if (confirm("JANGAN LUPA KIRIM BUKTI PEMBAYARAN KE NOMOR ADMIN\n\nKlik OK untuk Pesan Sekarang")) {
+        window.open(waURL, "_blank");
+      }
+    });
+  </script>
 </body>
 </html>
