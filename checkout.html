@@ -234,17 +234,17 @@
       const message =
   `*Checkout Produk*%0A` +
   `==============================%0A` +
-  `Produk             : ${produk}%0A` +
-  `Jumlah             : 1 pcs%0A` +
+  `Produk              : ${produk}%0A` +
+  `Jumlah              : 1 pcs%0A` +
   `Harga Satuan  : Rp${hargaProduk.toLocaleString()}%0A` +
   `Subtotal           : Rp${hargaProduk.toLocaleString()}%0A` +
   `Pajak (0.5%)    : Rp${pajak.toLocaleString()}%0A` +
   `Total                 : Rp${total.toLocaleString()}%0A` +
   `==============================%0A` +
-  `Nama               : ${nama}%0A` +
-  `WhatsApp        : ${wa}%0A` +
+  `Nama                : ${nama}%0A` +
+  `WhatsApp         : ${wa}%0A` +
   `Metode Bayar  : ${metode}%0A` +
-  `Transfer ke      : ${getTransferInfo(metode)}`;
+  `Transfer ke       : ${getTransferInfo(metode)}`;
 
 function getTransferInfo(metode) {
   switch (metode) {
