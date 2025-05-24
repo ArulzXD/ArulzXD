@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Checkout Produk</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -79,13 +79,11 @@
       border-top: 2px solid #000;
       font-weight: bold;
     }
-
-    /* Modal Styles */
+    /* Modal untuk galeri */
     .modal {
       display: none;
       position: fixed;
-      z-index: 999;
-      padding-top: 60px;
+      z-index: 9999;
       left: 0;
       top: 0;
       width: 100%;
@@ -93,23 +91,20 @@
       overflow: auto;
       background-color: rgba(0,0,0,0.8);
     }
-    .modal-content {
-      margin: auto;
-      display: block;
+    .modal img {
       max-width: 90%;
-      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
     }
-    .close {
+    .modal .close {
       position: absolute;
-      top: 20px;
-      right: 35px;
+      top: 15px;
+      right: 25px;
       color: white;
       font-size: 35px;
       font-weight: bold;
       cursor: pointer;
-    }
-    .close:hover {
-      color: #ccc;
     }
   </style>
 </head>
@@ -186,10 +181,10 @@
     <a href="index.html"><button class="home-button">Kembali ke Beranda</button></a>
   </div>
 
-  <!-- Modal Zoom Gambar -->
+  <!-- Modal Gambar Spek -->
   <div id="imageModal" class="modal">
     <span class="close" onclick="document.getElementById('imageModal').style.display='none'">&times;</span>
-    <img class="modal-content" id="modalImage" />
+    <div id="modalGallery"></div>
   </div>
 
   <script>
@@ -197,8 +192,15 @@
     const produk = params.get("produk") || "Produk Tidak Diketahui";
     const hargaProduk = parseInt(params.get("harga") || "0");
     const deskripsi = params.get("deskripsi") || "Deskripsi tidak tersedia.";
-    const gambar = params.get("gambar") || "https://via.placeholder.com/400x250?text=Gambar+Produk";
+    
+    // Ambil gambar spek dari URL: gambar1, gambar2, ..., gambar5
+    const spekGambar = [];
+    for (let i = 1; i <= 5; i++) {
+      const g = params.get("gambar" + i);
+      if (g) spekGambar.push(g);
+    }
 
+    const gambarUtama = spekGambar[0] || "https://via.placeholder.com/400x250?text=Gambar+Produk";
     const pajak = Math.round(hargaProduk * 0.005);
     const total = hargaProduk + pajak;
 
@@ -208,25 +210,21 @@
     document.getElementById("pajak").textContent = "Rp" + pajak.toLocaleString();
     document.getElementById("total").textContent = "Rp" + total.toLocaleString();
     document.getElementById("deskripsi-produk").textContent = deskripsi;
-    document.getElementById("gambar-produk").src = gambar;
+    document.getElementById("gambar-produk").src = gambarUtama;
 
-    // Event untuk zoom gambar
-    document.getElementById("gambar-produk").addEventListener("click", function () {
+    // Event klik gambar untuk buka galeri modal
+    document.getElementById("gambar-produk").addEventListener("click", () => {
       const modal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
+      const gallery = document.getElementById("modalGallery");
+
+      gallery.innerHTML = spekGambar.map(src => `
+        <img src="${src}" alt="Spek Gambar" />
+      `).join("");
+
       modal.style.display = "block";
-      modalImg.src = gambar;
     });
 
-    // Tutup modal saat klik di luar gambar
-    window.onclick = function (event) {
-      const modal = document.getElementById("imageModal");
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-
-    // Form Submit ke WhatsApp
+    // WhatsApp checkout
     document.getElementById("checkoutForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const nama = document.getElementById("nama").value;
@@ -244,7 +242,7 @@
         `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
         `Total: Rp${total.toLocaleString()}`;
 
-      const phoneNumber = "6283171080910";
+      const phoneNumber = "6283171080910"; // Nomor admin
       const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
       if (confirm("JANGAN LUPA KIRIM BUKTI PEMBAYARAN KE NOMOR ADMIN\n\nKlik OK untuk Pesan Sekarang")) {
