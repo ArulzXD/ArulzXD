@@ -232,15 +232,34 @@
       const metode = document.getElementById("metode").value;
 
       const message =
-        `*Checkout Pesanan*%0A` +
-        `------------------%0A` +
-        `Produk: ${produk}%0A` +
-        `Harga: Rp${hargaProduk.toLocaleString()}%0A` +
-        `Metode: ${metode}%0A` +
-        `Nama: ${nama}%0A` +
-        `WhatsApp: ${wa}%0A` +
-        `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
-        `Total: Rp${total.toLocaleString()}`;
+  `*Checkout Produk*%0A` +
+  `==============================%0A` +
+  `Produk        : ${produk}%0A` +
+  `Jumlah        : 1 pcs%0A` +
+  `Harga Satuan  : Rp${hargaProduk.toLocaleString()}%0A` +
+  `Subtotal      : Rp${hargaProduk.toLocaleString()}%0A` +
+  `Pajak (0.5%)  : Rp${pajak.toLocaleString()}%0A` +
+  `Total         : Rp${total.toLocaleString()}%0A` +
+  `==============================%0A` +
+  `Nama          : ${nama}%0A` +
+  `WhatsApp      : ${wa}%0A` +
+  `Metode Bayar  : ${metode}%0A` +
+  `Transfer ke   : ${getTransferInfo(metode)}`;
+
+function getTransferInfo(metode) {
+  switch (metode) {
+    case "DANA":
+      return "DANA - 081234567890 a.n. Admin";
+    case "OVO":
+      return "OVO - 081234567890 a.n. Admin";
+    case "GoPay":
+      return "GoPay - 081234567890 a.n. Admin";
+    case "QRIS":
+      return "Silakan scan QRIS melalui link berikut:%0Ahttps://link.com/qris";
+    default:
+      return "-";
+  }
+}
 
       const phoneNumber = "6283171080910"; // Nomor admin
       const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
