@@ -79,6 +79,38 @@
       border-top: 2px solid #000;
       font-weight: bold;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      border-radius: 10px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -88,9 +120,7 @@
     <!-- Gambar Produk -->
     <div class="form-group">
       <label>Gambar Produk</label>
-      <a id="gambar-link" href="#" target="_blank">
-        <img id="gambar-produk" src="" alt="Gambar Produk" style="width: 100%; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ccc; cursor: zoom-in;" />
-      </a>
+      <img id="gambar-produk" src="" alt="Gambar Produk" style="width: 100%; border-radius: 10px; margin-bottom: 10px; border: 1px solid #ccc; cursor: zoom-in;" />
     </div>
 
     <!-- Deskripsi Produk -->
@@ -156,6 +186,12 @@
     <a href="index.html"><button class="home-button">Kembali ke Beranda</button></a>
   </div>
 
+  <!-- Modal Zoom Gambar -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="document.getElementById('imageModal').style.display='none'">&times;</span>
+    <img class="modal-content" id="modalImage" />
+  </div>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const produk = params.get("produk") || "Produk Tidak Diketahui";
@@ -163,7 +199,7 @@
     const deskripsi = params.get("deskripsi") || "Deskripsi tidak tersedia.";
     const gambar = params.get("gambar") || "https://via.placeholder.com/400x250?text=Gambar+Produk";
 
-    const pajak = Math.round(hargaProduk * 0.005); // 0.5%
+    const pajak = Math.round(hargaProduk * 0.005);
     const total = hargaProduk + pajak;
 
     document.getElementById("produk").value = produk;
@@ -173,8 +209,24 @@
     document.getElementById("total").textContent = "Rp" + total.toLocaleString();
     document.getElementById("deskripsi-produk").textContent = deskripsi;
     document.getElementById("gambar-produk").src = gambar;
-    document.getElementById("gambar-link").href = gambar;
 
+    // Event untuk zoom gambar
+    document.getElementById("gambar-produk").addEventListener("click", function () {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = gambar;
+    });
+
+    // Tutup modal saat klik di luar gambar
+    window.onclick = function (event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    // Form Submit ke WhatsApp
     document.getElementById("checkoutForm").addEventListener("submit", function (e) {
       e.preventDefault();
       const nama = document.getElementById("nama").value;
@@ -192,7 +244,7 @@
         `Pajak (0.5%): Rp${pajak.toLocaleString()}%0A` +
         `Total: Rp${total.toLocaleString()}`;
 
-      const phoneNumber = "6283171080910"; // Ganti dengan nomor admin Anda
+      const phoneNumber = "6283171080910";
       const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
       if (confirm("JANGAN LUPA KIRIM BUKTI PEMBAYARAN KE NOMOR ADMIN\n\nKlik OK untuk Pesan Sekarang")) {
