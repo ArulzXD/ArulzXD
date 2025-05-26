@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>ArulzXD Digital Marketplace</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ArulzXD Digital Marketplace</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -218,28 +218,31 @@
     }
     </style>
 </head>
-
 <body>
-  <video autoplay muted loop class="video-background">
-    <source src="https://files.catbox.moe/jgx89a.mp4" type="video/mp4">
-  </video>
+    <video autoplay muted loop class="video-background">
+        <source src="https://files.catbox.moe/jgx89a.mp4" type="video/mp4">
+        ArulzXD Digital Marketplace
+    </video>
 
-  <header>
-    <h1 class="typing-effect">SCRIPT</h1>
-  </header>
+    <br>
+    <header>
+        <h1 class="typing-effect">SCRIPT</h1>
+    </header>
+    <br>
 
-  <div class="led-scroller">
+    <!-- LED Scroller -->
+<div class="led-scroller">
     <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
-  </div>
+</div>
 
-  <div class="menu">
-    <a href="index.html" class="menu-item">All</a>
-    <a href="testi.html" class="menu-item">Testimoni</a>
-    <a href="scbot.html" class="menu-item">Script</a>
-    <a href="kontak.html" class="menu-item">Credits</a>
-  </div>
-
-  <h2>SELAIN NO DIBAWAH CLONE</h2>
+    <div class="menu">
+        <a href="index.html" class="menu-item">All</a>
+        <a href="testi.html" class="menu-item">Testimoni</a>
+        <a href="scbot.html" class="menu-item">Script</a>
+        <a href="kontak.html" class="menu-item">Credits</a>
+    </div>
+    
+    <h2>SELAIN NO DIBAWAH CLONE</h2>
   <div class="container">
     <a href="https://wa.me/6281234567890" class="card" target="_blank">
       <img src="https://i.ibb.co/zhNjtbq/logo1.png"><span>WHATSAPP REKBER</span>
@@ -279,91 +282,46 @@
       <img src="https://i.ibb.co/zhNjtbq/logo1.png"><span>GRUP JB CLASH OF CLANS HK STORE 4 FULL</span>
     </a>
   </div>
+    
+<script>
+// LED SCROLLER
+const ledScrollTextElement = document.getElementById("ledScrollText");
+const ledMessages = [
+    "🎁 Promo Spesial Hari Ini!",
+    "⚡ Diskon 30% untuk semua layanan!",
+    "✅ Garansi layanan bot 1 bulan!",
+    "✉️ Hubungi kami untuk custom script!",
+    "⏰ Support 24 jam nonstop!",
+    "♻️ Gratis update script bot selama 3 bulan!"
+];
 
-  <!-- CHAT BOX -->
-  <div class="chat-box">
-    <div class="chat-header">Live Chat</div>
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input">
-      <input type="text" id="messageInput" placeholder="Ketik pesan..." />
-      <button onclick="sendMessage()">Kirim</button>
-    </div>
-  </div>
+let ledCurrentMessage = 0;
 
-  <!-- Firebase App (Compat) -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyDPDAiv5UoPp_W9AAv-7A8NMTpt4IHZjmM",
-      authDomain: "arulzxd-digital-marketplace.firebaseapp.com",
-      projectId: "arulzxd-digital-marketplace",
-      storageBucket: "arulzxd-digital-marketplace.appspot.com",
-      messagingSenderId: "613783942158",
-      appId: "1:613783942158:web:b940688dedf8510538785f"
-    };
+function playLedAnimation() {
+    ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
+    ledScrollTextElement.classList.remove("scroll-animation");
+    void ledScrollTextElement.offsetWidth;
+    ledScrollTextElement.classList.add("scroll-animation");
+}
 
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const chatRef = db.collection("chat");
-
-    const chatMessages = document.getElementById("chatMessages");
-    const messageInput = document.getElementById("messageInput");
-
-    async function sendMessage() {
-      const msg = messageInput.value.trim();
-      if (msg === "") return;
-      await chatRef.add({ text: msg, time: new Date() });
-      messageInput.value = "";
-    }
-
-    chatRef.orderBy("time").onSnapshot(snapshot => {
-      chatMessages.innerHTML = "";
-      snapshot.forEach(doc => {
-        const msg = doc.data();
-        const div = document.createElement("div");
-        div.textContent = msg.text;
-        chatMessages.appendChild(div);
-      });
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    });
-  </script>
-
-  <!-- LED SCROLLER -->
-  <script>
-    const ledScrollTextElement = document.getElementById("ledScrollText");
-    const ledMessages = [
-      "🎁 Promo Spesial Hari Ini!",
-      "⚡ Diskon 30% untuk semua layanan!",
-      "✅ Garansi layanan bot 1 bulan!",
-      "✉️ Hubungi kami untuk custom script!",
-      "⏰ Support 24 jam nonstop!",
-      "♻️ Gratis update script bot selama 3 bulan!"
-    ];
-    let ledCurrentMessage = 0;
-    function playLedAnimation() {
-      ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
-      ledScrollTextElement.classList.remove("scroll-animation");
-      void ledScrollTextElement.offsetWidth;
-      ledScrollTextElement.classList.add("scroll-animation");
-    }
-    ledScrollTextElement.addEventListener("animationend", () => {
-      ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
-      playLedAnimation();
-    });
+ledScrollTextElement.addEventListener("animationend", () => {
+    ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
     playLedAnimation();
-  </script>
+});
 
-  <script>
-    document.querySelectorAll('.menu-item').forEach(link => {
-      const page = window.location.pathname.split("/").pop();
-      const href = link.getAttribute("href");
-      if (href === page || (page === "" && href === "index.html")) {
+playLedAnimation();
+
+// Highlight menu aktif berdasarkan URL
+document.querySelectorAll('.menu-item').forEach(link => {
+    const page = window.location.pathname.split("/").pop();
+    const href = link.getAttribute("href");
+
+    if (href === page || (page === "" && href === "index.html")) {
         link.classList.add("active");
-      } else {
+    } else {
         link.classList.remove("active");
-      }
-    });
-  </script>
+    }
+});
+</script>
 </body>
 </html>
