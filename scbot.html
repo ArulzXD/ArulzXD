@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>ArulzXD Digital Marketplace</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: rgba(255, 255, 255, 0.5);
-            height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        .video-background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
-        header {
-            background-image: url('https://files.catbox.moe/i8aq5n.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 15px 20px; 
-            text-align: center;
-            border-radius: 20px;
-            font-size: 25px;
-        }
-        
-        h2 {
-      text-align: center;
-      padding: 20px 10px 10px;
-      font-size: 18px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>ArulzXD Digital Marketplace</title>
+
+  <style>
+    /* Style Asli Website Kamu (dipertahankan) */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .video-background {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+
+    header {
+      background-image: url('https://files.catbox.moe/i8aq5n.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
+      padding: 15px 20px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: 25px;
     }
 
     .container {
@@ -80,169 +76,161 @@
     .card span {
       font-weight: bold;
     }
-        
-        .text {
-            display: flex;
-            background-color: rgba(255, 255, 255, 0.7);
-            background-size: cover;
-            background-position: center;
-            background-repeat: repeat;
-            border-radius: 150px;
-            padding: 10px;
-            text-align: center;
-            align-items: center;
-            color: black;
-            font-size: 16px;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        .menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px auto;
-    padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    backdrop-filter: blur(8px);
-}
 
-.menu-item {
-    padding: 10px 20px;
-    background-color: #f1f5f9;
-    color: #1f2937;
-    border-radius: 10px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px auto;
+      padding: 10px 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+    }
 
-.menu-item:hover {
-    background-color: #dbeafe;
-    color: #1d4ed8;
-    transform: translateY(-2px);
-}
+    .menu-item {
+      padding: 10px 20px;
+      background-color: #f1f5f9;
+      color: #1f2937;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-.menu-item.active {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-}
+    .menu-item:hover {
+      background-color: #dbeafe;
+      color: #1d4ed8;
+      transform: translateY(-2px);
+    }
 
-/* LED Scroller */
+    .menu-item.active {
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+    }
+
     .led-scroller {
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        box-sizing: border-box;
-        padding: 10px 0;
-        color: #0f0;
-        background-color: black;
-        font-weight: bold;
-        font-size: 25px;
-        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
-        margin-top: 15px;
-        text-align: center;
-
-        /* Tambahan animasi outline */
-        position: relative;
-        border: 4px solid transparent;
-        border-radius: 5px;
-        background-clip: padding-box;
-        box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-        animation: outline-glow 1.5s infinite alternate;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      color: #0f0;
+      background-color: black;
+      font-weight: bold;
+      font-size: 25px;
+      text-align: center;
+      position: relative;
+      border: 4px solid transparent;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+      animation: outline-glow 1.5s infinite alternate;
     }
 
     @keyframes outline-glow {
-        0% {
-            box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
-        }
-        50% {
-            box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0;
-        }
-        100% {
-            box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
-        }
-    }
-
-    .led-scroller::before {
-        content: '';
-        position: absolute;
-        top: -4px;
-        left: -4px;
-        right: -4px;
-        bottom: -4px;
-        border-radius: 8px;
-        padding: 2px;
-        background: linear-gradient(90deg, #0f0, #00f, #0f0, #0ff, #0f0);
-        background-size: 300% 300%;
-        animation: borderRun 4s linear infinite;
-        z-index: -1;
-        mask-image: linear-gradient(#fff 0 0);
-        -webkit-mask-image: linear-gradient(#fff 0 0);
-    }
-
-    @keyframes borderRun {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
+      0% {
+        box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
+      }
+      50% {
+        box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0;
+      }
+      100% {
+        box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
+      }
     }
 
     .led-scroller span {
-        display: inline-block;
-        padding-left: 100%;
-    }
-
-    .scroll-animation {
-        animation: scroll-left 10s linear forwards;
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 10s linear infinite;
     }
 
     @keyframes scroll-left {
-        from {
-            transform: translateX(100%);
-        }
-        to {
-            transform: translateX(-100%);
-        }
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
     }
-    </style>
+
+    /* CHAT BOX */
+    .chat-box {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+      width: 300px;
+      max-height: 400px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .chat-header {
+      background-color: #000;
+      color: #0f0;
+      padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-weight: bold;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-bottom-left-radius: 10px;
+    }
+
+    .chat-input button {
+      padding: 10px;
+      background-color: #000;
+      color: #0f0;
+      border: none;
+      border-bottom-right-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
-    <video autoplay muted loop class="video-background">
-        <source src="https://files.catbox.moe/jgx89a.mp4" type="video/mp4">
-        ArulzXD Digital Marketplace
-    </video>
+  <video autoplay muted loop class="video-background">
+    <source src="https://files.catbox.moe/jgx89a.mp4" type="video/mp4">
+  </video>
 
-    <br>
-    <header>
-        <h1 class="typing-effect">SCRIPT</h1>
-    </header>
-    <br>
+  <header>
+    <h1 class="typing-effect">SCRIPT</h1>
+  </header>
 
-    <!-- LED Scroller -->
-<div class="led-scroller">
+  <div class="led-scroller">
     <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
-</div>
+  </div>
 
-    <div class="menu">
-        <a href="index.html" class="menu-item">All</a>
-        <a href="testi.html" class="menu-item">Testimoni</a>
-        <a href="scbot.html" class="menu-item">Script</a>
-        <a href="kontak.html" class="menu-item">Credits</a>
-    </div>
-    
-    <h2>SELAIN NO DIBAWAH CLONE</h2>
+  <div class="menu">
+    <a href="index.html" class="menu-item">All</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
+    <a href="scbot.html" class="menu-item">Script</a>
+    <a href="kontak.html" class="menu-item">Credits</a>
+  </div>
+
+<h2>SELAIN NO DIBAWAH CLONE</h2>
   <div class="container">
     <a href="https://wa.me/6281234567890" class="card" target="_blank">
       <img src="https://i.ibb.co/zhNjtbq/logo1.png"><span>WHATSAPP REKBER</span>
@@ -282,8 +270,61 @@
       <img src="https://i.ibb.co/zhNjtbq/logo1.png"><span>GRUP JB CLASH OF CLANS HK STORE 4 FULL</span>
     </a>
   </div>
-    
-<script>
+
+  <!-- CHAT BOX -->
+  <div class="chat-box">
+    <div class="chat-header">Live Chat</div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="messageInput" placeholder="Ketik pesan..." />
+      <button onclick="sendMessage()">Kirim</button>
+    </div>
+  </div>
+
+  <!-- Firebase v11 dengan Firestore -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDPDAiv5UoPp_W9AAv-7A8NMTpt4IHZjmM",
+      authDomain: "arulzxd-digital-marketplace.firebaseapp.com",
+      projectId: "arulzxd-digital-marketplace",
+      storageBucket: "arulzxd-digital-marketplace.appspot.com",
+      messagingSenderId: "613783942158",
+      appId: "1:613783942158:web:b940688dedf8510538785f"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const chatRef = collection(db, "chat");
+
+    const chatMessages = document.getElementById("chatMessages");
+    const messageInput = document.getElementById("messageInput");
+
+    async function sendMessage() {
+      const msg = messageInput.value.trim();
+      if (msg === "") return;
+      await addDoc(chatRef, {
+        text: msg,
+        time: new Date()
+      });
+      messageInput.value = "";
+    }
+
+    const q = query(chatRef, orderBy("time"));
+    onSnapshot(q, (snapshot) => {
+      chatMessages.innerHTML = "";
+      snapshot.forEach(doc => {
+        const msg = doc.data();
+        const div = document.createElement("div");
+        div.textContent = msg.text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
+    });
+  </script>
+  <script>
 // LED SCROLLER
 const ledScrollTextElement = document.getElementById("ledScrollText");
 const ledMessages = [
