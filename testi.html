@@ -1,56 +1,62 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>ArulzXD Digital Marketplace - Testimoni</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ArulzXD Digital Marketplace</title>
   <style>
     :root {
       --bg-color: #ffffff;
       --text-color: #1f2937;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --badge-bg: #dc2626;
+      --menu-bg: rgba(255, 255, 255, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --badge-bg: #ef4444;
     }
 
     [data-theme="dark"] {
-      --bg-color: #1a1a1a;
-      --text-color: #f1f1f1;
-      --card-bg: rgba(30, 30, 30, 0.9);
-      --badge-bg: #f87171;
+      --bg-color: #0f172a;
+      --text-color: #f3f4f6;
+      --menu-bg: rgba(17, 24, 39, 0.5);
+      --card-bg: rgba(31, 41, 55, 0.9);
+      --badge-bg: #dc2626;
     }
 
-    body {
+    body, html {
       margin: 0;
+      padding: 0;
+      height: 100%;
       font-family: Arial, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
     }
 
     header {
       background-image: url('https://files.catbox.moe/i8aq5n.jpg');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       color: white;
-      padding: 20px;
+      padding: 15px 20px;
       text-align: center;
-      font-size: 28px;
       border-radius: 20px;
+      font-size: 25px;
       position: relative;
     }
 
     .theme-toggle {
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 15px;
+      display: flex;
+      gap: 8px;
     }
 
-    .theme-toggle select {
-      padding: 6px 10px;
-      border-radius: 8px;
+    .theme-toggle button {
+      background: transparent;
       border: none;
-      background-color: #f1f1f1;
-      font-weight: bold;
+      cursor: pointer;
+      font-size: 18px;
+      color: white;
     }
 
     .menu {
@@ -60,6 +66,9 @@
       gap: 10px;
       margin: 20px auto;
       padding: 10px 15px;
+      background-color: var(--menu-bg);
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
     }
 
     .menu-item {
@@ -70,12 +79,23 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] .menu-item {
+      background-color: #334155;
+      color: #f1f5f9;
     }
 
     .menu-item:hover {
       background-color: #dbeafe;
       color: #1d4ed8;
       transform: translateY(-2px);
+    }
+
+    [data-theme="dark"] .menu-item:hover {
+      background-color: #1e40af;
+      color: white;
     }
 
     .menu-item.active {
@@ -94,30 +114,55 @@
       background-color: black;
       font-weight: bold;
       font-size: 25px;
-      text-align: center;
-      border-radius: 5px;
+      text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
       margin-top: 15px;
+      text-align: center;
+      position: relative;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+      animation: outline-glow 1.5s infinite alternate;
+    }
+
+    @keyframes outline-glow {
+      0% { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0; }
+      50% { box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0; }
+      100% { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0; }
+    }
+
+    .led-scroller span {
+      display: inline-block;
+      padding-left: 100%;
+    }
+
+    .scroll-animation {
+      animation: scroll-left 10s linear forwards;
+    }
+
+    @keyframes scroll-left {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
     }
 
     .testimonial-section {
       display: flex;
       justify-content: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
     .testimonial-card {
       background: var(--card-bg);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      width: 90%;
-      max-width: 600px;
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 90%;
+      width: 500px;
       overflow: hidden;
       transition: transform 0.3s ease;
       text-align: left;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
 
     .testimonial-card img {
@@ -131,17 +176,19 @@
     }
 
     .testimonial-content h2 {
-      font-size: 22px;
+      font-size: 24px;
       margin-bottom: 12px;
+      color: var(--text-color);
     }
 
     .testimonial-content p {
       font-size: 16px;
+      color: var(--text-color);
     }
 
     .badge {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
       padding: 6px 12px;
       background-color: var(--badge-bg);
       color: white;
@@ -149,35 +196,40 @@
       font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
+
+  <br>
   <header>
     <h1>TESTIMONI</h1>
     <div class="theme-toggle">
-      <select id="themeSwitcher">
-        <option value="system">System</option>
-        <option value="light">Terang</option>
-        <option value="dark">Gelap</option>
-      </select>
+      <button onclick="setTheme('light')" title="Mode Terang">☀️</button>
+      <button onclick="setTheme('dark')" title="Mode Gelap">🌙</button>
+      <button onclick="setTheme('system')" title="Ikuti Sistem">🖥️</button>
     </div>
   </header>
+  <br>
 
+  <!-- LED Scroller -->
   <div class="led-scroller">
     <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
   </div>
 
+  <!-- Menu -->
   <div class="menu">
     <a href="index.html" class="menu-item">All</a>
-    <a href="testi.html" class="menu-item active">Testimoni</a>
+    <a href="testi.html" class="menu-item">Testimoni</a>
     <a href="sosmed.html" class="menu-item">Sosmed</a>
     <a href="kontak.html" class="menu-item">Credits</a>
   </div>
 
+  <!-- Testimoni -->
   <div class="testimonial-section">
     <div class="testimonial-card">
-      <img src="https://files.catbox.moe/g7m44v.png" alt="Testimoni Akun Terjual" />
+      <img src="https://files.catbox.moe/g7m44v.png" alt="Testimoni Akun Terjual">
       <div class="testimonial-content">
         <h2>AKUN COC 39K TERJUAL</h2>
         <p>Pelanggan puas dan akun telah berhasil dijual dengan aman dan cepat melalui layanan kami.</p>
@@ -187,35 +239,68 @@
   </div>
 
   <script>
-    const themeSwitcher = document.getElementById("themeSwitcher");
+    const ledScrollTextElement = document.getElementById("ledScrollText");
+    const ledMessages = [
+      "🎁 Promo Spesial Hari Ini!",
+      "⚡ Diskon 30% untuk semua layanan!",
+      "✅ Garansi layanan bot 1 bulan!",
+      "✉️ Hubungi kami untuk custom script!",
+      "⏰ Support 24 jam nonstop!",
+      "♻️ Gratis update script bot selama 3 bulan!"
+    ];
 
-    function applyTheme(theme) {
-      if (theme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      } else if (theme === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
+    let ledCurrentMessage = 0;
+
+    function playLedAnimation() {
+      ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
+      ledScrollTextElement.classList.remove("scroll-animation");
+      void ledScrollTextElement.offsetWidth;
+      ledScrollTextElement.classList.add("scroll-animation");
+    }
+
+    ledScrollTextElement.addEventListener("animationend", () => {
+      ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
+      playLedAnimation();
+    });
+
+    playLedAnimation();
+
+    // Menu aktif
+    document.querySelectorAll('.menu-item').forEach(link => {
+      const page = window.location.pathname.split("/").pop();
+      const href = link.getAttribute("href");
+      if (href === page || (page === "" && href === "index.html")) {
+        link.classList.add("active");
+      }
+    });
+
+    // Theme switcher
+    function setTheme(mode) {
+      if (mode === 'system') {
+        localStorage.removeItem('theme');
+        applySystemTheme();
       } else {
-        // System
-        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+        localStorage.setItem('theme', mode);
+        document.documentElement.setAttribute('data-theme', mode);
       }
     }
 
-    themeSwitcher.addEventListener("change", (e) => {
-      const selectedTheme = e.target.value;
-      localStorage.setItem("theme", selectedTheme);
-      applyTheme(selectedTheme);
-    });
+    function applySystemTheme() {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    }
 
-    // Apply saved or system theme on load
-    const savedTheme = localStorage.getItem("theme") || "system";
-    themeSwitcher.value = savedTheme;
-    applyTheme(savedTheme);
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      applySystemTheme();
+    }
 
-    // Auto update system theme
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      const saved = localStorage.getItem("theme");
-      if (saved === "system") applyTheme("system");
+    // Auto update theme on system change
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', () => {
+      if (!localStorage.getItem('theme')) applySystemTheme();
     });
   </script>
 </body>
