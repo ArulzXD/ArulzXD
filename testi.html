@@ -1,272 +1,294 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>ArulzXD Digital Marketplace - Testimoni</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ArulzXD Digital Marketplace</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: rgba(255, 255, 255, 0.5);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-    html, body {
-      height: 100%;
-    }
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+        }
 
-    .video-background {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1;
-      transform: translate(-50%, -50%);
-    }
+        header {
+            background-image: url('https://files.catbox.moe/i8aq5n.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
+        }
 
-    header {
-      background-image: url('https://files.catbox.moe/i8aq5n.jpg');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-size: 28px;
-      border-radius: 20px;
-    }
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+        }
 
-    .menu {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px auto;
-      padding: 10px 15px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      backdrop-filter: blur(8px);
-    }
+        .menu-item {
+            padding: 10px 20px;
+            background-color: #f1f5f9;
+            color: #1f2937;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-    .menu-item {
-      padding: 10px 20px;
-      background-color: #f1f5f9;
-      color: #1f2937;
-      border-radius: 10px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        .menu-item:hover {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            transform: translateY(-2px);
+        }
 
-    .menu-item:hover {
-      background-color: #dbeafe;
-      color: #1d4ed8;
-      transform: translateY(-2px);
-    }
+        .menu-item.active {
+            background-color: #000;
+            color: #fff;
+            font-weight: bold;
+        }
 
-    .menu-item.active {
-      background-color: #000;
-      color: #fff;
-      font-weight: bold;
-    }
+        .led-scroller {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            padding: 10px 0;
+            color: #0f0;
+            background-color: black;
+            font-weight: bold;
+            font-size: 25px;
+            text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+            margin-top: 15px;
+            text-align: center;
+            position: relative;
+            border: 4px solid transparent;
+            border-radius: 5px;
+            background-clip: padding-box;
+            box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+            animation: outline-glow 1.5s infinite alternate;
+        }
 
-    .led-scroller {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      padding: 10px 0;
-      color: #0f0;
-      background-color: black;
-      font-weight: bold;
-      font-size: 25px;
-      text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
-      margin-top: 15px;
-      text-align: center;
-      position: relative;
-      border: 4px solid transparent;
-      border-radius: 5px;
-      background-clip: padding-box;
-      box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-      animation: outline-glow 1.5s infinite alternate;
-    }
+        @keyframes outline-glow {
+            0% {
+                box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
+            }
+            50% {
+                box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0;
+            }
+            100% {
+                box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0;
+            }
+        }
 
-    @keyframes outline-glow {
-      0% { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0; }
-      50% { box-shadow: 0 0 15px #0f0, 0 0 30px #0f0, inset 0 0 10px #0f0; }
-      100% { box-shadow: 0 0 5px #0f0, 0 0 10px #0f0, inset 0 0 5px #0f0; }
-    }
+        .led-scroller::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(90deg, #0f0, #00f, #0f0, #0ff, #0f0);
+            background-size: 300% 300%;
+            animation: borderRun 4s linear infinite;
+            z-index: -1;
+            mask-image: linear-gradient(#fff 0 0);
+            -webkit-mask-image: linear-gradient(#fff 0 0);
+        }
 
-    .led-scroller::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: -4px;
-      right: -4px;
-      bottom: -4px;
-      border-radius: 8px;
-      background: linear-gradient(90deg, #0f0, #00f, #0f0, #0ff, #0f0);
-      background-size: 300% 300%;
-      animation: borderRun 4s linear infinite;
-      z-index: -1;
-      mask-image: linear-gradient(#fff 0 0);
-    }
+        @keyframes borderRun {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-    @keyframes borderRun {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        .led-scroller span {
+            display: inline-block;
+            padding-left: 100%;
+        }
 
-    .led-scroller span {
-      display: inline-block;
-      padding-left: 100%;
-    }
+        .scroll-animation {
+            animation: scroll-left 10s linear forwards;
+        }
 
-    .scroll-animation {
-      animation: scroll-left 10s linear forwards;
-    }
+        @keyframes scroll-left {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
 
-    @keyframes scroll-left {
-      from { transform: translateX(100%); }
-      to { transform: translateX(-100%); }
-    }
+        /* Testimoni Section */
+        .testimonial-section {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
 
-    /* Testimoni */
-    .testimonial-section {
-      display: flex;
-      justify-content: center;
-      padding: 30px 20px;
-    }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 90%;
+            width: 500px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
 
-    .testimonial-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      width: 90%;
-      max-width: 600px;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-      text-align: left;
-      font-size: 18px;
-    }
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+        }
 
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-    }
+        .testimonial-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
 
-    .testimonial-card img {
-      width: 100%;
-      height: auto;
-      border-bottom: 1px solid #ddd;
-    }
+        .testimonial-content {
+            padding: 25px;
+        }
 
-    .testimonial-content {
-      padding: 25px;
-    }
+        .testimonial-content h2 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
 
-    .testimonial-content h2 {
-      font-size: 22px;
-      margin-bottom: 12px;
-      color: #1f2937;
-    }
+        .testimonial-content p {
+            font-size: 16px;
+            color: #374151;
+        }
 
-    .testimonial-content p {
-      font-size: 16px;
-      color: #4b5563;
-    }
-
-    .badge {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 12px;
-      background-color: #dc2626;
-      color: white;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-  </style>
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 12px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body>
-  <video autoplay muted loop class="video-background">
-    <source src="https://files.catbox.moe/jgx89a.mp4" type="video/mp4" />
-  </video>
+    <video autoplay muted loop class="video-background">
+        <source src="https://files.catbox.moe/jgx89a.mp4" type="video/mp4">
+        ArulzXD Digital Marketplace
+    </video>
 
-  <header>
-    <h1>TESTIMONI</h1>
-  </header>
+    <br>
+    <header>
+        <h1>TESTIMONI</h1>
+    </header>
+    <br>
 
-  <div class="led-scroller">
-    <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
-  </div>
-
-  <div class="menu">
-    <a href="index.html" class="menu-item">All</a>
-    <a href="testi.html" class="menu-item">Testimoni</a>
-    <a href="sosmed.html" class="menu-item">Sosmed</a>
-    <a href="kontak.html" class="menu-item">Credits</a>
-  </div>
-
-  <div class="testimonial-section">
-    <div class="testimonial-card">
-      <img src="https://files.catbox.moe/g7m44v.png" alt="Testimoni Akun Terjual" />
-      <div class="testimonial-content">
-        <h2>AKUN COC 39K TERJUAL</h2>
-        <p>Pelanggan puas dan akun telah berhasil dijual dengan aman dan cepat melalui layanan kami.</p>
-        <span class="badge">SOLD</span>
-      </div>
+    <!-- LED Scroller -->
+    <div class="led-scroller">
+        <span id="ledScrollText">🎁 Promo Spesial Hari Ini!</span>
     </div>
-  </div>
 
-  <script>
-    const ledScrollTextElement = document.getElementById("ledScrollText");
-    const ledMessages = [
-      "🎁 Promo Spesial Hari Ini!",
-      "⚡ Diskon 30% untuk semua layanan!",
-      "✅ Garansi layanan bot 1 bulan!",
-      "✉️ Hubungi kami untuk custom script!",
-      "⏰ Support 24 jam nonstop!",
-      "♻️ Gratis update script bot selama 3 bulan!"
-    ];
+    <!-- Menu -->
+    <div class="menu">
+        <a href="index.html" class="menu-item">All</a>
+        <a href="testi.html" class="menu-item">Testimoni</a>
+        <a href="sosmed.html" class="menu-item">Sosmed</a>
+        <a href="kontak.html" class="menu-item">Credits</a>
+    </div>
 
-    let ledCurrentMessage = 0;
+    <!-- Testimoni -->
+    <div class="testimonial-section">
+        <div class="testimonial-card">
+            <img src="https://files.catbox.moe/g7m44v.png" alt="Testimoni Akun Terjual">
+            <div class="testimonial-content">
+                <h2>AKUN COC 39K TERJUAL</h2>
+                <p>Pelanggan puas dan akun telah berhasil dijual dengan aman dan cepat melalui layanan kami.</p>
+                <span class="badge">SOLD</span>
+            </div>
+        </div>
+    </div>
 
-    function playLedAnimation() {
-      ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
-      ledScrollTextElement.classList.remove("scroll-animation");
-      void ledScrollTextElement.offsetWidth;
-      ledScrollTextElement.classList.add("scroll-animation");
-    }
+    <script>
+        // LED SCROLLER
+        const ledScrollTextElement = document.getElementById("ledScrollText");
+        const ledMessages = [
+            "🎁 Promo Spesial Hari Ini!",
+            "⚡ Diskon 30% untuk semua layanan!",
+            "✅ Garansi layanan bot 1 bulan!",
+            "✉️ Hubungi kami untuk custom script!",
+            "⏰ Support 24 jam nonstop!",
+            "♻️ Gratis update script bot selama 3 bulan!"
+        ];
 
-    ledScrollTextElement.addEventListener("animationend", () => {
-      ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
-      playLedAnimation();
-    });
+        let ledCurrentMessage = 0;
 
-    playLedAnimation();
+        function playLedAnimation() {
+            ledScrollTextElement.textContent = ledMessages[ledCurrentMessage];
+            ledScrollTextElement.classList.remove("scroll-animation");
+            void ledScrollTextElement.offsetWidth;
+            ledScrollTextElement.classList.add("scroll-animation");
+        }
 
-    // Highlight menu aktif
-    document.querySelectorAll('.menu-item').forEach(link => {
-      const page = window.location.pathname.split("/").pop();
-      const href = link.getAttribute("href");
+        ledScrollTextElement.addEventListener("animationend", () => {
+            ledCurrentMessage = (ledCurrentMessage + 1) % ledMessages.length;
+            playLedAnimation();
+        });
 
-      if (href === page || (page === "" && href === "index.html")) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
-    });
-  </script>
+        playLedAnimation();
+
+        // Highlight menu aktif
+        document.querySelectorAll('.menu-item').forEach(link => {
+            const page = window.location.pathname.split("/").pop();
+            const href = link.getAttribute("href");
+
+            if (href === page || (page === "" && href === "index.html")) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    </script>
 </body>
 </html>
